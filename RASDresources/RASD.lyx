@@ -145,5 +145,115 @@ The purpose of this document is to provide a comprehensive description of
  
 \end_layout
 
+\begin_layout Section
+Scope
+\end_layout
+
+\begin_layout Standard
+The aim of this project is to develop and implement GuessBid, an inverse
+ auction system which works like a regular auction, only difference being
+ the way the winner is determined.
+ The winning bid in an inverse auction is the lowest unique bid, as opposed
+ to being the highest one.
+ 
+\end_layout
+
+\begin_layout Standard
+The developed system should allow new users to register.
+ Users, once logged in, should be able to:
+\end_layout
+
+\begin_layout Itemize
+Read the FAQ (Frequently asked questions)
+\end_layout
+
+\begin_layout Itemize
+Check his/her virtual credit balance
+\end_layout
+
+\begin_layout Itemize
+Create an auction for any good he/she has, defining an expiration date after
+ which the auction finishes
+\end_layout
+
+\begin_layout Itemize
+Inquire the system about the current status of created and participating
+ auctions
+\end_layout
+
+\begin_layout Itemize
+Browse/Search on-going auctions
+\end_layout
+
+\begin_layout Itemize
+Bid on an existing auction, with the exception of the auctions the users
+ themselves created
+\end_layout
+
+\begin_layout Itemize
+Receive and read notifications about his/her rankings and outcomes of auctions
+ user has created or participated in
+\end_layout
+
+\begin_layout Standard
+Each newly created auction should have a name, short description, end time
+ and the optional picture.
+ Once created, auction details should be immutable.
+ This is a design choice made to protect users who have already placed a
+ bid and thus spent credit on an item which they may have no interest in
+ should the details change.
+ 
+\end_layout
+
+\begin_layout Standard
+Whenever a new bid is placed on an auction, the system should update user
+ rankings in regards to the auction in question and send notifications to
+ all participating users in case their rank changed.
+ 
+\end_layout
+
+\begin_layout Section
+Glossary
+\end_layout
+
+\begin_layout Standard
+The following are the definitions of some commonly used phrases throughout
+ the document:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Auction
+\series default
+ a public sale in which goods or property are sold to the highest bidder
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Inverse
+\begin_inset space ~
+\end_inset
+
+auction
+\series default
+ dmkdjdjkdkdk
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Guest
+\series default
+ a person accessing a system that has either never registered of hasn't
+ logged in yet.
+ Guest has only two available options, to log in or to register for the
+ first time
+\end_layout
+
 \end_body
 \end_document
