@@ -7,7 +7,7 @@ This repository contains source code and the required documentation regarding so
 #####Short Summary
 
 The aim is to develop and implement Guessbid, an application implementing an inverse auction system. 
-More detailed description can be found [here]().
+More detailed description can be found [here](https://github.com/mirjamsk/GuessBid-SE2/blob/master/GuessBid_project_2014-2015.pdf).
 
 
 
