@@ -242,29 +242,32 @@ Auction
 \series bold
 Bid
 \series default
- to offer to pay (a particular amount of money) for something that is being
- sold
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-After winning the auction, will the credit be deducted from users account
- and placed into the account of the seller?
-\end_layout
-
-\end_inset
-
-
+ an offer to pay (a particular amount of currency) for something that is
+ being sold
 \end_layout
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 
 \series bold
-Buyer
+Bidder
 \series default
  (w.r.t an auction) a user who has placed one or more bids on a specific auction
  
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Bid
+\begin_inset space ~
+\end_inset
+
+cost
+\series default
+ the cost of placing a bid, in this case the cost is two units of virtual
+ money (credit)
 \end_layout
 
 \begin_layout Labeling
@@ -282,8 +285,8 @@ Creator
 \series bold
 Credit 
 \series default
-the positive balance or amount (in this case, virtual money) remaining in
- a user's account.
+GuessBid's currency.
+ The positive balance or amount of virtual money remaining in a user's account.
 \end_layout
 
 \begin_layout Labeling
@@ -292,7 +295,7 @@ the positive balance or amount (in this case, virtual money) remaining in
 \series bold
 Guest
 \series default
- a person accessing a system that has either never registered of hasn't
+ a person accessing a system that has either never registered or hasn't
  logged in yet.
  Guest has only two available options, to log in or to register for the
  first time
@@ -325,7 +328,7 @@ Participant
 status collapsed
 
 \begin_layout Plain Layout
-Buyer and participant will be used interchangeably throughout the document
+Bidder and participant will be used interchangeably throughout the document
 \end_layout
 
 \end_inset
@@ -339,8 +342,8 @@ Buyer and participant will be used interchangeably throughout the document
 \series bold
 Rank 
 \series default
-a number specifying position or standing relative to other participating
- users in an auction
+a number specifying position or standing relative to other bidders in an
+ auction
 \end_layout
 
 \begin_layout Labeling
@@ -369,6 +372,28 @@ Seller and creator will be used interchangeably through the document
 User
 \series default
  a person already registered and logged into the system.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Virtual
+\begin_inset space ~
+\end_inset
+
+money
+\series default
+ GuessBid's currency
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Winner
+\series default
+ a bidder with the lowest unique bid at auction's end time
 \end_layout
 
 \begin_layout Standard
@@ -401,7 +426,7 @@ reference "sec:Scope-of-app"
  with permanent storage, serve pages to the client and process user input.
  The web client consists of dynamic web pages which provide an easy-to-use
  graphical interface and the web browser through which they are accessed.
- Considering GuessBid is a web app, it is platform independent.
+ Considering GuessBid is a web application, it is platform independent.
  The only requirement is users having a web browser installed on a device
  of their choice.
 \end_layout
@@ -506,7 +531,7 @@ managing bids and user rankings for all auctions
 
 \begin_layout Itemize
 sending notifications regarding ranking and outcomes for auctions to all
- of its participants and the creator
+ of its bidders and the seller
 \end_layout
 
 \begin_layout Itemize
@@ -523,7 +548,7 @@ functionality of creating new auctions
 \end_layout
 
 \begin_layout Itemize
-functionality of biding on existing auctions given he/she is not the seller
+functionality of bidding on existing auctions given he/she is not the seller
 \end_layout
 
 \begin_layout Itemize
@@ -553,6 +578,28 @@ the seller has the goods he is putting up for auction
 the details of the goods provided by the seller are accurate
 \end_layout
 
+\begin_layout Itemize
+the goods exchange arrangements between the seller and the winner of an
+ auction are made independently from the GuessBid platform
+\end_layout
+
+\begin_layout Itemize
+both parties (seller and the winner) act honestly, fairly and in good faith
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Depositing more money into account??
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Assumptions
 \end_layout
@@ -571,18 +618,58 @@ users can change their email and password
 \end_layout
 
 \begin_layout Itemize
-there is an FAQ section to provide both, the explanation of the logic behind
- the concept of inverse auction and to provide the reasons behind some more
- restricting parts of users functionality (like not being able to change
- details of an active auction)
+auctions have a category to make finding goods of interest easier 
 \end_layout
 
 \begin_layout Itemize
-after winning an auction, system automatically withdraws the amount of virtual
- money (as stated in the winning bet) from the winning user's account and
- deposits it into the sellers account
+bidders are unaware of the current lowest unique bid for the entire duration
+ of an auction
 \end_layout
 
+\begin_layout Itemize
+after winning an auction, system automatically withdraws the amount of credit
+ (as stated in the winning bet) from the winning user's account and deposits
+ it into the seller's account
+\end_layout
+
+\begin_layout Itemize
+there is a 
+\emph on
+Terms & Conditions
+\emph default
+ section to indicate clearly the rules of conduct which, if not followed,
+ will result in account deactivation 
+\end_layout
+
+\begin_layout Itemize
+there is a 
+\emph on
+Frequently Asked Questions
+\emph default
+ section to provide:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+explanation of the logic behind the concept of inverse auction
+\end_layout
+
+\begin_layout Itemize
+contact information for reporting user violation of the 
+\emph on
+Terms & Conditions
+\end_layout
+
+\begin_layout Itemize
+reasons behind some more restricting parts of users functionality (
+\emph on
+e.g.
+
+\emph default
+ not being able to change the details of an active auction)
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -716,8 +803,8 @@ Manage users virtual money balance
 \end_layout
 
 \begin_layout Itemize
-Keep track of all auctions and generate notifications regarding outcome
- and ranking change of all auctions
+Keep track of all auctions and generate notifications regarding their outcome
+ and ranking change
 \end_layout
 
 \end_deeper
@@ -750,8 +837,163 @@ Availability the application should be available handle user's request at
 Scenarios
 \end_layout
 
+\begin_layout Subsection*
+User registration
+\end_layout
+
+\begin_layout Standard
+Jolene is a university student looking to graduate in month's time.
+ She just found out she had gotten her dream job and is starting right after
+ graduation date.
+ After the initial emotional response, she started planning the details
+ of her move out of the college dorm.
+ Looking around she realized she had accumulated a lot of things over the
+ past 5 years.
+ Things that aren't practical to take with her ( like her futon ), things
+ she won't be needing anymore ( like her collection of colorful pencil cases
+ ) and even things she never needed (one sombrero is fine, but three is
+ pushing it).
+ The way she sees it is, she has three options.
+ First one, throw it all away.
+ Second, organize a yard sale and third, put it all up for an online auction.
+ After careful consideration she decided not to go with the first option
+ because after acing her environmental studies test last semester, it wouldn't
+ feel right to just throw it all away.
+ The yard sale just seemed too much work, so she was left with the online
+ auction option.
+ She decided to go with the GuessBid platform because she heard it was popular
+ among the students at her university.
+ Given she didn't not have an account, she navigated for the first time
+ to the GuessBid's web site and was shown a 
+\emph on
+Log in
+\emph default
+ and a 
+\emph on
+Sign up
+\emph default
+ form.
+ She inputs her chosen username, her email address and password in the form
+ and clicks the 
+\emph on
+Sign up
+\emph default
+ button.
+ System verifies the input information is valid and she is redirected to
+ Guess Bid's home page.
+\end_layout
+
+\begin_layout Subsection*
+Auction creation
+\end_layout
+
+\begin_layout Standard
+On the GuessBid's home page Jolene sees a personalized toolbar with the
+ 
+\emph on
+Create new auction
+\emph default
+ option.
+ She clicks it and is shown a form containing input fields for 
+\emph on
+Name
+\emph default
+,
+\emph on
+ Description
+\emph default
+, 
+\emph on
+Category
+\emph default
+, 
+\emph on
+End Time
+\emph default
+, and an optional 
+\emph on
+Picture 
+\emph default
+upload.
+ She first decides to tackle the sombrero situation.
+ In the 
+\emph on
+Name
+\emph default
+ input field she types 
+\begin_inset Quotes eld
+\end_inset
+
+Sombrero
+\begin_inset Quotes erd
+\end_inset
+
+, in the 
+\emph on
+Description
+\emph default
+ field she puts in 
+\begin_inset Quotes eld
+\end_inset
+
+3 sombreros in mint condition
+\begin_inset Quotes erd
+\end_inset
+
+, for 
+\emph on
+Category
+\emph default
+ she chooses 
+\begin_inset Quotes eld
+\end_inset
+
+Fashion
+\begin_inset Quotes erd
+\end_inset
+
+ from the dropdown menu.
+ As for
+\emph on
+ End Time
+\emph default
+ she picks the day after tomorrow using the DayPicker tool.
+ Lastly, she quickly snaps a photo of the three colorful wide-brimmed hats,
+ uploads it and presses the 
+\emph on
+Create Auction
+\emph default
+ button.
+ She is then redirected to the newly generated page showing her now active
+ auction.
+\end_layout
+
+\begin_layout Subsection*
+Bidding on an auction
+\end_layout
+
+\begin_layout Standard
+Lucas was just invited to a theme party and being eternally devoted to his
+ fraternity, originally named Kappa-Tau, he knows missing a party is not
+ an option.
+ The theme? Mariachi, of course.
+ Given he has nothing to wear, for h
+\end_layout
+
+\begin_layout Standard
+-s-s
+\end_layout
+
 \begin_layout Standard
 
+\end_layout
+
+\begin_layout Standard
+She could sell her items quickly and with any luck, given the popularity
+ of GuessBid among her fellow students, they will be the ones winning the
+ auctions.
+ Meaning, after the auction is closed, she could email the winning student
+ and have him pick up his new possession 
 \end_layout
 
 \end_body
