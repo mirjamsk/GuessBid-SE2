@@ -1003,7 +1003,7 @@ Description
  because three sombreros are apparently better than one.
  By clicking on Jolene's listing, Luca is redirected to that auction's page
  containing all the details and an input box to place his bid.
- He inputs 2.11€ and clicks on the 
+ He inputs 2.11 and clicks on the 
 \emph on
 Bid
 \emph default
@@ -1019,8 +1019,8 @@ Winning an auction
 \begin_layout Standard
 After two days, the auction automatically closes with Lucas's 2.11 credits
  being the winning bid.
- The system automatically withdraws 2.11credits from Luca's account and deposits
- them in Jolene's account.
+ The system automatically withdraws 2.11 credits from Luca's account and
+ deposits them in Jolene's account.
  Luca and Jolene both get a notification regarding the closed auction and
  its winner, along with each others email addresses so the can make arrangements
  on how to handle the exchange of goods in question.
