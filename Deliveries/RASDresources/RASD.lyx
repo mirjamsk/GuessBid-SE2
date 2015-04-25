@@ -1,0 +1,2407 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 9 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+POLITECNICO DI MILANO 
+\begin_inset Newline newline
+\end_inset
+
+SOFTWARE ENGINEERING 2 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Requirements Analysis and Specification Document 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+Mirjam Škarica
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Milan, April 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Section
+Purpose
+\end_layout
+
+\begin_layout Standard
+The purpose of this document is to provide a comprehensive description of
+ the GuessBid system.
+ It's aim is to communicate what the software should do and identify the
+ capabilities and characteristics of the system being developed.
+ This document is meant for everyone included in the production of the software.
+ 
+\end_layout
+
+\begin_layout Section
+Scope
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Scope-of-app"
+
+\end_inset
+
+The aim of this project is to develop and implement GuessBid, an inverse
+ auction system which works like a regular auction, only difference being
+ the way the winner is determined.
+ The winning bid in an inverse auction is the lowest unique bid, as opposed
+ to being the highest one.
+ 
+\end_layout
+
+\begin_layout Standard
+The developed system should allow new users to register.
+ Users, once logged in, should be able to:
+\end_layout
+
+\begin_layout Itemize
+Read the FAQ (Frequently asked questions)
+\end_layout
+
+\begin_layout Itemize
+Check his/her virtual credit balance
+\end_layout
+
+\begin_layout Itemize
+Create an auction for any good he/she has, defining an expiration date after
+ which the auction finishes
+\end_layout
+
+\begin_layout Itemize
+Inquire the system about the current status of created and participating
+ auctions
+\end_layout
+
+\begin_layout Itemize
+Browse/Search on-going auctions
+\end_layout
+
+\begin_layout Itemize
+Bid on an existing auction, with the exception of the auctions the users
+ themselves created
+\end_layout
+
+\begin_layout Itemize
+Receive and read notifications about his/her rankings and outcomes of auctions
+ user has created or participated in
+\end_layout
+
+\begin_layout Standard
+Each newly created auction should have a name, short description, end time
+ and the optional picture.
+ Once created, auction details should be immutable.
+ This is a design choice made to protect users who have already placed a
+ bid and thus spent credit on an item which they may have no interest in
+ should the details change.
+ 
+\end_layout
+
+\begin_layout Standard
+Whenever a new bid is placed on an auction, the system should update user
+ rankings in regards to the auction in question and send notifications to
+ all participating users in case their rank changed.
+ 
+\end_layout
+
+\begin_layout Section
+Glossary
+\end_layout
+
+\begin_layout Standard
+The following are the definitions of some commonly used phrases throughout
+ the document:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Auction
+\series default
+ a public sale in which goods or property are sold to the highest bidder
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Bid
+\series default
+ an offer to pay (a particular amount of currency) for something that is
+ being sold
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Bidder
+\series default
+ (w.r.t an auction) a user who has placed one or more bids on a specific auction
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Bid
+\begin_inset space ~
+\end_inset
+
+cost
+\series default
+ the cost of placing a bid, in this case the cost is two units of virtual
+ money (credit)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Creator 
+\series default
+(of an auction) a user who created that particular auction 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Credit 
+\series default
+GuessBid's currency.
+ The positive balance or amount of virtual money remaining in a user's account.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Guest
+\series default
+ a person accessing a system that has either never registered or hasn't
+ logged in yet.
+ Guest has only two available options, to log in or to register for the
+ first time
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Inverse
+\begin_inset space ~
+\end_inset
+
+auction
+\series default
+ also known as unique bid auction, is a type of strategy game related to
+ traditional auctions where the winner is the individual with the lowest
+ unique bid
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Participant
+\series default
+ (of an auction) a user who has placed one or more bids on that specific
+ auction
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Bidder and participant will be used interchangeably throughout the document
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Rank 
+\series default
+a number specifying position or standing relative to other bidders in an
+ auction
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Seller
+\series default
+ (w.r.t an auction) a user who created that particular auction 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Seller and creator will be used interchangeably through the document
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+User
+\series default
+ a person already registered and logged into the system.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Virtual
+\begin_inset space ~
+\end_inset
+
+money
+\series default
+ GuessBid's currency
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+Winner
+\series default
+ a bidder with the lowest unique bid at auction's end time
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Overall description
+\end_layout
+
+\begin_layout Section
+Product perspective
+\end_layout
+
+\begin_layout Standard
+GuessBid is a web application that provides users a service described in
+ section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Scope-of-app"
+
+\end_inset
+
+.
+ The software will be developed using a server-client model.
+ The server side contains the application's logic and is used to interact
+ with permanent storage, serve pages to the client and process user input.
+ The web client consists of dynamic web pages which provide an easy-to-use
+ graphical interface and the web browser through which they are accessed.
+ Considering GuessBid is a web application, it is platform independent.
+ The only requirement is users having a web browser installed on a device
+ of their choice.
+\end_layout
+
+\begin_layout Section
+Identifying stakeholders
+\end_layout
+
+\begin_layout Standard
+There are tree distinct interest groups of people regarding this project:
+ 
+\end_layout
+
+\begin_layout Description
+Professors who have assigned the project and who expect it to be developed
+ in a way which satisfies the given requirements while respecting the given
+ deadlines.
+ Their interests go beyond just working software, they are interested in
+ conveying an thorough understanding of the underlying development process
+ 
+\end_layout
+
+\begin_layout Description
+Users who will use the application for buying and selling their goods using
+ the inverse auction paradigm 
+\end_layout
+
+\begin_layout Description
+Developer
+\begin_inset space ~
+\end_inset
+
+group, in this case one person, responsible for the actual design and developmen
+t of the software 
+\end_layout
+
+\begin_layout Section
+User Characteristics
+\end_layout
+
+\begin_layout Standard
+GuessBid is expected to have users across a wide range of demographics,
+ meaning users of any age, gender and educational background.
+ Still, given of the ubiquitous nature of internet and social media, it
+ is assumed that people using our software do have the basic web browsing
+ skills.
+ 
+\end_layout
+
+\begin_layout Section
+Actors identifying
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:def-actors"
+
+\end_inset
+
+Two possible actors interacting with our system are the following:
+\end_layout
+
+\begin_layout Description
+Guest person accessing a system that has either never registered of hasn't
+ logged in yet.
+ Guest can only access the initial page from where he has only two available
+ options, to log in or to sign up for the first time.
+ 
+\end_layout
+
+\begin_layout Description
+User a person already registered and logged into the system.
+ User can use all of the features offered by the application
+\end_layout
+
+\begin_layout Section
+Goals
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:goals"
+
+\end_inset
+
+Having possible users in mind, GuessBid should have these features: 
+\end_layout
+
+\begin_layout Itemize
+registering new users
+\end_layout
+
+\begin_layout Itemize
+managing user's virtual money balance
+\end_layout
+
+\begin_layout Itemize
+managing bids and user rankings for all auctions
+\end_layout
+
+\begin_layout Itemize
+sending notifications regarding ranking and outcomes for auctions to all
+ of its bidders and the seller
+\end_layout
+
+\begin_layout Itemize
+for each user it should provide 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+initial credit of 100 units of virtual money
+\end_layout
+
+\begin_layout Itemize
+functionality of creating new auctions
+\end_layout
+
+\begin_layout Itemize
+functionality of bidding on existing auctions given he/she is not the seller
+\end_layout
+
+\begin_layout Itemize
+an interface for reading and receiving system generated notifications
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Domain properties
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:domain-properties"
+
+\end_inset
+
+It is supposed that these conditions hold in the analyzed world: 
+\end_layout
+
+\begin_layout Itemize
+the seller has the goods he is putting up for auction
+\end_layout
+
+\begin_layout Itemize
+the details of the goods provided by the seller are accurate
+\end_layout
+
+\begin_layout Itemize
+the goods exchange arrangements between the seller and the winner of an
+ auction are made independently from the GuessBid platform
+\end_layout
+
+\begin_layout Itemize
+both parties (seller and the winner) act honestly, fairly and in good faith
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Depositing more money into account??
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Assumptions
+\end_layout
+
+\begin_layout Standard
+Considering that there were some ambiguities in the specification document,
+ the following facts are assumed:
+\end_layout
+
+\begin_layout Itemize
+users register with their email and password
+\end_layout
+
+\begin_layout Itemize
+users can change their email and password
+\end_layout
+
+\begin_layout Itemize
+auctions have a category to make finding goods of interest easier 
+\end_layout
+
+\begin_layout Itemize
+bidders are unaware of the current lowest unique bid for the entire duration
+ of an auction
+\end_layout
+
+\begin_layout Itemize
+after winning an auction, system automatically withdraws the amount of credit
+ (as stated in the winning bet) from the winning user's account and deposits
+ it into the seller's account
+\end_layout
+
+\begin_layout Itemize
+there is a 
+\emph on
+Terms & Conditions
+\emph default
+ section to indicate clearly the rules of conduct which, if not followed,
+ will result in account deactivation 
+\end_layout
+
+\begin_layout Itemize
+there is a 
+\emph on
+Frequently Asked Questions
+\emph default
+ section to provide:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+explanation of the logic behind the concept of inverse auction
+\end_layout
+
+\begin_layout Itemize
+contact information for reporting user violation of the 
+\emph on
+Terms & Conditions
+\end_layout
+
+\begin_layout Itemize
+reasons behind some more restricting parts of users functionality (
+\emph on
+e.g.
+
+\emph default
+ not being able to change the details of an active auction)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Requirements
+\end_layout
+
+\begin_layout Standard
+Assuming the domain properties stated in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:domain-properties"
+
+\end_inset
+
+ hold, we can derive software requirements from the goals defined in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:goals"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Functional requirements
+\end_layout
+
+\begin_layout Standard
+Functional requirements are defined for the system and for each actor identified
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:def-actors"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For a 
+\series bold
+Guest
+\series default
+ the system has to provide two functionalities: 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+sign
+\begin_inset space ~
+\end_inset
+
+up: a guest will have to provide some basic information (email, username
+ and password) in order to be registered as a user
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+log
+\begin_inset space ~
+\end_inset
+
+in: after entering correct identification information ( username and password)
+ the guest will be logged in and redirected to the homepage 
+\end_layout
+
+\begin_layout Standard
+For a 
+\series bold
+User
+\series default
+ the system has to provide the following functionality:
+\end_layout
+
+\begin_layout Itemize
+Option to sign out
+\end_layout
+
+\begin_layout Itemize
+Manage settings: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+change email
+\end_layout
+
+\begin_layout Itemize
+change username
+\end_layout
+
+\begin_layout Itemize
+change password
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Create a new auction
+\end_layout
+
+\begin_layout Itemize
+Browse active auctions
+\end_layout
+
+\begin_layout Itemize
+Place a bid to active auctions which he/she did not create
+\end_layout
+
+\begin_layout Itemize
+View own ranking for each participating auction
+\end_layout
+
+\begin_layout Itemize
+View received notifications regarding created or participating auction outcomes
+ and ranking
+\end_layout
+
+\begin_layout Itemize
+The system should:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Manage users virtual money balance
+\end_layout
+
+\begin_layout Itemize
+Keep track of all auctions and generate notifications regarding their outcome
+ and ranking change
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Non-functional requirements
+\end_layout
+
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+Interface of the web application should be intuitive so even the non-technically
+ savvy users can use the system as simply and efficiently as possible.
+\end_layout
+
+\begin_layout Description
+Availability the application should be available handle user's request at
+ all times using any device with an installed web browser
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Scenarios
+\end_layout
+
+\begin_layout Subsection*
+User registration
+\end_layout
+
+\begin_layout Standard
+Jolene is a university student looking to graduate in month's time.
+ She just found out she had gotten her dream job and is starting right after
+ graduation date.
+ After the initial emotional response, she started planning the details
+ of her move out of the college dorm.
+ Looking around she realized she had accumulated a lot of things over the
+ past 5 years.
+ Things that aren't practical to take with her ( like her futon ), things
+ she won't be needing anymore ( like her collection of colorful pencil cases
+ ) and even things she never needed (one sombrero is fine, but three is
+ pushing it).
+ The way she sees it is, she has three options.
+ First one, throw it all away.
+ Second, organize a yard sale and third, put it all up for an online auction.
+ After careful consideration she decided not to go with the first option
+ because after acing her environmental studies test last semester, it wouldn't
+ feel right to just throw it all away.
+ The yard sale just seemed too much work, so she was left with the online
+ auction option.
+ She decided to go with the GuessBid platform because she heard it was popular
+ among the students at her university.
+ Given she didn't not have an account, she navigated for the first time
+ to the GuessBid's web site and was shown a 
+\emph on
+Log in
+\emph default
+ and a 
+\emph on
+Sign up
+\emph default
+ form.
+ She inputs her chosen username, her email address and password in the form
+ and clicks the 
+\emph on
+Sign up
+\emph default
+ button.
+ System verifies the input information is valid and she is redirected to
+ Guess Bid's home page.
+\end_layout
+
+\begin_layout Subsection*
+Auction creation
+\end_layout
+
+\begin_layout Standard
+On the GuessBid's home page Jolene sees a personalized toolbar with the
+ 
+\emph on
+Create new auction
+\emph default
+ option.
+ She clicks it and is shown a form containing input fields for 
+\emph on
+Name
+\emph default
+,
+\emph on
+ Description
+\emph default
+, 
+\emph on
+Category
+\emph default
+, 
+\emph on
+End Time
+\emph default
+, and an optional 
+\emph on
+Picture 
+\emph default
+upload.
+ She first decides to tackle the sombrero situation.
+ In the 
+\emph on
+Name
+\emph default
+ input field she types 
+\begin_inset Quotes eld
+\end_inset
+
+Sombrero
+\begin_inset Quotes erd
+\end_inset
+
+, in the 
+\emph on
+Description
+\emph default
+ field she puts in 
+\begin_inset Quotes eld
+\end_inset
+
+3 sombreros in mint condition
+\begin_inset Quotes erd
+\end_inset
+
+, for 
+\emph on
+Category
+\emph default
+ she chooses 
+\begin_inset Quotes eld
+\end_inset
+
+Fashion
+\begin_inset Quotes erd
+\end_inset
+
+ from the dropdown menu.
+ As for
+\emph on
+ End Time
+\emph default
+ she picks the day after tomorrow using the DayPicker tool.
+ Lastly, she quickly snaps a photo of the three colorful wide-brimmed hats,
+ uploads it and presses the 
+\emph on
+Create Auction
+\emph default
+ button.
+ She is then redirected to the newly generated page showing her, now active,
+ auction.
+\end_layout
+
+\begin_layout Subsection*
+Bidding on an auction
+\end_layout
+
+\begin_layout Standard
+Luca was just invited to a theme party.
+ Being wholly devoted to his fraternity, ingeniously  named Kappa-Tau, he
+ knows missing a party is not an option.
+ The theme? Mariachi, of course.
+ Given he has nothing to wear, he turns to GuessBid.
+ He fires up his browser and navigates to GuessBid's website.
+ After successfully logging in, he is redirected to the site's homepage
+ containing a search box.
+ He inputs 
+\begin_inset Quotes eld
+\end_inset
+
+sombrero
+\begin_inset Quotes erd
+\end_inset
+
+ in the search box and is returned all active auctions containing the word
+ sombrero either in their 
+\emph on
+Name
+\emph default
+ or 
+\emph on
+Description
+\emph default
+.
+ After skimming through his options he decides to bid on Jolene's auction,
+ because three sombreros are apparently better than one.
+ By clicking on Jolene's listing, Luca is redirected to that auction's page
+ containing all the details and an input box to place his bid.
+ He inputs 2.11 and clicks on the 
+\emph on
+Bid
+\emph default
+ button.
+ The system automatically withdraws the cost of placing a pic, 2 credits,
+ from his account and generates a notification with his current ranking.
+\end_layout
+
+\begin_layout Subsection*
+Winning an auction
+\end_layout
+
+\begin_layout Standard
+After two days, the auction automatically closes with Lucas's 2.11 credits
+ being the winning bid.
+ The system automatically withdraws 2.11 credits from Luca's account and
+ deposits them in Jolene's account.
+ Luca and Jolene both get a notification regarding the ended auction and
+ its winner, along with each others email addresses so the can make arrangements
+ on how to handle the exchange of goods in question.
+ After emailing each other, they were both pleased to learn they attend
+ the same college so the exchange of goods turned out to be a breeze.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+UML models
+\end_layout
+
+\begin_layout Section
+Use case
+\end_layout
+
+\begin_layout Standard
+After stating all the desired features, goals and requirements, and describing
+ possible scenarios we can identify some use cases.
+ The diagrams are shown and described bellow
+\end_layout
+
+\begin_layout Subsection
+Accessing the application
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Usecases/registration.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Registration
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Guest
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The guest has never registered to the system
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Guest navigates to the GuessBid's home page containing a form asking him
+ to enter basic information, his email, his desired username and password
+\end_layout
+
+\begin_layout Itemize
+Upon form submission the system checks if the information entered is valid.
+ 
+\emph on
+i.e
+\emph default
+.
+ all the fields are filled and the username or email entered are not already
+ in use by an existing user
+\end_layout
+
+\begin_layout Itemize
+If the entered information is valid, the user is automatically logged in
+ to the system and redirected to his personal home page
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The information about the new user is correctly stored, a welcome email
+ is sent and the user is assigned a virtual credit of 100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the information the user entered is not valid, an appropriate message
+ is displayed and the guest is asked to enter his username, email and password
+ again
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Log in
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Guest
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The guest has already registered in the system and knows his username and
+ password
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+After navigating to GuessBid's home page containing a form asking him to
+ enter his email his password
+\end_layout
+
+\begin_layout Itemize
+Upon form submission the system checks if the username and the password
+ match an existing user 
+\end_layout
+
+\begin_layout Itemize
+If the entered information is valid, the user is logged in to the system
+ and redirected to his personal home page 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is granted access to all of the GuessBid's functionalities 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If he information the user entered is not valid, an appropriate message
+ is displayed and the guest is asked to enter his username and password
+ again
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Create Auction
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is logged in
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User chooses the 
+\emph on
+Create auction
+\emph default
+ option located on the navigation bar
+\end_layout
+
+\begin_layout Itemize
+User is redirected to a page where he/she is asked to provide the following
+ information:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+name
+\end_layout
+
+\begin_layout Itemize
+description 
+\end_layout
+
+\begin_layout Itemize
+category
+\end_layout
+
+\begin_layout Itemize
+end time
+\end_layout
+
+\begin_layout Itemize
+picture of the goods put up for auction (optional) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+User submits the filled out form 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+New auction is created and active starting that moment.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user submits the form with at least one non-optional field empty
+ or if the provided end time is earlier then the time of creation, an appropriat
+e message will be displayed and the user will be asked to fill out the the
+ missing information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Participating in auctions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Usecases/PlaceBid.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+View auctions
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is logged in
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User inputs keywords in the search box located in the middle of GuessBid's
+ home page 
+\end_layout
+
+\begin_layout Itemize
+The results of the search are displayed in form of a list
+\end_layout
+
+\begin_layout Itemize
+User has the option to filter results
+\end_layout
+
+\begin_layout Itemize
+User clicks on an auction he/she is interested in and is redirected to that
+ auction's page
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If there are no auctions with the keywords entered in their 
+\emph on
+Name 
+\emph default
+or 
+\emph on
+Description
+\emph default
+ there will be no search results
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Place bid
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is logged in and navigated to a single auction's page
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User inputs the amount of credit he want's to bid and clicks the submit
+ button
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The bid is recorded and the user is ranked w.r.t other bidders.
+ After which the system generates notification for all the bidders with
+ their new rankings
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user doesn't have 2 credits (cost to place the bid) + whatever amount
+ he/she entered, the request will be rejected and an appropriate message
+ will be displayed notifying the user about insufficient funds
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Managing settings
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Usecases/manageSettings.eps
+
+\end_inset
+
+information
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Change email (username)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is logged in
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User chooses the 
+\emph on
+View settings
+\emph default
+ option on the navigation bar
+\end_layout
+
+\begin_layout Itemize
+User is redirected to a page where his username and email are shown along
+ with these options:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Change email 
+\end_layout
+
+\begin_layout Itemize
+Change username
+\end_layout
+
+\begin_layout Itemize
+Change password 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+User selects the
+\emph on
+ Change email
+\emph default
+ (
+\emph on
+username
+\emph default
+) option, enters the new email, and submits the change
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The new email (username) is correctly stored and the old one is deleted
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user submits the form leaving the email (username) field empty, an
+ appropriate message will be displayed and the user will be asked to fill
+ out the the missing information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Change password
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Actors 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Entry conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The user is logged in
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event flow 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+User chooses the 
+\emph on
+View settings
+\emph default
+ option on the navigation bar
+\end_layout
+
+\begin_layout Itemize
+User is redirected to a page where his username and email are shown along
+ with these options: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Change email 
+\end_layout
+
+\begin_layout Itemize
+Change username
+\end_layout
+
+\begin_layout Itemize
+Change password 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+User selects the 
+\emph on
+Change password
+\emph default
+ option, enters the new password twice, and submits the change
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exit conditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The new password is correctly stored and the old one is deleted
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+If the user submits the form leaving the password field empty or if the
+ two passwords entered don't match, an appropriate message will be displayed
+ and the user will be asked to fill out the the missing information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
