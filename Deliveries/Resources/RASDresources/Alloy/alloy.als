@@ -2,7 +2,7 @@ sig User {}
 
 sig Auction{
 	seller: one User,
-	winningBid : one Bid
+	winningBid : lone Bid
 }
 
 sig Bid{
@@ -38,7 +38,22 @@ fact winningBidCanOnlyBeOneOfPlacedBids{
 	all a:Auction, b:Bid | 
 	 	(b = a.winningBid ) => (a = b.auction)
 }
+// only a user with a winning bid can get winning notification
+fact  {
+		all w:AuctionWinnerNotification |
+			w.user = w.linkedTo.winningBid.bidder
+}
+// only a bidder can get a rank notifiction
+fact  {
+		all r:AuctionRankNotification, u:User | some b:Bid |
+			(r.user = u) =>( r.linkedTo = b.auction and b.bidder = u)
+}
+//all winning bids need to generate a winning notification
+fact{
+	all a:Auction | one w: AuctionWinnerNotification |
+		(#a.winningBid =1 ) => ( w.linkedTo = a)
+}
 //PREDICATES
 pred show() {}
 
-run show for 4
+run show for 4 but exactly 3 AuctionWinnerNotification,1 AuctionRankNotification, 5 User
