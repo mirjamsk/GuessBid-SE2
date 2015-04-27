@@ -2419,13 +2419,26 @@ Class Diagram
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
-	filename classDiagram.eps
-	height 80theight%
+	filename ClassDiagram/classDiagram.eps
+	height 100theight%
 
 \end_inset
 
@@ -2466,12 +2479,25 @@ User Registration
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.2in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename SequenceDiagrams/UserRegstration.pdf
-	width 130text%
+	width 160text%
 
 \end_inset
 
@@ -2514,9 +2540,22 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename SequenceDiagrams/LogIn.pdf
-	width 130text%
+	width 150text%
 
 \end_inset
 
@@ -2548,6 +2587,15 @@ status collapsed
 \end_layout
 
 \begin_layout Subsection
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 Change Password
 \end_layout
 
@@ -2559,9 +2607,22 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
-	filename SequenceDiagrams/ChangePasword.png
-	width 130text%
+	filename SequenceDiagrams/ChangePasword.pdf
+	width 150text%
 
 \end_inset
 
@@ -2604,9 +2665,22 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.2in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename SequenceDiagrams/createAuction.pdf
-	width 130text%
+	width 150text%
 
 \end_inset
 
@@ -2649,9 +2723,23 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename SequenceDiagrams/PlaceBid.pdf
-	width 130text%
+	width 150text%
 
 \end_inset
 
@@ -2684,6 +2772,501 @@ status collapsed
 
 \begin_layout Section
 State chart diagrams
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Auction's lifecycle
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename StateDiagrams/Auction.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bid's lifecycle
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename StateDiagrams/Bid.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Alloy
+\end_layout
+
+\begin_layout LyX-Code
+sig User {}
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+sig Auction{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+seller: one User, 	
+\end_layout
+
+\begin_layout LyX-Code
+winningBid : lone Bid 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+sig Bid{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+amount: one Int, 	
+\end_layout
+
+\begin_layout LyX-Code
+auction: one Auction, 	
+\end_layout
+
+\begin_layout LyX-Code
+bidder: one User 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+abstract sig Notification { 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+user: one User, 	
+\end_layout
+
+\begin_layout LyX-Code
+linkedTo: one Auction 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+sig AuctionRankNotification extends Notification{} 
+\end_layout
+
+\begin_layout LyX-Code
+sig AuctionWinnerNotification extends Notification{}
+\end_layout
+
+\begin_layout LyX-Code
+ 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//FACTS
+\end_layout
+
+\begin_layout LyX-Code
+fact everyAuctionHasOneSeller{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all a: Auction | one u:User | a.seller = u 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+fact everyBidHasUniqueBidderAndAuction{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all b: Bid | one u:User, a:Auction | 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+b.auction = a and b.bidder = u 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+fact everyNofiticationHasUniqueUserAndAuction{  	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all n: Notification | one u: User, a:Auction | 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+n.user = u and n.linkedTo = a 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+fact noSellerCanBidonOwnAuction{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all u: User, a:Auction, b: Bid | (
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+u= a.seller  and a = b.auction ) => not( b.bidder = u ) 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+fact everyAuctionHasLoneWinningNotification{
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all w1:AuctionWinnerNotification, w2:AuctionWinnerNotification |
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+(w1 != w2 )=> ( w1.linkedTo != w2.linkedTo) 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+fact winningBidCanOnlyBeOneOfPlacedBids{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all a:Auction, b:Bid |  	 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+(b = a.winningBid ) => (a = b.auction) 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+// only a user with a winning bid can get winning notification 
+\end_layout
+
+\begin_layout LyX-Code
+fact  { 		
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all w:AuctionWinnerNotification | 			
+\end_layout
+
+\begin_layout LyX-Code
+w.user = w.linkedTo.winningBid.bidder 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+// only a bidder can get a rank notifiction 
+\end_layout
+
+\begin_layout LyX-Code
+fact  { 		
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all r:AuctionRankNotification, u:User | some b:Bid | 			
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+(r.user = u) =>( r.linkedTo = b.auction and b.bidder = u) 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout LyX-Code
+//all winning bids need to generate a winning notification 
+\end_layout
+
+\begin_layout LyX-Code
+fact{ 	
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+all a:Auction | one w: AuctionWinnerNotification | 		
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+(#a.winningBid =1 ) => ( w.linkedTo = a) 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+//PREDICATES 
+\end_layout
+
+\begin_layout LyX-Code
+pred show() {}
+\end_layout
+
+\begin_layout LyX-Code
+run show for 3 
+\end_layout
+
+\begin_layout Section
+Worlds generated
+\end_layout
+
+\begin_layout Standard
+In this section some worlds generated by Alloy Analyzer will be display
+ in order to prove the model's consistency.
+\end_layout
+
+\begin_layout Subsection
+General world 
+\end_layout
+
+\begin_layout Standard
+A world is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:alloy"
+
+\end_inset
+
+ in which 
+\end_layout
+
+\begin_layout Itemize
+the seller cannot bid on it's own auction
+\end_layout
+
+\begin_layout Itemize
+every auction that has a winning bid also has an AuctionWinnerNotification.
+\end_layout
+
+\begin_layout Itemize
+only the winning user can receive an AuctionWinnerNotification.
+\end_layout
+
+\begin_layout Itemize
+only a bidder can recieve AuctionRankNofitication
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.5in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Alloy/generalWorld.png
+	scale 85
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align left
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:alloy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
