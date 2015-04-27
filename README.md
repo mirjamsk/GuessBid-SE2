@@ -14,5 +14,5 @@ More detailed description can be found [here](https://github.com/mirjamsk/GuessB
 
 
 #####Links to Documents:
-+ Requirements analysis and specification document [(*RASD*)]()
++ Requirements analysis and specification document [(*RASD*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/RASD.pdf)
 + Design document [(*DD*)]()
