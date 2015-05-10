@@ -1,0 +1,1244 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 9 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+POLITECNICO DI MILANO 
+\begin_inset Newline newline
+\end_inset
+
+SOFTWARE ENGINEERING 2 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Design Document 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+Mirjam Škarica
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Milan, May 2015
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Section
+Purpose
+\end_layout
+
+\begin_layout Standard
+The purpose of this document is to provide a comprehensive description of
+ the structure of the GuessBid system.
+ It will state and analyze the design decisions made in order to satisfy
+ all the requirements stated in the Requirements Analysis and Specification
+ Document (RASD).
+ This document is meant mainly as a guideline for developers of the software
+ in question.
+\end_layout
+
+\begin_layout Section
+Acronyms
+\end_layout
+
+\begin_layout Standard
+The following are some acronyms and their corresponding terms used throughout
+ the document:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+BCE
+\series default
+ Boundary-Control-Entity
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+CSS
+\series default
+ Cascading Style Sheets 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+DB
+\series default
+ Database 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+DBMS
+\series default
+ Database Management System 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+EIS
+\series default
+ Enterprise Information System 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+ER
+\series default
+ Entity–Relationship 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+HTML
+\series default
+ Hypertext Markup Language
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+HTTP
+\series default
+ Hypertext Transfer Protocol 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+JEE
+\series default
+ Java Platform Enterprise Edition 1 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+JMS
+\series default
+ Java Message Service 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+JSP
+\series default
+ JavaServer Pages 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+MCV
+\series default
+ Model View Controller 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+RASD
+\series default
+ Requirements Analysis and Specification Document 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+UML
+\series default
+ The Unified Modeling Language 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+UX
+\series default
+ User Experience
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+System Architecture
+\end_layout
+
+\begin_layout Section
+JEE architecture overview
+\end_layout
+
+\begin_layout Standard
+Developing a system using Java Enterprise Edition (JEE) is one of the requiremen
+ts imposed by the client.
+ Having that in mind, an overview of JEE architectures is given bellow (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "JEE_architecture"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+JEE follows the distributed multi-tiered application approach which means
+ the entire application may not reside at a single location, but is distributed.
+ JEE is divided into four tiers:
+\end_layout
+
+\begin_layout Description
+Client
+\begin_inset space ~
+\end_inset
+
+tier runs on the client machine and provides a dynamic interface to the
+ middle tier, JEE server (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "JEE_architecture"
+
+\end_inset
+
+) by interacting directly with users and communicating with the aforementioned
+ server.
+ The client tier distinguishes two types, application client and web client.
+ The former being a standalone desktop application, and the latter usually
+ a web browser.
+ GuessBid will be implemented as a web client.
+ 
+\end_layout
+
+\begin_layout Description
+Web
+\begin_inset space ~
+\end_inset
+
+tier runs on the JEE server and comprises of JavaSever Pages (JSP) and Java
+ Servlets.
+ The basic idea follows.
+ A servlet receives an HTTP requests from the client tier and forwards the
+ data to the business tier.
+ After receiving a response from the business tier, dynamic web pages are
+ generated using JSP and are sent back to the client.
+ 
+\end_layout
+
+\begin_layout Description
+Business
+\begin_inset space ~
+\end_inset
+
+tier runs on the JEE server and contains the application's logic.
+ It processes data received from the client and data retrieved from the
+ database (DB) in order to send a response back to the client.
+ There are three types of business components in the JEE architecture:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Session
+\begin_inset space ~
+\end_inset
+
+Beans represent a session with a client.
+ Being a transient object, they lose their data when the session terminates
+ 
+\end_layout
+
+\begin_layout Description
+Java
+\begin_inset space ~
+\end_inset
+
+Persistence
+\begin_inset space ~
+\end_inset
+
+Entity
+\begin_inset space ~
+\end_inset
+
+Beans are persistent objects and retain data even after the session.
+ (e.g.
+ they represent a row of data in a database table).
+\end_layout
+
+\begin_layout Description
+Message-Driven
+\begin_inset space ~
+\end_inset
+
+Beans are used for receiving the Java Message Service (JMS) messages asynchronou
+sly.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Enterprise
+\begin_inset space ~
+\end_inset
+
+Information
+\begin_inset space ~
+\end_inset
+
+System
+\begin_inset space ~
+\end_inset
+
+(EIS)
+\begin_inset space ~
+\end_inset
+
+tier runs on the Database Server and is responsible for storing and retrieving
+ all persistent data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename JEE_arch.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "JEE_architecture"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Identifying subsystems
+\end_layout
+
+\begin_layout Standard
+GuessBid's system is broken down into smaller subsystems by using a top
+ down approach.
+ This is done in order to distinguish logically separate components so their
+ role in the entire system is more understandable, making their functionality
+ easier to identify and implement.
+ Subsystems (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig subsystems"
+
+\end_inset
+
+) are derived from the functional requirements stated and described in the
+ RASD document.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Subsystems.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig subsystems"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Brief description of each subsystem's functionality is given below:
+\end_layout
+
+\begin_layout Description
+Guest
+\begin_inset space ~
+\end_inset
+
+subsystem allows clients access to the application: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Log
+\begin_inset space ~
+\end_inset
+
+in allows existing users to access the application
+\end_layout
+
+\begin_layout Description
+Sign
+\begin_inset space ~
+\end_inset
+
+up allows new clients to register and log in
+\end_layout
+
+\end_deeper
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+subsystem allows logged in clients (users) the full use of GuessBid's system's
+ functionalities:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Log
+\begin_inset space ~
+\end_inset
+
+out allows logged in users to log out
+\end_layout
+
+\begin_layout Description
+Browse
+\begin_inset space ~
+\end_inset
+
+bids provides ability to search all active auctions
+\end_layout
+
+\begin_layout Description
+Bid
+\begin_inset space ~
+\end_inset
+
+management allows users to create bids and check the status of own active
+ bids 
+\end_layout
+
+\begin_layout Description
+Notification
+\begin_inset space ~
+\end_inset
+
+management: receive notifications (rank change or auction outcome)
+\end_layout
+
+\begin_layout Description
+Setting
+\begin_inset space ~
+\end_inset
+
+management: allows users to change their settings, such as email or password.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Data
+\begin_inset space ~
+\end_inset
+
+subsystem is the subsystem where all the persistent data is stored (like
+ the bid information)
+\end_layout
+
+\begin_layout Chapter
+Persistent data management
+\end_layout
+
+\begin_layout Standard
+GuessBid's system's data will be stored in a relational database.
+ Different diagrams of the DB schema are provided in order to identify and
+ gain a deeper understanding of the system's underlying physical structure.
+\end_layout
+
+\begin_layout Section
+Conceptual design
+\end_layout
+
+\begin_layout Standard
+Conceptual view of system's data communicates a clear picture regarding
+ the entities we want to store and relationships between.
+ The entity-relationship diagram, fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig er_diagram"
+
+\end_inset
+
+, is derived from Class diagram stated in the RASD document.
+ Some minor changes in the reference to the class diagram have been introduced
+ for sake of simplicity.
+ They will be pointed out in the short explanation of the ER diagram bellow.
+\end_layout
+
+\begin_layout Description
+Entities:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Bid stores all information regarding a places bid
+\end_layout
+
+\begin_layout Description
+User stores all information regarding a single user
+\end_layout
+
+\begin_layout Description
+Auction stores all information about an auction
+\end_layout
+
+\begin_layout Description
+Notification stores all information regarding a notification.
+ The class diagram suggests an inheritance relationship between 
+\emph on
+AuctionRankNotification
+\emph default
+ and 
+\emph on
+ActionEndNotification
+\emph default
+, from now on called 
+\emph on
+RankNotification
+\emph default
+ and 
+\emph on
+OutcomeNotification
+\emph default
+, respectively.
+ The two classes should therefore be modeled using a disjoint constraint
+ (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig er_notification"
+
+\end_inset
+
+).
+ However, since they differ minimally, instead of the constraint, a boolean
+ attribute 
+\emph on
+is_outcome
+\emph default
+ is added to the
+\emph on
+ Notification 
+\emph default
+entity in order to differentiate the two types of notifications.
+\end_layout
+
+\end_deeper
+\begin_layout Description
+
+\series bold
+Relations:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+User
+\begin_inset space ~
+\end_inset
+
+has
+\begin_inset space ~
+\end_inset
+
+Notification 
+\emph default
+each user can have zero or more notifications, each notification is associated
+ with exactly one user 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+Notification
+\begin_inset space ~
+\end_inset
+
+linksTo
+\begin_inset space ~
+\end_inset
+
+Event
+\emph default
+ each notification links to exactly one auction, but each auction can produce
+ zero or more notifications
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+User
+\begin_inset space ~
+\end_inset
+
+creates
+\begin_inset space ~
+\end_inset
+
+Auction
+\emph default
+ each user can create zero or more auctions, but each auction can have only
+ one seller (creator)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+User
+\begin_inset space ~
+\end_inset
+
+places
+\begin_inset space ~
+\end_inset
+
+Bid
+\emph default
+ each user can place zero or more bids, each bid is placed by(associated
+ with) exactly one user
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+Bid
+\begin_inset space ~
+\end_inset
+
+linksTo
+\begin_inset space ~
+\end_inset
+
+Auction
+\emph default
+ each bid is linked to exactly one auction, a single auction can have zero
+ or more bids
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\emph on
+Bin
+\begin_inset space ~
+\end_inset
+
+won
+\begin_inset space ~
+\end_inset
+
+Auction
+\emph default
+ each auction has zero or one winning bids, each bid is a winning bid for
+ zero or one auctions
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ERdiagrams/ERnotification.eps
+	width 75text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig er_notification"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ERdiagrams/ER.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig er_diagram"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Logical Design
+\end_layout
+
+\begin_layout Standard
+The logical view of system's data is the table schema of its database.
+ It is derived by translating the ER diagram by applying the following transform
+ations.
+\end_layout
+
+\begin_layout Description
+Entities: 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Each entity turns into a table 
+\end_layout
+
+\begin_layout Standard
+Each attribute turns into a column in the table 
+\end_layout
+
+\begin_layout Standard
+The primary key of each entity becomes the primary key of the table 
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Relations: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+1:N
+\begin_inset space ~
+\end_inset
+
+relation: take the primary key of the relation on the “1” side and set it
+ as a foreign key for the table on the “N” side
+\end_layout
+
+\begin_layout Description
+1:1
+\begin_inset space ~
+\end_inset
+
+relation: there is a choice which table will receive the primary key of
+ the other as its foreign key.
+ Usually, if the dependent entity can be determined, it receives the foreign
+ key
+\end_layout
+
+\begin_layout Description
+N:N
+\begin_inset space ~
+\end_inset
+
+relation: each such relation turns into a separate table and the keys of
+ the two entities are set as the primary key 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The model obtained after this process is:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Primary keys are denoted by underlining the attribute name
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="25col%">
+<column alignment="left" valignment="top" width="65col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Table name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Attributes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+USER 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+user_id
+\bar default
+, credit, email, username, password
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+BID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+bid_id
+\bar default
+, bidder_id, auction_id, amount
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AUCTION
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+auction_id
+\bar default
+, seller_id, winning_bid_id, name, description, end_time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+NOTIFICATION
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+notification_id
+\bar default
+, user_id, auction_id, description, is_outcome, timestamp
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+Also a decision was made to add the following views to the DB schema in
+ order to simplify the process of querying data:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="40col%">
+<column alignment="left" valignment="top" width="50col%">
+<row topspace="default" bottomspace="default" interlinespace="default" endhead="true">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Virtual Table name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Attributes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ACTIVE_AUCTIONS 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+auction_id,
+\bar default
+ seller_id
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FINISHED_AUCTIONS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+winner_id,
+\bar default
+ auction_id
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dwdwcd p
+\end_layout
+
+\end_body
+\end_document
