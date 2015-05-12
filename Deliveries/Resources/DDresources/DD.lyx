@@ -669,7 +669,7 @@ Entities:
 
 \begin_deeper
 \begin_layout Description
-Bid stores all information regarding a places bid
+Bid stores all information regarding a placed bid
 \end_layout
 
 \begin_layout Description
@@ -681,16 +681,28 @@ Auction stores all information about an auction
 \end_layout
 
 \begin_layout Description
-Notification stores all information regarding a notification.
- The class diagram suggests an inheritance relationship between 
+Category stores all information about a category.
+ Even though the class diagram shows a
 \emph on
-AuctionRankNotification
+ has-a 
+\emph default
+relationship between 
+\emph on
+Auction
 \emph default
  and 
 \emph on
-ActionEndNotification
+Category
 \emph default
-, from now on called 
+, to keep the design of the application as simple as possible, Category
+ will be modeled as a separate entity to keep track of all possible types,
+ but Auction will not link to it.
+ Rather, it will have a field of type String denoting which type it is.
+\end_layout
+
+\begin_layout Description
+Notification stores all information regarding a notification.
+ The class diagram suggests an inheritance relationship between 
 \emph on
 RankNotification
 \emph default
@@ -698,9 +710,7 @@ RankNotification
 \emph on
 OutcomeNotification
 \emph default
-, respectively.
- The two classes should therefore be modeled using a disjoint constraint
- (fig 
+ and should therefore be modeled using a disjoint constraint (fig 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig er_notification"
@@ -843,10 +853,23 @@ Auction
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{2em}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename ERdiagrams/ERnotification.eps
 	width 75text%
@@ -882,10 +905,23 @@ name "fig er_notification"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename ERdiagrams/ER.eps
 	width 100text%
@@ -905,6 +941,22 @@ status open
 \begin_inset CommandInset label
 LatexCommand label
 name "fig er_diagram"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
 
 \end_inset
 
@@ -995,7 +1047,7 @@ Primary keys are denoted by underlining the attribute name
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="6" columns="2">
 <features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="25col%">
 <column alignment="left" valignment="top" width="65col%">
@@ -1127,6 +1179,32 @@ notification_id
 \end_inset
 </cell>
 </row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+CATEGORY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+category_id
+\bar default
+, type
+\end_layout
+
+\end_inset
+</cell>
+</row>
 </lyxtabular>
 
 \end_inset
@@ -1238,6 +1316,58 @@ winner_id,
 
 \begin_layout Standard
 dwdwcd p
+\end_layout
+
+\begin_layout Standard
+trigger 
+\end_layout
+
+\begin_layout Standard
+bid-before insert - seller cannot bid on own auction
+\end_layout
+
+\begin_layout Chapter
+Changes made to RASD:
+\end_layout
+
+\begin_layout Standard
+In the class diagram
+\end_layout
+
+\begin_layout Itemize
+names of 
+\emph on
+AuctionRankNotification
+\emph default
+ and 
+\emph on
+ActionEndNotification
+\emph default
+, are changed to 
+\emph on
+RankNotification
+\emph default
+ and 
+\emph on
+OutcomeNotification
+\emph default
+, respectively.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Category Class 
+\emph default
+was added
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+isRead() 
+\emph default
+method is removed from Notification
 \end_layout
 
 \end_body

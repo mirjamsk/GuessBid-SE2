@@ -2430,7 +2430,7 @@ status open
 
 
 \backslash
-hspace*{-1in}
+hspace*{-0.8in}
 \end_layout
 
 \end_inset
@@ -2438,7 +2438,7 @@ hspace*{-1in}
 
 \begin_inset Graphics
 	filename ClassDiagram/classDiagram.eps
-	height 100theight%
+	height 90theight%
 
 \end_inset
 
