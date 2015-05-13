@@ -507,7 +507,7 @@ reference "fig subsystems"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -973,9 +973,46 @@ Logical Design
 \end_layout
 
 \begin_layout Standard
-The logical view of system's data is the table schema of its database.
+The logical view (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig logical_view"
+
+\end_inset
+
+) of system's data is the table schema of its database.
  It is derived by translating the ER diagram by applying the following transform
-ations.
+ations:
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Reference material::
+\end_layout
+
+\begin_layout Itemize
+T.Haigh, teaching material 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.tomandmaria.com/tom/Teaching/Drexel210/translation_hints.htm
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Connolly, Begg, Database Systems: A Practical Approach to Design, Implementation
+ and Management
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
@@ -1121,7 +1158,7 @@ BID
 \bar under
 bid_id
 \bar default
-, bidder_id, auction_id, amount
+, bidder_id, auction_id, amount, timestamp
 \end_layout
 
 \end_inset
@@ -1147,7 +1184,7 @@ AUCTION
 \bar under
 auction_id
 \bar default
-, seller_id, winning_bid_id, name, description, end_time
+, seller_id, winning_bid_id, name, description, end_time, timestamp
 \end_layout
 
 \end_inset
@@ -1215,12 +1252,13 @@ category_id
 \begin_layout Standard
 \paragraph_spacing onehalf
 Also a decision was made to add the following views to the DB schema in
- order to simplify the process of querying data:
+ order to simplify the process of querying data thus making the application
+ more efficient:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="40col%">
 <column alignment="left" valignment="top" width="50col%">
@@ -1300,6 +1338,32 @@ winner_id,
 \end_inset
 </cell>
 </row>
+<row topspace="default" bottomspace="default" interlinespace="default">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+WINNING_BID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+bid_id,
+\bar default
+ bidder_id, bid_auction_id
+\end_layout
+
+\end_inset
+</cell>
+</row>
 </lyxtabular>
 
 \end_inset
@@ -1308,22 +1372,555 @@ winner_id,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-0.7in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename DBschemas/LogicalView.png
+	width 120text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig logical_view"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newpage pagebreak
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-dwdwcd p
+\begin_layout Chapter
+User experience
 \end_layout
 
 \begin_layout Standard
-trigger 
+Depending on design choices, every application has a unique way of interacting
+ with a user.
+ This section will depict graphically GuessBid's user experience (UX).
+ The following stereotypes are used in all diagrams: 
+\end_layout
+
+\begin_layout Description
+<<screen>> represents a dynamically created page that contains all other
+ elements as well as links to other pages.
+ 
+\end_layout
+
+\begin_layout Description
+<<screen
+\begin_inset space ~
+\end_inset
+
+component>> represents a modular building element with a specific purpose.
+ It can be attached to any part of a page, thus extending it's functionality.
+\end_layout
+
+\begin_layout Description
+<<input
+\begin_inset space ~
+\end_inset
+
+form>> is a type of <<screen component>> containing input fields for user
+ to fill out and submit it to the system for further processing.
+\end_layout
+
+\begin_layout Section
+Guest Home Page
 \end_layout
 
 \begin_layout Standard
-bid-before insert - seller cannot bid on own auction
+The UX diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux guest home page"
+
+\end_inset
+
+ represents GuessBid's home page.
+ The guest homepage consists of two smaller components, specifically, two
+ input forms for the two different types of clients previously identified
+ in the RASD document, the SignUp form for registering a new user, and the
+ login form for an already registered user.
+ After filling out the appropriate form, client submits it.
+ If the submission was successful the client is redirected to his personal
+ home page, otherwise he is redirected back to the guest home page and is
+ shown an appropriate error message explaining what went wrong.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UX/guestHomePage.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux guest home page"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+User Home Page
+\end_layout
+
+\begin_layout Standard
+The diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux user home page"
+
+\end_inset
+
+ represents user's personal home page (user being logged in is a given)
+ from which he can access all of GuessBid's functionality like browse auctions,
+ check notifications and manage settings.
+ Each of these functionalities will be explained in more detail in their
+ respective diagrams.
+ It is important to mention that all diagrams following this one should
+ contain the 
+\emph on
+NavigationBar
+\emph default
+ component, but it will be omitted to reduce clutter.
+ From the 
+\emph on
+NavigationBar
+\emph default
+ user can, at any point and from any page, return to his homepage, view
+ notifications, manage his settings and log out
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.3in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename UX/userHomePage.eps
+	width 160text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux user home page"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+User Settings
+\end_layout
+
+\begin_layout Standard
+The diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux user settings"
+
+\end_inset
+
+ represents user's settings page which consists of two main components.
+ The 
+\emph on
+UserSettings
+\emph default
+ from which he can view his username, password and email, and the
+\emph on
+ ChangeSettings
+\emph default
+ component from which he can change the two latter credentials.
+ In order to do so, he chooses the desired change option and in the 
+\emph on
+ChangeSettings
+\emph default
+ component a corresponding input form is loaded.
+ After filling and submitting the form, an appropriate message is displayed
+ in the 
+\emph on
+sessionMessage
+\emph default
+ field informing the user of a successful change or asking him to fill out
+ the form again otherwise.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UX/userSettingsPage.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux user settings"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Notifications Page
+\end_layout
+
+\begin_layout Standard
+The diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux notifications page"
+
+\end_inset
+
+ represents the 
+\emph on
+Notifications Page
+\emph default
+.
+ It consists of two main components,
+\emph on
+ NotificationList
+\emph default
+ and 
+\emph on
+NotificationDetails
+\emph default
+.
+ 
+\emph on
+NotificationList
+\emph default
+ lists all user's notifications which can be filtered regarding their type
+ (rank or outcome).
+ By selecting a specific notification its details are dynamically loaded
+ in the 
+\emph on
+NotificationDetails
+\emph default
+ component.
+ From the details component, user can navigate to the auction the notification
+ is linked to.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UX/notificationsPage.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux notifications page"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Auctions Page
+\end_layout
+
+\begin_layout Standard
+The diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux auctions"
+
+\end_inset
+
+ represents the 
+\emph on
+Auctions 
+\emph default
+component.
+ It is a component of
+\emph on
+ UserHomePage
+\emph default
+ and it displays all active auctions in a list format.
+ The auctions can be filtered by category, time of creation and remaining
+ time.
+ When clicked on a single auction, the user is redirected to 
+\emph on
+AuctionPage
+\emph default
+ containing the details of the auction in question.
+ From that page user can place a bid by typing the desired amount int the
+\emph on
+ BidForm
+\emph default
+, provided he is not the seller and has sufficient funds.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UX/viewAuctionPage.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux auctions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Manage Auctions Page
+\end_layout
+
+\begin_layout Standard
+The diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig ux manage auctions"
+
+\end_inset
+
+ represents the 
+\emph on
+Manage Auctions Page
+\emph default
+.
+ Itt displays all of users own auctions in a list format.When clicked on
+ a single auction, the user is redirected to 
+\emph on
+AuctionPage
+\emph default
+ containing the details of the auction in question.
+ If, on the other hand, user chooses 
+\emph on
+createNewAuction()
+\emph default
+ from the 
+\emph on
+ManageAuctionsPage
+\emph default
+ he is served a 
+\emph on
+NewAuctioPage
+\emph default
+ containing a form with all necessary fields.
+ After user fills up the form, he submits it.
+ If all information was valid he is redirected to the new auction's page,
+ otherwise he is asked to fill the form again.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UX/ownAuctionPage.eps
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig ux manage auctions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+BCE diagrams
 \end_layout
 
 \begin_layout Chapter
@@ -1357,17 +1954,31 @@ OutcomeNotification
 \begin_layout Itemize
 
 \emph on
+isRead() 
+\emph default
+method is removed, while fileds 
+\emph on
+rank, description,
+\emph default
+ and
+\emph on
+ timestamp
+\emph default
+ are added to 
+\emph on
+Notification
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
 Category Class 
 \emph default
 was added
 \end_layout
 
 \begin_layout Itemize
-
-\emph on
-isRead() 
-\emph default
-method is removed from Notification
+update an assumption regarding deposit of credit under section 2.7
 \end_layout
 
 \end_body

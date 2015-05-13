@@ -589,19 +589,6 @@ the goods exchange arrangements between the seller and the winner of an
 both parties (seller and the winner) act honestly, fairly and in good faith
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Depositing more money into account??
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Assumptions
 \end_layout
@@ -632,6 +619,14 @@ bidders are unaware of the current lowest unique bid for the entire duration
 after winning an auction, system automatically withdraws the amount of credit
  (as stated in the winning bet) from the winning user's account and deposits
  it into the seller's account
+\end_layout
+
+\begin_layout Itemize
+at this point the application does not provide an interface to update credit.
+ It is assumed users can transfer money via a regular bank transaction to
+ our company's account.
+ After the money has been received, the system administrators will update
+ user's credit accordingly
 \end_layout
 
 \begin_layout Itemize
@@ -1635,7 +1630,7 @@ Participating in auctions
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2419,7 +2414,7 @@ Class Diagram
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2479,7 +2474,7 @@ User Registration
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
