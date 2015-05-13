@@ -1184,7 +1184,7 @@ AUCTION
 \bar under
 auction_id
 \bar default
-, seller_id, winning_bid_id, name, description, end_time, timestamp
+, seller_id, winning_bid_id, name, description, end_time, category, timestamp
 \end_layout
 
 \end_inset
@@ -1376,7 +1376,7 @@ bid_id,
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1560,7 +1560,7 @@ NavigationBar
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1885,7 +1885,7 @@ NewAuctioPage
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1921,6 +1921,85 @@ name "fig ux manage auctions"
 
 \begin_layout Chapter
 BCE diagrams
+\end_layout
+
+\begin_layout Standard
+Another informative way to model the GuessBid's system is using the Boundary-Con
+trol-Entity (BCE) Diagrams.
+ This is done to further analyze the logic behind the application being
+ developed.
+ Quick explanation of the three main components is as follows:
+\end_layout
+
+\begin_layout Description
+Entity represents system's data stored in a database and it does not depend
+ on the control or the boundary.
+ 
+\end_layout
+
+\begin_layout Description
+Boundary displays the entity data, and sends user actions (e.g.
+ button clicks) to the control.
+ In this case it represents <<screens>> or <<screen components>> explained
+ in the previous chapter.
+\end_layout
+
+\begin_layout Description
+Control provides entity data to boundary, and interprets user actions such
+ as button clicks.
+ It depends on the boundary and the entity.
+\end_layout
+
+\begin_layout Section
+Guest Home Page
+\end_layout
+
+\begin_layout Standard
+The Guest Home Page BCE diagram in fig 5.1 depicts the flow of events for
+ 
+\emph on
+SignUp
+\emph default
+ and 
+\emph on
+Login
+\emph default
+ functionalities.
+ Regarding the 
+\emph on
+SignUp
+\emph default
+ fuctionality, the user enters and submits the data.
+ The 
+\emph on
+SignUpController
+\emph default
+ checks the information entered is in a valid format and the chosen username
+ is unique before forwarding the registration request to
+\emph on
+ UserDataController
+\emph default
+.
+ It creates a new user, assigns the initial credit of 100 and inserts it
+ in the database after which the user is redirected to the 
+\emph on
+UserHomePage
+\emph default
+ boundary.
+ On the other hand, upon 
+\emph on
+Login
+\emph default
+ form submission, the
+\emph on
+ LoginController
+\emph default
+ first validates the entered data is in the correct format, checks the existence
+ of the supplied username in the system's database and then verifies the
+ entered username and password match.
+ If the information submitted was valid, the request is forwarded to UserDataCon
+troller which loads all the necessary data needed, and serves the user his
+ UserHomePage boundary.
 \end_layout
 
 \begin_layout Chapter
