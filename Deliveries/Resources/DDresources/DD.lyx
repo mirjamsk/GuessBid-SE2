@@ -72,6 +72,7 @@
 \begin_body
 
 \begin_layout Title
+\paragraph_spacing onehalf
 POLITECNICO DI MILANO 
 \begin_inset Newline newline
 \end_inset
@@ -92,6 +93,7 @@ Design Document
 \end_layout
 
 \begin_layout Date
+\paragraph_spacing onehalf
 Mirjam Škarica
 \begin_inset Newline linebreak
 \end_inset
@@ -108,6 +110,7 @@ Milan, May 2015
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -115,6 +118,7 @@ Milan, May 2015
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -124,6 +128,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -131,14 +136,17 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Chapter
+\paragraph_spacing onehalf
 Introduction
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 Purpose
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The purpose of this document is to provide a comprehensive description of
  the structure of the GuessBid system.
  It will state and analyze the design decisions made in order to satisfy
@@ -149,15 +157,18 @@ The purpose of this document is to provide a comprehensive description of
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 Acronyms
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The following are some acronyms and their corresponding terms used throughout
  the document:
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -167,6 +178,7 @@ BCE
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -176,6 +188,7 @@ CSS
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -185,6 +198,7 @@ DB
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -194,6 +208,7 @@ DBMS
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -203,6 +218,7 @@ EIS
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -212,6 +228,7 @@ ER
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -221,6 +238,7 @@ HTML
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -230,6 +248,7 @@ HTTP
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -239,6 +258,7 @@ JEE
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -248,6 +268,7 @@ JMS
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -257,6 +278,7 @@ JSP
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -266,6 +288,7 @@ MCV
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -275,6 +298,7 @@ RASD
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -284,6 +308,7 @@ UML
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \series bold
@@ -293,6 +318,7 @@ UX
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -300,14 +326,17 @@ UX
 \end_layout
 
 \begin_layout Chapter
+\paragraph_spacing onehalf
 System Architecture
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 JEE architecture overview
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 Developing a system using Java Enterprise Edition (JEE) is one of the requiremen
 ts imposed by the client.
  Having that in mind, an overview of JEE architectures is given bellow (fig
@@ -322,12 +351,14 @@ reference "JEE_architecture"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 JEE follows the distributed multi-tiered application approach which means
  the entire application may not reside at a single location, but is distributed.
  JEE is divided into four tiers:
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Client
 \begin_inset space ~
 \end_inset
@@ -350,6 +381,7 @@ reference "JEE_architecture"
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Web
 \begin_inset space ~
 \end_inset
@@ -365,6 +397,7 @@ tier runs on the JEE server and comprises of JavaSever Pages (JSP) and Java
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing single
 Business
 \begin_inset space ~
 \end_inset
@@ -377,6 +410,7 @@ tier runs on the JEE server and contains the application's logic.
 
 \begin_deeper
 \begin_layout Description
+\paragraph_spacing onehalf
 Session
 \begin_inset space ~
 \end_inset
@@ -387,6 +421,7 @@ Beans represent a session with a client.
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Java
 \begin_inset space ~
 \end_inset
@@ -405,6 +440,7 @@ Beans are persistent objects and retain data even after the session.
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Message-Driven
 \begin_inset space ~
 \end_inset
@@ -415,6 +451,7 @@ sly.
 
 \end_deeper
 \begin_layout Description
+\paragraph_spacing onehalf
 Enterprise
 \begin_inset space ~
 \end_inset
@@ -436,6 +473,7 @@ tier runs on the Database Server and is responsible for storing and retrieving
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
@@ -475,6 +513,7 @@ name "JEE_architecture"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -482,10 +521,12 @@ name "JEE_architecture"
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 Identifying subsystems
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 GuessBid's system is broken down into smaller subsystems by using a top
  down approach.
  This is done in order to distinguish logically separate components so their
@@ -503,6 +544,7 @@ reference "fig subsystems"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
@@ -634,20 +676,24 @@ subsystem is the subsystem where all the persistent data is stored (like
 \end_layout
 
 \begin_layout Chapter
+\paragraph_spacing onehalf
 Persistent data management
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 GuessBid's system's data will be stored in a relational database.
  Different diagrams of the DB schema are provided in order to identify and
  gain a deeper understanding of the system's underlying physical structure.
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 Conceptual design
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 Conceptual view of system's data communicates a clear picture regarding
  the entities we want to store and relationships between.
  The entity-relationship diagram, fig 
@@ -669,18 +715,22 @@ Entities:
 
 \begin_deeper
 \begin_layout Description
+\paragraph_spacing onehalf
 Bid stores all information regarding a placed bid
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 User stores all information regarding a single user
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Auction stores all information about an auction
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Category stores all information about a category.
  Even though the class diagram shows a
 \emph on
@@ -701,6 +751,7 @@ Category
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Notification stores all information regarding a notification.
  The class diagram suggests an inheritance relationship between 
 \emph on
@@ -739,6 +790,7 @@ Relations:
 
 \begin_deeper
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -757,6 +809,7 @@ each user can have zero or more notifications, each notification is associated
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -775,6 +828,7 @@ Event
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -793,6 +847,7 @@ Auction
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -811,6 +866,7 @@ Bid
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -829,6 +885,7 @@ Auction
 \end_layout
 
 \begin_layout Labeling
+\paragraph_spacing onehalf
 \labelwidthstring 00.00.0000
 
 \emph on
@@ -848,7 +905,7 @@ Auction
 
 \end_deeper
 \begin_layout Standard
-\paragraph_spacing double
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
@@ -901,6 +958,7 @@ name "fig er_notification"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
@@ -969,10 +1027,12 @@ vspace{1em}
 \end_layout
 
 \begin_layout Section
+\paragraph_spacing onehalf
 Logical Design
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The logical view (fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1021,14 +1081,17 @@ Entities:
 
 \begin_deeper
 \begin_layout Standard
+\paragraph_spacing onehalf
 Each entity turns into a table 
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 Each attribute turns into a column in the table 
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The primary key of each entity becomes the primary key of the table 
 \end_layout
 
@@ -1039,6 +1102,7 @@ Relations:
 
 \begin_deeper
 \begin_layout Description
+\paragraph_spacing onehalf
 1:N
 \begin_inset space ~
 \end_inset
@@ -1048,6 +1112,7 @@ relation: take the primary key of the relation on the “1” side and set it
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 1:1
 \begin_inset space ~
 \end_inset
@@ -1059,6 +1124,7 @@ relation: there is a choice which table will receive the primary key of
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 N:N
 \begin_inset space ~
 \end_inset
@@ -1069,6 +1135,7 @@ relation: each such relation turns into a separate table and the keys of
 
 \end_deeper
 \begin_layout Standard
+\paragraph_spacing onehalf
 The model obtained after this process is:
 \begin_inset Foot
 status open
@@ -1083,6 +1150,7 @@ Primary keys are denoted by underlining the attribute name
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
 <features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
@@ -1257,6 +1325,7 @@ Also a decision was made to add the following views to the DB schema in
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
 <features rotate="0" islongtable="true" headBottomDL="true" longtabularalignment="center">
@@ -1372,6 +1441,7 @@ bid_id,
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
@@ -1428,10 +1498,16 @@ name "fig logical_view"
 \end_layout
 
 \begin_layout Chapter
+\paragraph_spacing onehalf
+Software design
+\end_layout
+
+\begin_layout Section
 User experience
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 Depending on design choices, every application has a unique way of interacting
  with a user.
  This section will depict graphically GuessBid's user experience (UX).
@@ -1439,12 +1515,14 @@ Depending on design choices, every application has a unique way of interacting
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 <<screen>> represents a dynamically created page that contains all other
  elements as well as links to other pages.
  
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 <<screen
 \begin_inset space ~
 \end_inset
@@ -1454,6 +1532,7 @@ component>> represents a modular building element with a specific purpose.
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 <<input
 \begin_inset space ~
 \end_inset
@@ -1462,11 +1541,13 @@ form>> is a type of <<screen component>> containing input fields for user
  to fill out and submit it to the system for further processing.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 Guest Home Page
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The UX diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1486,14 +1567,28 @@ reference "fig ux guest home page"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename UX/guestHomePage.eps
 	width 100text%
@@ -1524,11 +1619,13 @@ name "fig ux guest home page"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 User Home Page
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1556,16 +1653,24 @@ NavigationBar
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.4in}
+\end_layout
 
 \begin_layout Plain Layout
 
@@ -1607,11 +1712,13 @@ name "fig ux user home page"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 User Settings
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1644,14 +1751,28 @@ sessionMessage
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename UX/userSettingsPage.eps
 	width 100text%
@@ -1682,11 +1803,20 @@ name "fig ux user settings"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\paragraph_spacing onehalf
 Notifications Page
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1725,14 +1855,28 @@ NotificationDetails
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.4in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename UX/notificationsPage.eps
 	width 100text%
@@ -1763,11 +1907,13 @@ name "fig ux notifications page"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 Auctions Page
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1800,17 +1946,18 @@ AuctionPage
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename UX/viewAuctionPage.eps
-	width 100text%
+	width 87text%
 
 \end_inset
 
@@ -1838,11 +1985,13 @@ name "fig ux auctions"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 Manage Auctions Page
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 The diagram in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1881,17 +2030,18 @@ NewAuctioPage
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename UX/ownAuctionPage.eps
-	width 100text%
+	width 90text%
 
 \end_inset
 
@@ -1919,11 +2069,19 @@ name "fig ux manage auctions"
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 BCE diagrams
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 Another informative way to model the GuessBid's system is using the Boundary-Con
 trol-Entity (BCE) Diagrams.
  This is done to further analyze the logic behind the application being
@@ -1932,12 +2090,14 @@ trol-Entity (BCE) Diagrams.
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Entity represents system's data stored in a database and it does not depend
  on the control or the boundary.
  
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Boundary displays the entity data, and sends user actions (e.g.
  button clicks) to the control.
  In this case it represents <<screens>> or <<screen components>> explained
@@ -1945,18 +2105,27 @@ Boundary displays the entity data, and sends user actions (e.g.
 \end_layout
 
 \begin_layout Description
+\paragraph_spacing onehalf
 Control provides entity data to boundary, and interprets user actions such
  as button clicks.
  It depends on the boundary and the entity.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
+\paragraph_spacing onehalf
 Guest Home Page
 \end_layout
 
 \begin_layout Standard
-The Guest Home Page BCE diagram in fig 5.1 depicts the flow of events for
- 
+\paragraph_spacing onehalf
+The Guest Home Page BCE diagram in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig bce homepage"
+
+\end_inset
+
+ depicts the flow of events for 
 \emph on
 SignUp
 \emph default
@@ -1970,12 +2139,17 @@ Login
 SignUp
 \emph default
  fuctionality, the user enters and submits the data.
- The 
+
+\emph on
+ GuestHomePage
+\emph default
+ boundary validates fields have been correctly filled and passes the data
+ to the 
 \emph on
 SignUpController
 \emph default
- checks the information entered is in a valid format and the chosen username
- is unique before forwarding the registration request to
+ verifies the chosen email is unique before forwarding the registration
+ request to
 \emph on
  UserDataController
 \emph default
@@ -1990,27 +2164,715 @@ UserHomePage
 \emph on
 Login
 \emph default
- form submission, the
+ form submission, 
+\emph on
+GuestHomePage
+\emph default
+ boundary first validates the entered data is in the correct format then
+ the
 \emph on
  LoginController
 \emph default
- first validates the entered data is in the correct format, checks the existence
- of the supplied username in the system's database and then verifies the
- entered username and password match.
+ checks the existence of the supplied email in the system's database and
+ then verifies the entered email and password match.
  If the information submitted was valid, the request is forwarded to UserDataCon
 troller which loads all the necessary data needed, and serves the user his
  UserHomePage boundary.
+ To load UserHomePage boundary 
+\emph on
+AuctionController
+\emph default
+ and 
+\emph on
+NotificationController
+\emph default
+ provide the newest auctions and notifications, respectively.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename BCE/BCE_guestHomePage.eps
+	width 150text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig bce homepage"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\paragraph_spacing onehalf
+Auction and Bid management
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+The following fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig bce auction bid"
+
+\end_inset
+
+ may seem to contain a lot of concepts at one, but taking into account that
+ making a new auction, ending it, placing a bid and receiving notifications
+ are all intertwined actions, a decision was made to show all of them to
+ complement their collaborative nature.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+From the 
+\emph on
+AuctionList
+\emph default
+ boundary user can view a list of ongoing auctions and can choose to filer
+ them depending on their category, time of creation, or ending time.
+ The AuctionController handles the requests and servers the client an updated
+ 
+\emph on
+AuctionLis
+\emph default
+t boundary.Upon a click on a single auction in the listing,
+\emph on
+ AuctionController
+\emph default
+ loads the correct auction entity and serves user the 
+\emph on
+AuctionDetail 
+\emph default
+boundary containing the desired information.
+ From the 
+\emph on
+AuctionDetail 
+\emph default
+boundary, user can place a bid using the 
+\emph on
+BidForm
+\emph default
+ boundary which is incorporated in the same page as the 
+\emph on
+AuctionDetail 
+\emph default
+boundary.
+ When a new bid is submitted, 
+\emph on
+BidController
+\emph default
+ handles the request by first checking the user has enough credit via a
+ call to 
+\emph on
+UserDataController
+\emph default
+.
+ If so, the 
+\emph on
+BidController
+\emph default
+ updates the DB with the new bid.
+ After a bid has successfully been places the 
+\emph on
+NotificationController 
+\emph default
+generates rank notifications informing all bidders of that particular auction
+ about their possible rank change.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+From the 
+\emph on
+ManageAuctionsBoundry
+\emph default
+ user can choose to make a new Auction after which he is served the 
+\emph on
+AuctionForm
+\emph default
+ boundary.
+ User fills out the form and requests to create an auction.
+ After the boundary validates the entered data
+\emph on
+, AuctionController 
+\emph default
+creates the auction and inserts a new record of the entity in the database.
+ Since every auction has a user defined time limit, after the auction has
+ ended
+\emph on
+ AuctionController
+\emph default
+ is evoked.
+ It delegates the job of updating seller's and the winning bidder's credit
+ to
+\emph on
+ UserDataController
+\emph default
+, and the job of creating outcome notifications to the seller and to all
+ bidders to
+\emph on
+ NotificationController.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+From the 
+\emph on
+NotificationList
+\emph default
+ boundary user can view a list of notifications and can choose to filer
+ them depending on their type (outcome or rank).
+ The 
+\emph on
+NotificationController
+\emph default
+ handles the request and servers the client an updated 
+\emph on
+NotificationList
+\emph default
+ boundary.
+ If the user chooses to see details of a specific notification, 
+\emph on
+NotificationController 
+\emph default
+loads the correct notification entity and serves user the 
+\emph on
+NofiticationDetail 
+\emph default
+boundary containing the desired information.
+ From the 
+\emph on
+NofiticationDetail
+\emph default
+ boundary, user to navigate to the auction in question.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.3in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename BCE/auctionBidNotifManager.eps
+	width 150text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig bce auction bid"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\paragraph_spacing onehalf
+User Settings
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+5.2 User Settings Fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig bce user settings"
+
+\end_inset
+
+presents the BCE diagram for managing user settings.
+ GuessBid's system gives users the liberty to change only their passwords
+ and emails.
+ The sequence of events is similar for both cases, so only the change password
+ functionality will be described.
+ After user navigates to the 
+\emph on
+ChangePasswordBoundry
+\emph default
+, he enters and submits the required information.
+ Using client-side validation approach, the boundary itself checks if the
+ entered data is in a valid format before sending the request to 
+\emph on
+UserDataContoller
+\emph default
+.
+ The controller then modifies the table entry in the database for that user,
+ and shows the user his
+\emph on
+ UserSetting 
+\emph default
+boundary with the changes reflected.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-0.2in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename BCE/BCE_userSettings.eps
+	width 110text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig bce user settings"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sequence diagrams
+\end_layout
+
+\begin_layout Subsection
+User Registration
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.2in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename SequenceDiagrams/SignUp.png
+	width 160text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+User Log in
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.2in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename SequenceDiagrams/LogIn.png
+	width 160text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Change Email
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.7in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename SequenceDiagrams/ChangeEmail.png
+	width 100page%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Create Auction
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-0.8in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename SequenceDiagrams/CreateAuction.png
+	width 140text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Place Bid
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.3in}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1.8in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename SequenceDiagrams/PlaceBid.png
+	width 100page%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
+\paragraph_spacing onehalf
+Tools used:
+\end_layout
+
+\begin_layout Itemize
+Apache OpenOffice Draw 4.1.1 to create Entity-Relationship models
+\end_layout
+
+\begin_layout Itemize
+Sketchboard.io to create User Experience and the BCE diagrams 
+\end_layout
+
+\begin_layout Itemize
+MySQL Workbench to create the logical database model
+\end_layout
+
+\begin_layout Itemize
+Adobe Illustrator
+\end_layout
+
+\begin_layout Itemize
+Umlet for Sequence diagrams
+\end_layout
+
+\begin_layout Chapter
+\paragraph_spacing onehalf
 Changes made to RASD:
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 In the class diagram
 \end_layout
 
 \begin_layout Itemize
+\paragraph_spacing onehalf
 names of 
 \emph on
 AuctionRankNotification
@@ -2031,6 +2893,7 @@ OutcomeNotification
 \end_layout
 
 \begin_layout Itemize
+\paragraph_spacing onehalf
 
 \emph on
 isRead() 
@@ -2049,6 +2912,7 @@ Notification
 \end_layout
 
 \begin_layout Itemize
+\paragraph_spacing onehalf
 
 \emph on
 Category Class 
@@ -2057,6 +2921,7 @@ was added
 \end_layout
 
 \begin_layout Itemize
+\paragraph_spacing onehalf
 update an assumption regarding deposit of credit under section 2.7
 \end_layout
 
