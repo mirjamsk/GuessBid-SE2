@@ -1,0 +1,478 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 9 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\paragraph_spacing onehalf
+POLITECNICO DI MILANO 
+\begin_inset Newline newline
+\end_inset
+
+SOFTWARE ENGINEERING 2 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Installation Manual 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\paragraph_spacing onehalf
+Mirjam Škarica
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Milan, June 2015
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+\paragraph_spacing onehalf
+Requirements
+\end_layout
+
+\begin_layout Section
+Create database
+\end_layout
+
+\begin_layout Standard
+Here are the instructions from command line, but you can do the same from
+ your IDE or using any mysql GUI client (e.g., MySQL Workbench).
+\end_layout
+
+\begin_layout Standard
+login as root (default password is empty)
+\end_layout
+
+\begin_layout LyX-Code
+shell> mysql -u root -p
+\end_layout
+
+\begin_layout Standard
+create a database
+\end_layout
+
+\begin_layout LyX-Code
+mysql> create database guessbid_db;
+\end_layout
+
+\begin_layout Section
+Connect to MySQL
+\end_layout
+
+\begin_layout Standard
+This section explains
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://dev.mysql.com/doc/connector-j/en/connector-j-usagenotes-glassfish-config.htm
+l
+\end_layout
+
+\end_inset
+
+ how to use MySQL Connector/J with GlassFish ™ Server Open Source Edition
+ 3.0.1.
+ GlassFish can be downloaded from the GlassFish website.
+\end_layout
+
+\begin_layout Standard
+Once GlassFish is installed, make sure it can access MySQL Connector/J.
+ To do this
+\end_layout
+
+\begin_layout Enumerate
+Download MySQL Connector/J from http://dev.mysql.com/downloads/file.php?id=456315
+\end_layout
+
+\begin_layout Enumerate
+copy the MySQL Connector/J jar file to the domain-dir/lib directory.
+ or if that doesnt word just the glassfish/lib directory For example, copy
+ mysql-connector-java-5.1.30-bin.jar to C:
+\backslash
+glassfish-install-path
+\backslash
+domains
+\backslash
+domain-name
+\backslash
+lib.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Restart the GlassFish Application Server.
+\end_layout
+
+\begin_layout Standard
+For more information, see “Integrating the JDBC Driver” in GlassFish Server
+ Open Source Edition Administration Guide, available at GlassFish Server
+ Documentation.
+\end_layout
+
+\begin_layout Subsection*
+Creating a Connection Pool
+\end_layout
+
+\begin_layout Itemize
+In the GlassFish Administration Console, using the navigation tree navigate
+ to Resources > JDBC > Connection Pools.
+\end_layout
+
+\begin_layout Itemize
+In the JDBC Connection Pools frame click New.
+ You will enter a two step wizard.
+\end_layout
+
+\begin_layout Itemize
+In the Name field under General Settings enter the name for the connection
+ pool, namely MySQLGuessBidConnectionPool
+\end_layout
+
+\begin_layout Itemize
+In the Resource Type field, select javax.sql.DataSource from the drop-down
+ listbox.
+\end_layout
+
+\begin_layout Itemize
+In the Database Vendor field, select MySQL from the drop-down listbox.
+ 
+\end_layout
+
+\begin_layout Itemize
+Click Next to go to the next page of the wizard.
+\end_layout
+
+\begin_layout Itemize
+You can accept the default settings for General Settings, Pool Settings
+ and Transactions for this example.
+ 
+\end_layout
+
+\begin_layout Itemize
+Scroll down to Additional Properties.
+\end_layout
+
+\begin_layout Itemize
+In Additional Properties you will need to ensure the following properties
+ are set:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+URL: jdbc:mysql://localhost:3306/guessbid_db
+\end_layout
+
+\begin_layout Description
+User: root (or any user granted to access guessbid_db )
+\end_layout
+
+\begin_layout Description
+Password: the root(user) password 
+\end_layout
+
+\begin_layout Description
+ServerName: localhost 
+\end_layout
+
+\begin_layout Description
+DatabaseName: guessbid_db 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+To test your connection pool click the Ping button at the top of the frame.
+ A message will be displayed confirming correct operation or otherwise.
+ If an error message is received recheck the previous steps, and ensure
+ that MySQL Connector/J has been correctly copied into the previously specified
+ location.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Creating a JDBC Resource
+\end_layout
+
+\begin_layout Standard
+Your Java application will usually reference a data source object to establish
+ a connection with the database.
+ This needs to be created first using the following procedure.
+\end_layout
+
+\begin_layout Itemize
+Using the navigation tree in the GlassFish Administration Console, navigate
+ to Resources > JDBC > JDBC Resources.
+ A list of resources will be displayed in the JDBC Resources frame.
+\end_layout
+
+\begin_layout Itemize
+Click New.
+ The New JDBC Resource frame will be displayed.
+\end_layout
+
+\begin_layout Itemize
+In the JNDI Name field, enter the jdbc/guessbid_db.
+\end_layout
+
+\begin_layout Itemize
+In the Pool Name field, select a MySQLGuessBidConnectionPool from the drop-down
+ listbox.
+\end_layout
+
+\begin_layout Itemize
+Click OK to create the new JDBC resource.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Creating a JDBCRealm:
+\end_layout
+
+\begin_layout Itemize
+enter Glassfish control panel Configurations > server-config > security
+ > Realms > new...
+\end_layout
+
+\begin_layout Itemize
+Use the following configuration: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Realm
+\begin_inset space ~
+\end_inset
+
+Name: jdbcRealmRegistration ( must be the same referenced in the web.xml
+ )
+\end_layout
+
+\begin_layout Description
+Class
+\begin_inset space ~
+\end_inset
+
+Name: JDBCRealm 
+\end_layout
+
+\begin_layout Description
+JAAS
+\begin_inset space ~
+\end_inset
+
+Context: jdbcRealm
+\end_layout
+
+\begin_layout Description
+JNDI: jdbc/guessbid_db
+\end_layout
+
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+Table: user
+\end_layout
+
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: email
+\end_layout
+
+\begin_layout Description
+Password
+\begin_inset space ~
+\end_inset
+
+Column: password
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Table: user 
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Table
+\begin_inset space ~
+\end_inset
+
+User
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: email
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: groupname 
+\end_layout
+
+\begin_layout Description
+Password
+\begin_inset space ~
+\end_inset
+
+Encryption
+\begin_inset space ~
+\end_inset
+
+Algorithm: MD5
+\end_layout
+
+\begin_layout Description
+DigestAlgorithm: SHA-256
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Server restart may be required 
+\end_layout
+
+\begin_layout Chapter
+Changes Made to DD
+\end_layout
+
+\begin_layout Standard
+add groupname in user table!!
+\end_layout
+
+\end_body
+\end_document
