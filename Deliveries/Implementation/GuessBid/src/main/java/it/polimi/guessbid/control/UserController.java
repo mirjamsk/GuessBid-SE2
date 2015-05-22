@@ -22,10 +22,10 @@ import javax.persistence.PersistenceException;
 public class UserController {
     
     @PersistenceContext
-            EntityManager em;
+    EntityManager em;
     
     @Inject
-            Principal principal;
+    Principal principal;
     
     public void save(User user) {
         user.setCredit(100);
