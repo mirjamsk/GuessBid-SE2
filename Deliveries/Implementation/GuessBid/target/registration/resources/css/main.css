@@ -28,7 +28,7 @@ button{
 
 .page-wrap {
     min-height: 100%;
-    padding: 10px 10px 0 10px;
+    padding: 0px 10px;
     margin-bottom: -150px;     /* equal to footer height */
 }
 .page-wrap:after {
@@ -40,6 +40,11 @@ button{
 .ui-messages-error-summary{ 
     margin:0px !important;
     font-family: 'Lato', sans-serif !important;
+}
+
+.huge-title-header{
+    font-size: 30px;
+    padding: 20px 0 0 40px;
 }
 
 @media (min-width: 160px) {

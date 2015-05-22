@@ -8,35 +8,32 @@ and open the template in the editor.
     Author     : Mirjam
 */
 
-#indexHeader{
-    margin: 20px 0 0 40px;
-    font-size: 30px;
-}
-.securityContainer{
+
+.security-wrap{
     margin-top: 20px;
     text-align: center;
 }
-.registrationContainer, .loginContainer{
+.signup-wrap, .login-wrap{
     margin-top: 50px;
     text-align: initial;
     display: block;
     text-align: center;
 }
-.securityHeader{font-size: 22px; margin-bottom: 20px;}
+.security-header{font-size: 22px; margin-bottom: 20px;}
 
 .loginMessages, .registrationMessages {max-width: 266px;}
 
-.loginContainer form, .registrationContainer form {
+.login-wrap form, .signup-wrap form {
     display: inline-block;
 }
-.securityContainer label, .securityContainer span, .securityContainer input{
+.security-wrap label, .security-wrap span, .security-wrap input{
     font-family: 'Roboto', sans-serif !important;
     font-weight: normal !important;
 }
-.securityContainer span.ui-messages-error-summary{
+.security-wrap span.ui-messages-error-summary{
     font-family: 'Lato', sans-serif !important;
 }
-.securityContainer input {
+.security-wrap input {
     height: 35px;
     margin-bottom: 10px;
     border-top: 0 !important;
@@ -55,11 +52,11 @@ and open the template in the editor.
     font-weight: normal !important;}
 
 @media (min-width: 1000px) {
-    .loginContainer, .registrationContainer {
+    .login-wrap, .signup-wrap {
         width: auto;
         display: inline-block;
         vertical-align: top
     }
-    .loginContainer{ margin-left: 10%; }
-    .registrationContainer{margin-right: 10%; }
+    .login-wrap{ margin-left: 10%; }
+    .signup-wrap{margin-right: 10%; }
 }

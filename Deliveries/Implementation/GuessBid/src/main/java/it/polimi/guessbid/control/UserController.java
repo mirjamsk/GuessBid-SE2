@@ -5,24 +5,14 @@
 */
 package it.polimi.guessbid.control;
 
-import com.sun.jna.Callback;
 import it.polimi.guessbid.entity.Group;
 import it.polimi.guessbid.entity.User;
 import java.security.Principal;
-import java.util.logging.Level;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
-import org.eclipse.persistence.exceptions.DatabaseException;
-import static org.glassfish.admin.rest.client.utils.RestClientLogging.logger;
 
 /**
  *
