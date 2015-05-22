@@ -56,7 +56,7 @@ public class LoginBean {
             request.login(this.username, this.password);
             return "/user/home";
         } catch (ServletException e) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Login Failed","Login Failed"));
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Invalid login","Login Failed"));
             logger.log(Level.SEVERE,"Login Failed");
             return null;
         }

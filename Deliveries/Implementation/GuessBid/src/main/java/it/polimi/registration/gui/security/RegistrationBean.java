@@ -13,8 +13,10 @@ import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import org.eclipse.persistence.exceptions.DatabaseException;
 import static org.glassfish.admin.rest.client.utils.RestClientLogging.logger;
 
 /**
@@ -53,10 +55,20 @@ public class RegistrationBean {
         return rawpassword;
     }
     public String register() {
-        user.setCredit(100);
-        um.save(user);
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+        
+        try {
+            um.save(user);
+        } catch (PersistenceException e) {  // probalby duplicate email
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"User with this email already exists","Duplicate email"));
+            return "";
+        } catch (Exception e) {  // probalby duplicate email
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"User with this email already exists","Duplicate email"));
+            return "";
+        }
+        
+        
         try {
             request.login(user.getEmail(), this.rawpassword);
             return "/user/home";

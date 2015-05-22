@@ -15,9 +15,9 @@
                 <p:panel>
                     
                     <h:panelGrid columns="2">
-                        <p:inputText id="username" value="#{loginBean.username}" placeholder="Email" 
+                        <p:inputText id="username" value="#{loginBean.username}" placeholder="Email"  requiredMessage="Email field is empty"
                                      required="true" /><br/>
-                        <p:password id="pass" value="#{loginBean.password}" 
+                        <p:password id="pass" value="#{loginBean.password}"  requiredMessage="Password field is empty"
                                     required="true" placeholder="Password"/>
                         <br/>
                         <p:commandButton class="btn" id="submit" action="#{loginBean.login()}" value="Log in" ajax="true" update="loginMessages"/>

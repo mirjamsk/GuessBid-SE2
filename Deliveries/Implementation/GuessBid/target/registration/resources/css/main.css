@@ -23,7 +23,7 @@ button{
     margin-top: 7px !important;
 }
 .securityHeader{font-size: 22px;}
-.loginMessages{max-width: 265px;}
+.loginMessages, .registrationMessages {max-width: 266px;}
 .ui-messages-error-summary{ margin:0px !important }
 #indexHeader{
     margin: 20px 0 0 40px;
@@ -36,9 +36,11 @@ button{
 
 .securityContainer{
     margin-top: 20px;
+    text-align: center;
 }
 .registrationContainer, .loginContainer{
-    margin-top: 30px;
+    margin-top: 50px;
+    text-align: initial;
 }
 
 .securityContainer label, .securityContainer span {
@@ -70,23 +72,19 @@ button{
     
     .loginContainer, .registrationContainer {
         display: block;
+        text-align: center;
     }
-    .loginContainer form, .registrationContainer {
+    .loginContainer form, .registrationContainer form {
         display: inline-block;
     }
 }
 
 @media (min-width: 1000px) {
     
-    .securityContainer{
-        
-        text-align: center;
-        height: auto;
-    }
+
     .loginContainer, .registrationContainer {
         width: auto;
         display: inline-block;
-        text-align: initial;
         vertical-align: top
     }
     
