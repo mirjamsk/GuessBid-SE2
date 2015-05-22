@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 21, 2015, 11:59:59 PM
+    Author     : Mirjam
+*/
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+
+body{
+    margin:0 ;
+    padding: 0 ;
+    background-color: #fafafa;
+    font-family: 'Roboto', sans-serif !important;
+}
+button{
+    background-image: none !important;
+    background-color: #fff !important;
+    font-size: 17px !important;
+    margin-top: 7px !important;
+}
+.securityHeader{font-size: 22px;}
+.loginMessages{max-width: 265px;}
+.ui-messages-error-summary{ margin:0px !important }
+#indexHeader{
+    margin: 20px 0 0 40px;
+    font-size: 30px;
+}
+.navigationContainer{
+    height: 50px;
+    background-color: blue;
+}
+
+.securityContainer{
+    margin-top: 20px;
+}
+.registrationContainer, .loginContainer{
+    margin-top: 30px;
+}
+
+.securityContainer label, .securityContainer span {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: normal !important;
+}
+
+.securityContainer input {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 17px !important;
+    height: 35px;
+    margin-bottom: 10px;
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 1px #000 solid;
+}
+
+
+
+#registrationform > div, #loginform > div {
+    border: 0px !important;  
+    font-family: 'Roboto', sans-serif !important;
+}
+#registrationMessages li  {font-family: 'Roboto', sans-serif !important; font-weight: normal !important;}
+
+@media (max-width: 999px) {
+    
+    .loginContainer, .registrationContainer {
+        display: block;
+    }
+    .loginContainer form, .registrationContainer {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1000px) {
+    
+    .securityContainer{
+        
+        text-align: center;
+        height: auto;
+    }
+    .loginContainer, .registrationContainer {
+        width: auto;
+        display: inline-block;
+        text-align: initial;
+        vertical-align: top
+    }
+    
+    .loginContainer{   
+        margin-left: 10%;
+    }
+    .registrationContainer{
+        margin-right: 10%;   
+    }
+}
+
