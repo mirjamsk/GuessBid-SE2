@@ -6,30 +6,43 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Registration Example</title>
-        <h:outputStylesheet library="css" name="main.css"  />
+        <h:outputStylesheet library="css" name="main.css"  />     
+        <h:outputStylesheet library="css" name="index.css"  />
+        <h:outputStylesheet library="css" name="footer.css"  />
+
     </h:head>
     <h:body>
-
-        <div id="indexHeader">
-            <h1>GuessBid</h1>
-        </div>
-
-        <div class="securityContainer ">
-            <div class="registrationContainer ">
-                 <p class="securityHeader">New to the site? </p>
-                <ui:insert  >
-                    <ui:include src="/register.xhtml" />
-                </ui:insert>
+        
+        <div class="page-wrap">
+            
+            <div id="indexHeader">
+                <h1>GuessBid</h1>
             </div>
-            <div class="loginContainer" >
-                <p class="securityHeader">Already a user?</p>
-                <ui:insert>
-                    <ui:include src="/login.xhtml" />
-                </ui:insert>    
+            
+            <div class="securityContainer ">
+                
+                <div class="registrationContainer ">
+                    <p class="securityHeader">New to the site? </p>
+                    <ui:insert  >
+                        <ui:include src="/register.xhtml" />
+                    </ui:insert>
+                </div>
+                
+                <div class="loginContainer" >
+                    <p class="securityHeader">Already a user?</p>
+                    <ui:insert>
+                        <ui:include src="/login.xhtml" />
+                    </ui:insert>    
+                </div>
+                
             </div>
         </div>
         
-         
+        <div class="site-footer">
+            <ui:insert>
+                <ui:include src="/footer.xhtml" />
+            </ui:insert>    
+        </div>
         
     </h:body>
 </html>

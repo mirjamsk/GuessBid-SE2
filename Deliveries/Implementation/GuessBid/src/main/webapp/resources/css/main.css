@@ -8,13 +8,16 @@ and open the template in the editor.
     Author     : Mirjam
 */
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,300italic,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400italic);
 
 
-body{
-    margin:0 ;
-    padding: 0 ;
+* { margin: 0; }
+
+html, body {
+    height: 100%;
     background-color: #fafafa;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Lato', sans-serif !important;
 }
 button{
     background-image: none !important;
@@ -22,77 +25,30 @@ button{
     font-size: 17px !important;
     margin-top: 7px !important;
 }
-.securityHeader{font-size: 22px;}
-.loginMessages, .registrationMessages {max-width: 266px;}
-.ui-messages-error-summary{ margin:0px !important }
-#indexHeader{
-    margin: 20px 0 0 40px;
-    font-size: 30px;
-}
-.navigationContainer{
-    height: 50px;
-    background-color: blue;
-}
 
-.securityContainer{
-    margin-top: 20px;
-    text-align: center;
+.page-wrap {
+    min-height: 100%;
+    padding: 10px 10px 0 10px;
+    margin-bottom: -150px;     /* equal to footer height */
 }
-.registrationContainer, .loginContainer{
-    margin-top: 50px;
-    text-align: initial;
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+.site-footer, .page-wrap:after { height: 150px; }
+
+.ui-messages-error-summary{ 
+    margin:0px !important;
+    font-family: 'Lato', sans-serif !important;
 }
 
-.securityContainer label, .securityContainer span {
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: normal !important;
+@media (min-width: 160px) {
+    .page-wrap { margin-bottom: -100px; /* equal to footer height */ }
+    .site-footer, .page-wrap:after { height: 100px; }
 }
 
-.securityContainer input {
-    font-family: 'Roboto', sans-serif !important;
-    font-size: 17px !important;
-    height: 35px;
-    margin-bottom: 10px;
-    border-top: 0 !important;
-    border-right: 0 !important;
-    border-left: 0 !important;
-    box-shadow: none !important;
-    border-bottom: 1px #000 solid;
+@media (min-width: 530px) {
+    .page-wrap { margin-bottom: -80px; } /* equal to footer height */
+    .footer-header { padding-right: 40px; }
+    .site-footer, .page-wrap:after { height: 80px; }   
 }
-
-
-
-#registrationform > div, #loginform > div {
-    border: 0px !important;  
-    font-family: 'Roboto', sans-serif !important;
-}
-#registrationMessages li  {font-family: 'Roboto', sans-serif !important; font-weight: normal !important;}
-
-@media (max-width: 999px) {
-    
-    .loginContainer, .registrationContainer {
-        display: block;
-        text-align: center;
-    }
-    .loginContainer form, .registrationContainer form {
-        display: inline-block;
-    }
-}
-
-@media (min-width: 1000px) {
-    
-
-    .loginContainer, .registrationContainer {
-        width: auto;
-        display: inline-block;
-        vertical-align: top
-    }
-    
-    .loginContainer{   
-        margin-left: 10%;
-    }
-    .registrationContainer{
-        margin-right: 10%;   
-    }
-}
-
