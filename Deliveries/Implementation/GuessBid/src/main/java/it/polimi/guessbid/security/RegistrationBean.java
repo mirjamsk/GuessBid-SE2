@@ -16,7 +16,6 @@ import javax.faces.context.FacesContext;
 import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import org.eclipse.persistence.exceptions.DatabaseException;
 import static org.glassfish.admin.rest.client.utils.RestClientLogging.logger;
 
 /**
@@ -71,7 +70,7 @@ public class RegistrationBean {
         
         try {
             request.login(user.getEmail(), this.rawpassword);
-            return "/user/home";
+            return "/user/home?faces-redirect=true";
         } catch (ServletException e) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Automatic Login Failed after registration","Automatic Login Failed after registratio"));
             logger.log(Level.SEVERE,"Automatic Login Failed after registratio");
