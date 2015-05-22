@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Navigation</title>
+        <h:outputStylesheet name="grid/grid.css" library="primefaces" />
+    </h:head>
+    <h:body >
+        <ui:composition>
+            <navigation>
+                <div class="navigation-header">GuessBid</div>
+                <div class="navigation-links">
+                    <div class="nav-username"> Hello, #{userBean.username}!</div>
+                    <div><h:link class="first after" outcome="home" value="Home"/></div>
+                    <div><h:link outcome="home" value="Notifications"/></div>
+                    <div><h:link outcome="home" value="Settings"/></div>
+                    <div>           
+                        <h:form>
+                            <p:commandLink action="#{loginBean.logout()}" value="Logout"/>
+                        </h:form>
+                    </div>
+                </div>
+            </navigation> 
+        </ui:composition>
+    </h:body>
+</html>
+

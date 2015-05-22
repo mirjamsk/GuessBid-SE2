@@ -5,22 +5,17 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Registration Example</title>
+        <title>GuessBid</title>
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="index.css"  />
         <h:outputStylesheet library="css" name="footer.css"  />
-
     </h:head>
     <h:body>
-        
         <div class="page-wrap">
-            
             <div class="huge-title-header">
                 <h1>GuessBid</h1>
             </div>
-            
             <div class="security-wrap ">
-                
                 <div class="signup-wrap ">
                     <p class="security-header">New to the site? </p>
                     <ui:insert  >
@@ -34,16 +29,13 @@
                         <ui:include src="WEB-INF/templates_index/templates/login.xhtml" />
                     </ui:insert>    
                 </div>
-                
             </div>
         </div>
-        
         <div class="site-footer">
             <ui:insert>
                 <ui:include src="WEB-INF/templates_main/templates/footer.xhtml" />
             </ui:insert>    
         </div>
-        
     </h:body>
 </html>
 
