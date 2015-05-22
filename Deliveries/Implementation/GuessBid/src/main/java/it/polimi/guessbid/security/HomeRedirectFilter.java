@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class HomeRedirectFilter implements Filter {
     
-    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -30,7 +29,6 @@ public class HomeRedirectFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (((HttpServletRequest) request).getUserPrincipal() != null){
-            System.out.println("user si");
             ((HttpServletResponse) response).sendRedirect("./user/home.xhtml");
         }else{
             chain.doFilter(request, response);
