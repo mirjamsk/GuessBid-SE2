@@ -6,19 +6,63 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>AuctionList</title>
+        <title>Auction List</title>
     </h:head>
     <h:body >
         <ui:composition>
             <h:form id="form">
-                <p:dataList value="#{auctionBean.allAuctions}" var="auction" type="unordered" itemType="none"  paginatorPosition="bottom" paginator="true" rows="10" styleClass="paginated">
-                    
+                <p:dataList lazy="true" value="#{auctionBean.lazyModel}" var="auction" type="unordered" itemType="none"  paginatorPosition="bottom" paginator="true" rows="2" styleClass="paginated">
+                    <!-- DO LAZY LOAD-->
+       
                     <div style="border-bottom: 1px solid #999; padding: 10px 0;">
-                    <h:outputText value="#{auction.name}"/><br/>
-                    <h:outputText value="#{auction.description}" />
+                        <h:outputText value="#{auction.name}"/><br/>
+                        <h:outputText value="#{auction.description}" />
                     </div>
                 </p:dataList>
             </h:form>
+            
+            
+            <h:form>  
+                
+                <p:dataTable var="auction" lazy="true" value="#{auctionBean.lazyModel}"  widgetVar="auctionsTable"
+                             emptyMessage="No cars found with given criteria"
+                              paginator="true" rows="5" styleClass="paginated"
+                              paginatorPosition="bottom" >  
+                    
+                    <f:facet name="header">  
+                        <p:outputPanel>  
+                            <h:outputText value="Search all fields:" />  
+                            <p:inputText id="globalFilter" onkeyup="PF('auctionsTable').filter()" style="width:150px" />  
+                        </p:outputPanel>  
+                    </f:facet>  
+                    
+                    <p:column filterBy="#{auction.name}"   
+                              headerText="Title"  
+                              filterMatchMode="contains">  
+                        <h:outputText value="#{auction.name}" />  
+                    </p:column>  
+                    
+                    <p:column filterBy="#{auction.description}"  
+                              headerText="Description" >  
+                        <div>
+                        <h:outputText value="#{auction.description}" />  
+                        </div>
+                    </p:column>  
+                    
+                  <!--  <p:column filterBy="#{auction.category}"   
+                              headerText="category" footerText="exact"  
+                              filterOptions="#{category.categoryOptions}"  
+                              filterMatchMode="exact">  
+                        <h:outputText value="#{auction.category}" />  
+                    </p:column>  
+                  -->
+                    
+                    <p:column  headerText="Ending time" sortBy="#{auction.endTime}">  
+                        <h:outputText value="#{auction.endTime}" />  
+                    </p:column>  
+                </p:dataTable>  
+                
+            </h:form> 
         </ui:composition>
         
     </h:body>
