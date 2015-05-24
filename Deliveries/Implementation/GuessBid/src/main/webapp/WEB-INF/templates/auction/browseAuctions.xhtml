@@ -30,35 +30,37 @@
                               paginatorPosition="bottom" >  
                     
                     <f:facet name="header">  
-                        <p:outputPanel>  
+                        <p:outputPanel >  
                             <h:outputText value="Search all fields:" />  
-                            <p:inputText id="globalFilter" onkeyup="PF('auctionsTable').filter()" style="width:150px" />  
+                            <p:inputText  id="globalFilter" onkeyup="PF('auctionsTable').filter()" style="width:150px" />  
                         </p:outputPanel>  
                     </f:facet>  
                     
-                    <p:column filterBy="#{auction.name}"   
-                              headerText="Title"  
-                              filterMatchMode="contains">  
+                    <p:column headerText="Title"  >  
                         <h:outputText value="#{auction.name}" />  
                     </p:column>  
                     
-                    <p:column filterBy="#{auction.description}"  
-                              headerText="Description" >  
+                    <p:column headerText="Description" >  
                         <div>
                         <h:outputText value="#{auction.description}" />  
                         </div>
-                    </p:column>  
+                    </p:column> 
+        
                     
-                  <!--  <p:column filterBy="#{auction.category}"   
-                              headerText="category" footerText="exact"  
-                              filterOptions="#{category.categoryOptions}"  
+                   <p:column filterBy="#{auction.category}"   
+                              headerText="category" 
+                              filterOptions="#{auctionBean.categoryOptions}"  
                               filterMatchMode="exact">  
                         <h:outputText value="#{auction.category}" />  
                     </p:column>  
-                  -->
+                  
                     
                     <p:column  headerText="Ending time" sortBy="#{auction.endTime}">  
                         <h:outputText value="#{auction.endTime}" />  
+                    </p:column>  
+                    
+                    <p:column  headerText="Created" sortBy="#{auction.timestamp}">  
+                        <h:outputText value="#{auction.timestamp}" />  
                     </p:column>  
                 </p:dataTable>  
                 

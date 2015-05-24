@@ -9,17 +9,18 @@ and open the template in the editor.
 */
 
 
+
 .security-wrap{
-    margin-top: 20px;
     text-align: center;
+     margin-top: 50px;
 }
 .signup-wrap, .login-wrap{
-    margin-top: 50px;
     text-align: initial;
     display: block;
     text-align: center;
 }
-.security-header{font-size: 22px; margin-bottom: 20px;}
+.login-wrap{margin-top: 80px;}
+.security-header{font-size: 22px; margin-bottom: 10px;}
 
 .loginMessages, .registrationMessages {max-width: 266px;}
 
@@ -51,12 +52,26 @@ and open the template in the editor.
     font-family: 'Roboto', sans-serif !important; 
     font-weight: normal !important;}
 
-@media (min-width: 1000px) {
+
+@media (min-width: 900px) {
+    .security-wrap{ margin-top: 3%;}
+    
     .login-wrap, .signup-wrap {
         width: auto;
+        margin:0;
         display: inline-block;
-        vertical-align: top
+        vertical-align: top;
+        -webkit-transition: margin 500ms;
+        -moz-transition:  margin 0.5s ease;
+        -o-transition:  margin 0.5s ease;
+        -ms-transition:  margin 0.5s ease;
+        transition: margin 0.5s ease;
     }
+    .login-wrap{ margin-left: 4%; }
+    .signup-wrap{margin-right: 4%; }
+}
+@media (min-width: 1000px) {
+    
     .login-wrap{ margin-left: 10%; }
     .signup-wrap{margin-right: 10%; }
 }

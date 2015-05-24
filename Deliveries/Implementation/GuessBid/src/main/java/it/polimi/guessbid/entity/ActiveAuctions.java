@@ -69,10 +69,15 @@ public class ActiveAuctions implements Serializable {
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
-    
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "category")
+    private String category;
+
     public ActiveAuctions() {
     }
-    
+
     public int getAuctionId() {
         return auctionId;
     }
@@ -128,5 +133,14 @@ public class ActiveAuctions implements Serializable {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+        
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
     
 }

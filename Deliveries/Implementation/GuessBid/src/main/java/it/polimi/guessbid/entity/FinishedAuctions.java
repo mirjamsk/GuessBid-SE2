@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package it.polimi.guessbid.entity;
 
 import java.io.Serializable;
@@ -68,64 +68,79 @@ public class FinishedAuctions implements Serializable {
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
-
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "category")
+    private String category;
+    
+    
+    
     public FinishedAuctions() {
     }
-
+    
     public int getAuctionId() {
         return auctionId;
     }
-
+    
     public void setAuctionId(int auctionId) {
         this.auctionId = auctionId;
     }
-
+    
     public int getSellerId() {
         return sellerId;
     }
-
+    
     public void setSellerId(int sellerId) {
         this.sellerId = sellerId;
     }
-
+    
     public String getName() {
         return name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public String getDescription() {
         return description;
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
     public Date getEndTime() {
         return endTime;
     }
-
+    
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
-
+    
     public Integer getWinningBidId() {
         return winningBidId;
     }
-
+    
     public void setWinningBidId(Integer winningBidId) {
         this.winningBidId = winningBidId;
     }
-
+    
     public Date getTimestamp() {
         return timestamp;
     }
-
+    
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
+    }
+    
+    public String getCategory() {
+        return category;
+    }
+    
+    public void setCategory(String category) {
+        this.category = category;
     }
     
 }
