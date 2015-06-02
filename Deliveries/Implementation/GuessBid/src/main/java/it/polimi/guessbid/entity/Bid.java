@@ -50,7 +50,7 @@ public class Bid implements Serializable {
     @Column(name = "amount")
     private float amount;
     @Basic(optional = false)
-    @NotNull
+    
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;

@@ -7,12 +7,9 @@ package it.polimi.guessbid.control;
 
 import it.polimi.guessbid.entity.ActiveAuctions;
 import it.polimi.guessbid.entity.Auction;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateless;
-import javax.faces.model.SelectItem;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -20,7 +17,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import org.eclipse.persistence.internal.jpa.querydef.CompoundExpressionImpl;
 import org.primefaces.model.SortOrder;
 
 /**
@@ -30,11 +26,16 @@ import org.primefaces.model.SortOrder;
 @Stateless
 public class AuctionController {
     @PersistenceContext
-            EntityManager em;
+    EntityManager em;
     private int totalFilterdRowsCnt = 0;
     
     private List categoryOptions;
     
+    public Auction getAuctionById(int id){
+        Auction auction = em.find(Auction.class, id);
+        return auction;
+    }
+ 
     
     public List getCategoryOptions() {
         if( categoryOptions == null)  categoryOptions = getAllCategories();

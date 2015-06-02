@@ -15,11 +15,10 @@ and open the template in the editor.
 
 .auctions-result-wrap{
     display: inline-block;
-    width: 50%;
+    width: 55%;
     font-size: 15px !important;
 }
 .auctions-result-wrap tbody  {     
-    
     border-width: 0 !important;
     background-color: initial !important}
 
@@ -28,6 +27,7 @@ and open the template in the editor.
     border: none !important;
     margin: 10px 0 !important;
     
+    
 }
 .auctions-result-table {
     display: block;  
@@ -35,28 +35,28 @@ and open the template in the editor.
 }
 .auctions-result-table tr{
     display: inline-block;
-    background-color: #fff !important;
 }
 .auctions-result-table th{
     width: auto;
 }
 .auctions-result-wrap tbody .auction-column-header{
     display: block !important;
-    width: 98% !important;
+    width: 100% !important;
 }
 .auctions-result-wrap thead th, .auctions-result-wrap thead  {
     background-color: #fafafa !important;
     font-size: 14.5px;
     
 }
-.auctions-result-table th, .auctions-result-table td{
+.auctions-result-table th, .auctions-result-table td:first-of-type{
     border: none !important; 
     background-image: none !important;
     background-color: #FFF !important;
 }
 
+
 .auction-list-item{
-    width: 100%;
+    padding: 10px;
     height:auto;
     text-align: left;
 }
@@ -72,7 +72,7 @@ and open the template in the editor.
     font-weight: 100;
 }
 .auction-search-field{
-    width:50%;
+    width:98%;
     font-family: 'Lato', sans-serif !important;
     font-size: 17px !important;
 }
@@ -81,10 +81,13 @@ and open the template in the editor.
     padding: 0 !important;
     background: #fff;
 }
-.ui-widget-header{
+.ui-widget-header, .ui-widget-content{
     border: none !important;
     background: none !important;
     
+}
+.ui-datatable tbody td{
+    padding: 0px !important;
 }
 .auction-filter-column{
     border: none !important;
@@ -108,6 +111,7 @@ and open the template in the editor.
     text-decoration: underline;
 }
 .auctions-search-wrap{
+    margin-bottom: 5px;
     background-color: #fafafa !important;
 }
 /*paginator */
@@ -115,4 +119,10 @@ and open the template in the editor.
     background-image: none !important;
     box-shadow: none !important;
     border: none !important;
+}
+
+@media (min-width: 1325px) {
+    .auction-search-field{
+        width:50%;
+    }
 }

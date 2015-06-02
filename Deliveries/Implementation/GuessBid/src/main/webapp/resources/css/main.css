@@ -36,8 +36,9 @@ button{
 }
 .site-footer, .page-wrap:after { height: 150px; }
 
-.ui-messages-error-summary{ 
+.ui-messages-error-summary, .ui-messages-info-summary{ 
     margin:0px !important;
+    font-weight: 400 !important;
     font-family: 'Lato', sans-serif !important;
 }
 
@@ -45,6 +46,7 @@ button{
     font-size: 30px;
     padding: 20px 0 0 40px;
 }
+
 
 @media (min-width: 160px) {
     .page-wrap { margin-bottom: -100px; /* equal to footer height */ }

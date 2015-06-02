@@ -7,9 +7,7 @@ package it.polimi.guessbid.boundary;
 
 import it.polimi.guessbid.control.AuctionController;
 import it.polimi.guessbid.entity.ActiveAuctions;
-import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Category;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
@@ -25,7 +23,7 @@ import org.primefaces.model.SortOrder;
  */
 @Named
 @RequestScoped
-public class AuctionBean{
+public class ListAuctionsBean{
     
     
     @EJB
@@ -34,7 +32,7 @@ public class AuctionBean{
     
     private LazyDataModel lazyModel;
     
-    public AuctionBean() {
+    public ListAuctionsBean() {
                 int rowCount = 0;
                 this.lazyModel = new LazyDataModel(){
                     @Override

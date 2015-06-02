@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>GuessBid - Auction </title>
+        <h:outputStylesheet name="grid/grid.css" library="primefaces" />
+        <h:outputStylesheet library="css" name="main.css"  />     
+        <h:outputStylesheet library="css" name="navigation.css"  />
+        <h:outputStylesheet library="css" name="footer.css"  /> 
+        <f:metadata>
+            <f:viewParam name="id" value="#{detailsAuctionBean.id}" />
+            <f:event type="preRenderView" listener="#{detailsAuctionBean.loadAuction()}" />
+        </f:metadata>
+
+    </h:head>
+    <h:body>
+        <div class="page-wrap">
+            <div class="navigation-wrap">
+                <ui:insert>
+                    <ui:include src="../WEB-INF/templates/UIelements/navigation.xhtml" />
+                </ui:insert>    
+            </div>
+
+            <div class="auction-wrap">
+                <div class="auction-wrap">
+                    <ui:insert>
+                        <ui:include src="../WEB-INF/templates/auction/detailsAuction.xhtml" />
+                    </ui:insert>    
+                </div>
+
+                <div class="bid-wrap">
+                    <ui:insert rendered="${!detailsAuctionBean.loggedUserIsSeller(detailsAuctionBean.auction) and !detailsAuctionBean.isAuctionFinished(detailsAuctionBean.auction)}">
+                        <ui:include src="../WEB-INF/templates/auction/bidForm.xhtml" />
+                    </ui:insert>    
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="site-footer">
+            <ui:insert>
+                <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
+            </ui:insert>    
+        </div>
+        <h:outputScript name="js/userHome.js" />
+        <h:outputScript name="js/auction.js" />
+
+    </h:body>
+</html>
+

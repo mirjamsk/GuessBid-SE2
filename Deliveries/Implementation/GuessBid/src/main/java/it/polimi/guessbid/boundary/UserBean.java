@@ -28,4 +28,7 @@ public class UserBean{
         return um.getLoggedUser().getUsername();
     }
     
+    public int getUserId() {
+        return um.getLoggedUser().getUserId();
+    }
 }
