@@ -18,6 +18,9 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,13 +35,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "notification")
 @XmlRootElement
+@NamedStoredProcedureQuery(
+        name = "GET_USER_AUCTION_RANKING",
+        procedureName = "get_distinct_user_auction_ranking",
+        parameters = {
+            @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_user_id", type = Integer.class),
+            @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_auction_id", type = Integer.class)
+        })
 @NamedQueries({
     @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n"),
     @NamedQuery(name = "Notification.findByNotificationId", query = "SELECT n FROM Notification n WHERE n.notificationId = :notificationId"),
     @NamedQuery(name = "Notification.findByIsOutcome", query = "SELECT n FROM Notification n WHERE n.isOutcome = :isOutcome"),
     @NamedQuery(name = "Notification.findByTimestamp", query = "SELECT n FROM Notification n WHERE n.timestamp = :timestamp"),
+    @NamedQuery(name = "Notification.findUserNewestRankNotif", query = "SELECT n.rank FROM Notification n WHERE n.nAuctionId= :auction and n.nUserId = :user and n.isOutcome = false ORDER BY n.timestamp DESC"),
     @NamedQuery(name = "Notification.findByRank", query = "SELECT n FROM Notification n WHERE n.rank = :rank")})
 public class Notification implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +66,6 @@ public class Notification implements Serializable {
     @Column(name = "is_outcome")
     private boolean isOutcome;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
@@ -163,5 +174,5 @@ public class Notification implements Serializable {
     public String toString() {
         return "it.polimi.registration.business.security.entity.Notification[ notificationId=" + notificationId + " ]";
     }
-    
+
 }

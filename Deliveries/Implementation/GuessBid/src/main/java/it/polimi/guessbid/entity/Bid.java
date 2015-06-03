@@ -37,8 +37,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Bid.findAll", query = "SELECT b FROM Bid b"),
     @NamedQuery(name = "Bid.findByBidId", query = "SELECT b FROM Bid b WHERE b.bidId = :bidId"),
     @NamedQuery(name = "Bid.findByAmount", query = "SELECT b FROM Bid b WHERE b.amount = :amount"),
+    @NamedQuery(name = "Bid.findBiddersOfAuction", query = "SELECT DISTINCT(b.bidderId) FROM Bid b WHERE b.bidAuctionId = :auctionId"),
+    @NamedQuery(name = "Bid.findBiddersOfAuctionExceptOne", query = "SELECT DISTINCT(b.bidderId) FROM Bid b WHERE b.bidAuctionId = :auctionId and b.bidderId != :bidderId "),
     @NamedQuery(name = "Bid.findByTimestamp", query = "SELECT b FROM Bid b WHERE b.timestamp = :timestamp")})
 public class Bid implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +53,7 @@ public class Bid implements Serializable {
     @Column(name = "amount")
     private float amount;
     @Basic(optional = false)
-    
+
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
@@ -149,5 +152,5 @@ public class Bid implements Serializable {
     public String toString() {
         return "it.polimi.registration.business.security.entity.Bid[ bidId=" + bidId + " ]";
     }
-    
+
 }

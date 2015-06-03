@@ -10,6 +10,7 @@ import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.util.Code;
 import java.util.Calendar;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,6 +24,9 @@ public class BidController {
 
     @PersistenceContext
     EntityManager em;
+    
+    @EJB
+    RankNotificationController nc;
 
     public int save(User user, Auction auction, float amount) {
         Bid bid = new Bid();
@@ -31,10 +35,11 @@ public class BidController {
         bid.setAmount(amount);
         bid.setBidderId(user);
         bid.setBidAuctionId(auction);
-
+//dont allow same bid??????????
         em.persist(bid);
         try {
             em.flush();
+            nc.generateNotification(bid);
             return Code.BID_SUCCESSFULLY_PLACED;
         } catch (Exception e) {
             throw e;
