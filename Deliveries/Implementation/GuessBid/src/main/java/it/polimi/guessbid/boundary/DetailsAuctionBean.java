@@ -58,13 +58,12 @@ public class DetailsAuctionBean {
         return auction.getSellerId().getUsername();
     }
 
-    public boolean loggedUserIsSeller(Auction currAuction) {
-         return Objects.equals(um.getLoggedUser().getUserId(), currAuction.getSellerId().getUserId());
+    public boolean loggedUserIsSeller() {
+         return Objects.equals(um.getLoggedUser().getUserId(), this.auction.getSellerId().getUserId());
     }
 
-    public boolean isAuctionFinished(Auction currAuction) {
-        return Calendar.getInstance().getTime().after(new java.util.Date(currAuction.getEndTime().getTime()));
-
+    public boolean isAuctionFinished() {
+        return Calendar.getInstance().getTime().after(new java.util.Date(this.auction.getEndTime().getTime()));
     }
 
 }

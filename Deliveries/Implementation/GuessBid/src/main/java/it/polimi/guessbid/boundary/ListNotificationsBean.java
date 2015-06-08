@@ -6,8 +6,11 @@
 package it.polimi.guessbid.boundary;
 
 import it.polimi.guessbid.control.AuctionController;
+import it.polimi.guessbid.control.NotificationController;
+import it.polimi.guessbid.control.UserController;
 import it.polimi.guessbid.entity.ActiveAuctions;
 import it.polimi.guessbid.entity.Category;
+import it.polimi.guessbid.entity.Notification;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
@@ -23,54 +26,31 @@ import org.primefaces.model.SortOrder;
  */
 @Named
 @RequestScoped
-public class ListAuctionsBean{
+public class ListNotificationsBean{
     
     
     @EJB
-            AuctionController am;
-    private  SelectItem[] categoryOptions;
+    NotificationController nc;
+    @EJB
+    UserController um;
     
     private LazyDataModel lazyModel;
     
-    public ListAuctionsBean() {
+    public ListNotificationsBean() {
                 this.lazyModel = new LazyDataModel(){
                     @Override
                     public List load(int first, int pageSize, String sortField, SortOrder sortOrder, Map filters) {
                         //List<Auction> lazyAuctions = am.findActiveAuctions(first, first + pageSize);
-                        List<ActiveAuctions> lazyAuctions = am.findActiveAuctions(first, first + pageSize, sortField, sortOrder, filters);
+                        List<Notification> lazyNotifications = nc.findUserNotifications(um.getLoggedUser(), first, first + pageSize);
                         
-                        this.setRowCount(am.getTotalFilterdRowsCnt());
-                        return lazyAuctions; //To change body of generated methods, choose Tools | Templates.
+                        this.setRowCount(nc.getTotalRowsCnt());
+                        return lazyNotifications; //To change body of generated methods, choose Tools | Templates.
                     }
                 };
-                
     }
-    
     
     public LazyDataModel getLazyModel() {
         return this.lazyModel;
     }
-    
-    
-    
-    
-    
-    public SelectItem[] getCategoryOptions(){
-        if( categoryOptions == null) categoryOptions = createFilterOptions(am.getCategoryOptions());
-
-        return categoryOptions;
-   }
-    
-    private SelectItem[] createFilterOptions(List categoryOptions) {
-        SelectItem[] options = new SelectItem[categoryOptions.size() + 1];
-        
-        options[0] = new SelectItem("", "Select");
-        for(int i = 0; i < categoryOptions.size(); i++) {
-            String type = ((Category)categoryOptions.get(i)).getType();
-            options[i + 1] = new SelectItem(type, type);
-        }
-        
-        return options;
-    }
-    
+   
 }

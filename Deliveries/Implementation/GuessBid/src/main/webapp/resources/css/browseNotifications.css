@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 23, 2015, 7:48:13 PM
+    Author     : Mirjam
+*/
+
+.notifications-result-wrap {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    margin: 50px 7% 0 7%;
+    font-size: 13.5px !important;
+    background-color: #fff!important;
+}
+.notifications-result-wrap div{
+    border-bottom: 1px #f9f9f9 solid;
+
+}
+.notifications-result-wrap  td, .notifications-result-wrap tr, .notifications-result-wrap  div{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.notifications-result-wrap tbody  {
+    margin-top: 20px;
+    border-width: 0 !important;
+    background-color: initial !important}
+
+.notifications-result-wrap tbody  tr{
+    border-width: 0px !important;
+    border: none !important;
+    margin: 5px 0 !important;
+}
+.notifications-result-table {
+    display: block;  
+    min-width: 300px;
+}
+.notifications-result-table tr{
+    display: inline-block;
+}
+.notifications-result-table th{
+    width: auto;
+}
+.notifications-result-wrap tbody .notification-column-header{
+    display: block !important;
+    width: 100% !important;
+}
+.notifications-result-wrap thead th, .notifications-result-wrap thead  {
+    background-color: #fafafa !important;
+    font-size: 14.5px;
+
+}
+.notifications-result-table th, .notifications-result-table td:first-of-type{
+    border: none !important; 
+    background-image: none !important;
+}
+
+.notification-list-item{
+    padding: 10px;
+    height:auto;
+    text-align: left;
+}
+
+.notification-column-header {
+    text-align: right;
+    font-family: "Roboto", sans-serif !important;
+    font-weight: 100;
+    padding-bottom: 10px !important;
+}
+
+
+.notification-more-link {
+    padding: 6px 5px;
+}
+
+.notification-more-link a{
+    font-size: 17px;
+    color: cornflowerblue;
+    text-decoration: underline;
+}

@@ -44,9 +44,11 @@ import javax.xml.bind.annotation.XmlRootElement;
         })
 @NamedQueries({
     @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n"),
+    @NamedQuery(name = "Notification.countByUser", query = "SELECT COUNT(n) FROM Notification n WHERE n.nUserId = :user "),
     @NamedQuery(name = "Notification.findByNotificationId", query = "SELECT n FROM Notification n WHERE n.notificationId = :notificationId"),
     @NamedQuery(name = "Notification.findByIsOutcome", query = "SELECT n FROM Notification n WHERE n.isOutcome = :isOutcome"),
     @NamedQuery(name = "Notification.findByTimestamp", query = "SELECT n FROM Notification n WHERE n.timestamp = :timestamp"),
+    @NamedQuery(name = "Notification.findByUser", query = "SELECT n FROM Notification n WHERE n.nUserId = :user ORDER BY n.timestamp DESC"),
     @NamedQuery(name = "Notification.findUserNewestRankNotif", query = "SELECT n.rank FROM Notification n WHERE n.nAuctionId= :auction and n.nUserId = :user and n.isOutcome = false ORDER BY n.timestamp DESC"),
     @NamedQuery(name = "Notification.findByRank", query = "SELECT n FROM Notification n WHERE n.rank = :rank")})
 public class Notification implements Serializable {

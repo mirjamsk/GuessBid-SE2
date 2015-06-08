@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="bid-wrap">
-                    <ui:insert rendered="${!detailsAuctionBean.loggedUserIsSeller(detailsAuctionBean.auction) and !detailsAuctionBean.isAuctionFinished(detailsAuctionBean.auction)}">
+                    <ui:insert >
                         <ui:include src="../WEB-INF/templates/auction/bidForm.xhtml" />
                     </ui:insert>    
                 </div>

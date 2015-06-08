@@ -11,7 +11,7 @@
         <h:outputStylesheet library="css" name="footer.css"  /> 
         <h:outputStylesheet library="css" name="userHome.css"  />
         <h:outputStylesheet library="css" name="browseAuctions.css"  />
-        <h:outputStylesheet library="css" name="notifications.css"  />
+        <h:outputStylesheet library="css" name="browseNotifications.css"  />
         
     </h:head>
     <h:body>
@@ -23,7 +23,11 @@
             </div>
             
             <div class="user-home-wrap">
-                <div class="home-notifications-wrap">dsds</div>
+                <div class="notifications-result-wrap">
+                     <ui:insert>
+                        <ui:include src="../WEB-INF/templates/notification/recentNotifications.xhtml" />
+                    </ui:insert>    
+                </div>
                 <div class="auctions-result-wrap">
                     <ui:insert>
                         <ui:include src="../WEB-INF/templates/auction/browseAuctions.xhtml" />

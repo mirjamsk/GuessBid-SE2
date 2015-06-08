@@ -9,7 +9,7 @@
         <title>Bid Form</title>
     </h:head>
     <h:body>
-        <ui:composition>
+        <ui:fragment rendered="${!detailsAuctionBean.loggedUserIsSeller() and !detailsAuctionBean.isAuctionFinished()}">
             <h:form id="bidForm">  
                 <p:inputText id="bid" value="#{bidBean.value}" autocomplete="false" required="true" requiredMessage="Please input a valid number with up to 2 decimal places"
                              onblur="validateBid($(this))">
@@ -18,7 +18,12 @@
                 </p:commandButton>
                 <p:messages id="bidMessages" showIcon="false" />
             </h:form>  
-        </ui:composition>
+        </ui:fragment>
+        
+        
+       <ui:fragment rendered="${detailsAuctionBean.isAuctionFinished()}">
+           <div style="color:red">Auction is closed</div>
+        </ui:fragment>
     </h:body>
 </html>
 
