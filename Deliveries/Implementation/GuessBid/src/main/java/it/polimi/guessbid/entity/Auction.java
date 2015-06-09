@@ -70,7 +70,6 @@ public class Auction implements Serializable {
     @Column(name = "category")
     private String category;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;

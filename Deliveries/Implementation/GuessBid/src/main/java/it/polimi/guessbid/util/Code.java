@@ -10,8 +10,9 @@ package it.polimi.guessbid.util;
  * @author Mirjam
  */
 public class Code {
+    public static int ERROR = 0;    
     public static int INSUFICIENT_CREDIT = 1;    
     public static int BID_SUCCESSFULLY_PLACED = 2;
-
+    public static int AUCTION_SUCCESSFULLY_CREATED = 3;
     
 }

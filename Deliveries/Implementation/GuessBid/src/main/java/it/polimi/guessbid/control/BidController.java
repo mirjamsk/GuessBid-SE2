@@ -24,14 +24,15 @@ public class BidController {
 
     @PersistenceContext
     EntityManager em;
-    
+
     @EJB
     RankNotificationController nc;
 
     public int save(User user, Auction auction, float amount) {
         Bid bid = new Bid();
-        if (user.getCredit() < amount)             
+        if (user.getCredit() < amount) {
             return Code.INSUFICIENT_CREDIT;
+        }
         bid.setAmount(amount);
         bid.setBidderId(user);
         bid.setBidAuctionId(auction);
@@ -47,5 +48,8 @@ public class BidController {
 
     }
 
+    public Bid getBidById(int id) {
+        return em.find(Bid.class, id);
+    }
 
 }

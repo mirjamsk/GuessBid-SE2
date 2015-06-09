@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Auction List</title>
+
+    </h:head>
+    <h:body>       
+        <ui:composition>
+            <div >
+                <h:form id="form">
+                    <p:panel id="panel" header="Form" style="margin-bottom:10px;">
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel for="name" value="Name:" />
+                            <p:inputText id="name" value="#{createAuctionBean.name}" required="true" label="Name">
+                                <f:validateLength minimum="2" />
+                            </p:inputText>
+                            <br/>
+
+                            <p:outputLabel for="category" value="Category:" />
+                            <p:selectOneMenu id="category" value="#{createAuctionBean.category}" style="width:125px" required="true">
+                                <f:selectItems value="#{createAuctionBean.categoryOptions}" />
+                            </p:selectOneMenu>
+                            <br/>
+
+                            <p:outputLabel for="description" value="Description:" />
+                            <p:inputTextarea rows="6" cols="33" id="description" 
+                                             value="#{createAuctionBean.description}" 
+                                             required="true" 
+                                             label="Description"/>
+                            <br/>
+
+                            <p:outputLabel for="endtime" value="End Time:" />
+                            <p:calendar id="endtime"
+                                        value="#{createAuctionBean.endTime}"
+                                        mindate="#{createAuctionBean.currentDate}" 
+                                        pattern="MM/dd/yyyy HH:mm:ss" required="true"/>
+
+                        </h:panelGrid>
+                        <p:messages id="messages" />
+
+                    </p:panel>
+
+
+                    <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                        <p:panelGrid id="display" columns="2" columnClasses="label,value">
+
+
+                            <h:outputText value="Datetime:" />
+                            <h:outputText value="#{createAuctionBean.endTime}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+
+
+                        </p:panelGrid>
+                    </p:dialog>
+
+
+                    <p:toolbar>
+                        <f:facet name="left">
+                            <p:commandButton value="Submit" update="panel" actionListener="#{createAuctionBean.create}" style="margin-right:20px;" />
+                        </f:facet>
+
+
+                    </p:toolbar>
+                </h:form>
+
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -6,8 +6,11 @@
 package it.polimi.guessbid.boundary;
 
 import it.polimi.guessbid.control.BidController;
+import it.polimi.guessbid.control.OutcomeNotificationTimer;
 import it.polimi.guessbid.control.UserController;
 import it.polimi.guessbid.util.Code;
+import java.util.Calendar;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -24,9 +27,10 @@ import javax.faces.context.FacesContext;
 public class BidBean {
 
     @EJB
-    UserController um;
+    UserController uc;
     @EJB
     BidController bc;
+
 
     @ManagedProperty(value = "#{detailsAuctionBean}")
     private DetailsAuctionBean ab;
@@ -48,7 +52,7 @@ public class BidBean {
         float bid;
         try {
             bid = Float.parseFloat(value);
-            int res = bc.save(um.getLoggedUser(), ab.getAuction(), bid);
+            int res = bc.save(uc.getLoggedUser(), ab.getAuction(), bid);
             if (res == Code.BID_SUCCESSFULLY_PLACED) {
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, bid +" bid succesfully placed", "Placed bid"));
             } else if (res == Code.INSUFICIENT_CREDIT) {
