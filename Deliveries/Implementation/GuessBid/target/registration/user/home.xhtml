@@ -12,7 +12,7 @@
         <h:outputStylesheet library="css" name="userHome.css"  />
         <h:outputStylesheet library="css" name="browseAuctions.css"  />
         <h:outputStylesheet library="css" name="browseNotifications.css"  />
-        
+
     </h:head>
     <h:body>
         <div class="page-wrap">
@@ -21,10 +21,14 @@
                     <ui:include src="../WEB-INF/templates/UIelements/navigation.xhtml" />
                 </ui:insert>    
             </div>
-            
+
+
             <div class="user-home-wrap">
+                <div class="user-credit">
+                    Credit: <h:outputText value="#{userBean.credit}"/>
+                </div>
                 <div class="notifications-result-wrap">
-                     <ui:insert>
+                    <ui:insert>
                         <ui:include src="../WEB-INF/templates/notification/recentNotifications.xhtml" />
                     </ui:insert>    
                 </div>
@@ -35,7 +39,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="site-footer">
             <ui:insert>
                 <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />

@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Bid.findAll", query = "SELECT b FROM Bid b"),
+    @NamedQuery(name = "Bid.countBidsOfAuction", query = "SELECT COUNT(b) FROM Bid b WHERE b.bidAuctionId = :auction "),
     @NamedQuery(name = "Bid.findByBidId", query = "SELECT b FROM Bid b WHERE b.bidId = :bidId"),
     @NamedQuery(name = "Bid.findByAmount", query = "SELECT b FROM Bid b WHERE b.amount = :amount"),
     @NamedQuery(name = "Bid.findBiddersOfAuction", query = "SELECT DISTINCT(b.bidderId) FROM Bid b WHERE b.bidAuctionId = :auctionId"),

@@ -18,6 +18,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQueries;
 import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureParameter;
@@ -35,13 +36,31 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "notification")
 @XmlRootElement
-@NamedStoredProcedureQuery(
-        name = "GET_USER_AUCTION_RANKING",
-        procedureName = "get_distinct_user_auction_ranking",
-        parameters = {
-            @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_user_id", type = Integer.class),
-            @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_auction_id", type = Integer.class)
-        })
+@NamedStoredProcedureQueries({
+    @NamedStoredProcedureQuery(
+            name = "GET_USER_AUCTION_RANKING",
+            procedureName = "get_distinct_user_auction_ranking",
+            parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_user_id", type = Integer.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_auction_id", type = Integer.class)
+            }),
+    @NamedStoredProcedureQuery(
+            name = "GET_BIDID_AT_AUCTION_RANK",
+            procedureName = "get_bidid_at_auction_rank",
+            parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_rank", type = Integer.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_auction_id", type = Integer.class)
+            }),
+    @NamedStoredProcedureQuery(
+            name = "GET_USERID_AT_AUCTION_RANK",
+            procedureName = "get_userid_at_auction_rank",
+            parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_rank", type = Integer.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "arg_auction_id", type = Integer.class)
+            })
+
+})
+
 @NamedQueries({
     @NamedQuery(name = "Notification.findAll", query = "SELECT n FROM Notification n"),
     @NamedQuery(name = "Notification.countByUser", query = "SELECT COUNT(n) FROM Notification n WHERE n.nUserId = :user "),

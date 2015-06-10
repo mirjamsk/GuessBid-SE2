@@ -50,7 +50,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "credit")
-    private int credit;
+    private float credit;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull(message = "Email can't be empty")
@@ -104,11 +104,11 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public int getCredit() {
+    public float getCredit() {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(float credit) {
         this.credit = credit;
     }
 

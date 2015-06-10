@@ -52,4 +52,12 @@ public class BidController {
         return em.find(Bid.class, id);
     }
 
+    public int countBidsOfAuction(Auction a){
+        Long res = (Long) em
+                .createNamedQuery("Bid.countBidsOfAuction")
+                .setParameter("auction", a)
+                .getSingleResult();
+
+        return  res.intValue() ;
+    }
 }

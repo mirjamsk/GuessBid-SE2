@@ -21,6 +21,7 @@ public class UserBean{
     @EJB
     UserController um;
     
+    
     public UserBean() {
     }
     
@@ -30,5 +31,9 @@ public class UserBean{
     
     public int getUserId() {
         return um.getLoggedUser().getUserId();
+    }
+    
+    public float getCredit() {
+        return um.getLoggedUser().getCredit();
     }
 }

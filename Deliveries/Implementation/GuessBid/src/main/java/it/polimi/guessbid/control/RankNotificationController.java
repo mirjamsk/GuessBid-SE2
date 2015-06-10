@@ -9,9 +9,7 @@ import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.Notification;
 import it.polimi.guessbid.entity.User;
-import it.polimi.guessbid.util.Code;
 import java.util.List;
-import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,26 +28,12 @@ public class RankNotificationController {
     public void generateNotification(Bid bid) {
         int rank = getCurrentUserRank(bid.getBidderId().getUserId(), bid.getBidAuctionId().getAuctionId());
         if (rank != -1) {
-            // ignores multiple results
-            Notification notif = new Notification();
-            notif.setDescription("Your new rank is ");
-            notif.setIsOutcome(false);
-            notif.setNAuctionId(bid.getBidAuctionId());
-            notif.setNUserId(bid.getBidderId());
-            notif.setRank(rank);
-            em.persist(notif);
-            try {
-                em.flush();
-            } catch (Exception e) {
-                throw e;
-            }
-            //generateChangeRankNotification(bid);
-
+            generateNotification(bid.getBidderId(),bid.getBidAuctionId(),rank );
         }
         System.out.println(rank + " notif");
 
-        generateChangeRankNotification(bid);
         //generate for all users changed notifs
+        generateChangeRankNotification(bid);
     }
 
     public void generateNotification(User user, Auction auction, int rank) {
