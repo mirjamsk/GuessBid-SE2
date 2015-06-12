@@ -15,7 +15,7 @@
                 <div class="ui-grid ui-grid-responsive">
                     <div class="ui-grid-row">
                         <div class="ui-grid-col-2">Username</div>
-                        <div class="ui-grid-col-2"><h:outputText value="#{userBean.username}" /></div>
+                        <div class="ui-grid-col-2"><h:outputText id="current-username" value="#{userBean.username}" /></div>
                         <div class="ui-grid-col-2"><a id="change-username-link" href="#">Change</a></div>
                     </div>
 
@@ -27,7 +27,7 @@
 
                     <div class="ui-grid-row">
                         <div class="ui-grid-col-2">Email</div>
-                        <div class="ui-grid-col-2"><h:outputText value="#{userBean.email}" /></div>
+                        <div class="ui-grid-col-2"><h:outputText id="current-email" value="#{userBean.email}" /></div>
                         <div class="ui-grid-col-2"><a id="change-email-link" href="#">Change</a></div>
                     </div>
 

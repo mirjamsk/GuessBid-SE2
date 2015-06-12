@@ -12,7 +12,7 @@
             <navigation>
                 <div class="navigation-header">GuessBid</div>
                 <div class="navigation-links">
-                    <div class="nav-username"> Hello, #{userBean.username}!</div>
+                    <div  class="nav-username"> Hello, <h:outputText id="navigation-username" value="#{userBean.username}!"/></div>
                     <div><h:link class="first after" outcome="home" value="Home"/></div>
                     <div><h:link outcome="notifications" value="Notifications"/></div>
                                         <div><h:link outcome="myAuctions" value="Manage auctions"/></div>

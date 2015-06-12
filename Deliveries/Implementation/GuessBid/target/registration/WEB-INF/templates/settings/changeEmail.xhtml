@@ -14,10 +14,12 @@
                 <h:form id="emailForm">
                     <p:panel id="emailPanel" style="margin-bottom:10px;">
                         <div>New email:</div>
-                        <p:inputText id="email" value="#{userName.newEmail}" required="true" label="Name">
+                        <p:inputText id="email" value="#{settingsBean.newEmail}" required="true" label="Name">
                             <f:validateLength minimum="2" />
                         </p:inputText>
-                        <p:commandButton value="Update" update="emailPanel" actionListener="#{userBean.updateEmail}" style="margin-left:10px;" />
+                        <p:commandButton value="Update" 
+                                         update="emailPanel, current-email" 
+                                         action="#{settingsBean.updateEmail}" />
                         <p:messages id="messages2" />
                     </p:panel>
                 </h:form>

@@ -14,5 +14,10 @@ public class Code {
     public static int INSUFICIENT_CREDIT = 1;    
     public static int BID_SUCCESSFULLY_PLACED = 2;
     public static int AUCTION_SUCCESSFULLY_CREATED = 3;
+    public static int USERNAME_SUCCESSFULLY_CHANGED = 4;
+    public static int NEW_EMAIL_SAME_AS_OLD = 5;
+    public static int EMAIL_SUCCESSFULLY_CHANGED = 6;
+    public static int DUPLICATE_EMAIL = 7;
+
     
 }

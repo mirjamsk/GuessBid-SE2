@@ -20,11 +20,7 @@ public class UserBean{
 
     @EJB
     UserController um;
-    
-    
-    public UserBean() {
-    }
-    
+
     public String getUsername() {
         return um.getLoggedUser().getUsername();
     }
@@ -40,4 +36,5 @@ public class UserBean{
     public String getEmail() {
         return um.getLoggedUser().getEmail();
     }
+    
 }

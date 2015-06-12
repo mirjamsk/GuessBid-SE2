@@ -7,6 +7,7 @@ package it.polimi.guessbid.control;
 
 import it.polimi.guessbid.entity.Group;
 import it.polimi.guessbid.entity.User;
+import it.polimi.guessbid.util.Code;
 import java.security.Principal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -45,13 +46,57 @@ public class UserController {
     }
 
     public User getLoggedUser() {
-        return (User) em.createNamedQuery("User.findByEmail").setParameter("email", principal.getName()).getSingleResult();
+        return getUserByEmail(principal.getName());
         //return em.find(User.class, principal.getName());
         // return em.createQuery("from user WHERE email=:email", User.class).setParameter("email",  principal.getName()).getSingleResult();
     }
 
     public User getUserById(int id) {
-        return em.find(User.class, id);
+        User u = null;
+        try {
+            u = em.find(User.class, id);;
+
+        } catch (Exception e) {
+        }
+        return u;
+    }
+
+    public User getUserByEmail(String email) {
+        User u = null;
+        try {
+            u = (User) em.createNamedQuery("User.findByEmail").setParameter("email", email).getSingleResult();
+
+        } catch (Exception e) {
+        }
+        return u;
+    }
+
+    public int updateUsername(User user, String username) {
+        try {
+            user.setUsername(username);
+            em.merge(user);
+            em.flush();
+            return Code.USERNAME_SUCCESSFULLY_CHANGED;
+        } catch (Exception e) {
+            return Code.ERROR;
+        }
+    }
+
+    public int updateEmail(User user, String email) {
+        if (user.getEmail().equals(email)) {
+            return Code.NEW_EMAIL_SAME_AS_OLD;
+        }
+        if (getUserByEmail(email) != null) {
+            return Code.DUPLICATE_EMAIL;
+        }
+        try {
+            user.setEmail(email);
+            em.merge(user);
+
+            return Code.EMAIL_SUCCESSFULLY_CHANGED;
+        } catch (Exception e) {
+            return Code.ERROR;
+        }
     }
 
 }
