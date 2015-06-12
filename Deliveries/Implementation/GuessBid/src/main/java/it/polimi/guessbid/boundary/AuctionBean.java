@@ -11,6 +11,7 @@ package it.polimi.guessbid.boundary;
  */
 import it.polimi.guessbid.control.AuctionController;
 import it.polimi.guessbid.control.UserController;
+import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Category;
 import it.polimi.guessbid.util.Code;
 import java.util.Date;
@@ -22,7 +23,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 @ManagedBean
-public class CreateAuctionBean {
+public class AuctionBean {
 
     @EJB
     AuctionController ac;
@@ -35,7 +36,7 @@ public class CreateAuctionBean {
     private Date endTime;
     private SelectItem[] categoryOptions;
     //private final Date currentDate = new Date(new Date().getTime() + 3600 * 1000); // current date plus 1hour
-private final Date currentDate = new Date(); // current date plus 1hour
+    private final Date currentDate = new Date(); // current date plus 1hour
 
     public Date getCurrentDate() {
         return currentDate;
@@ -98,9 +99,11 @@ private final Date currentDate = new Date(); // current date plus 1hour
         if (res == Code.AUCTION_SUCCESSFULLY_CREATED) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Auction created"));
             //redirect to auciton
-        }else {
+        } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
         }
     }
+
+
 
 }

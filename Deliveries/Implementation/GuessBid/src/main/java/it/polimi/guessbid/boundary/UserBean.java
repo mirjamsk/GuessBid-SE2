@@ -36,4 +36,8 @@ public class UserBean{
     public float getCredit() {
         return um.getLoggedUser().getCredit();
     }
+    
+    public String getEmail() {
+        return um.getLoggedUser().getEmail();
+    }
 }

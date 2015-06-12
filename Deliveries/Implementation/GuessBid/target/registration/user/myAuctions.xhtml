@@ -6,41 +6,31 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>GuessBid - Auction </title>
+        <title>GuessBid - Manage Auctions </title>
         <h:outputStylesheet name="grid/grid.css" library="primefaces" />
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="navigation.css"  />
         <h:outputStylesheet library="css" name="footer.css"  /> 
-        <f:metadata>
-            <f:viewParam name="id" value="#{detailsAuctionBean.id}" />
-            <f:event type="preRenderView" listener="#{detailsAuctionBean.loadAuction()}" />
-        </f:metadata>
+        <h:outputStylesheet library="css" name="browseAuctions.css"  />
+                <h:outputStylesheet library="css" name="userHome.css"  />
+
 
     </h:head>
     <h:body>
-        <div class="page-wrap">
-            <div class="navigation-wrap">
+        <div class="page-wrap" style="text-align: center">
+            <div class="navigation-wrap" style="text-align: initial">
                 <ui:insert>
                     <ui:include src="../WEB-INF/templates/UIelements/navigation.xhtml" />
                 </ui:insert>    
             </div>
-
-            <div class="auction-wrap">
+<div style="text-align: initial"><h:link outcome="newAuction" value="New auction"/></div>
+            <div class="auctions-result-wrap">
                 <div class="auction-wrap">
                     <ui:insert>
-                        <ui:include src="../WEB-INF/templates/auction/detailsAuction.xhtml" />
+                        <ui:include src="../WEB-INF/templates/auction/myAuctionsTable.xhtml" />
                     </ui:insert>    
                 </div>
-
-                <div class="bid-wrap">
-                    <ui:insert >
-                        <ui:include src="../WEB-INF/templates/auction/bidForm.xhtml" />
-                    </ui:insert>    
-                </div>
-
             </div>
-
-
         </div>
 
         <div class="site-footer">
@@ -48,6 +38,7 @@
                 <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
             </ui:insert>    
         </div>
+        <h:outputScript name="js/userHome.js" />
         <h:outputScript name="js/auction.js" />
 
     </h:body>

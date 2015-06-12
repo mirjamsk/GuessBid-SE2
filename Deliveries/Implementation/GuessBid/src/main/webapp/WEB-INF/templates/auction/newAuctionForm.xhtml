@@ -17,28 +17,28 @@
                     <p:panel id="panel" header="Form" style="margin-bottom:10px;">
                         <h:panelGrid columns="3" cellpadding="5">
                             <p:outputLabel for="name" value="Name:" />
-                            <p:inputText id="name" value="#{createAuctionBean.name}" required="true" label="Name">
+                            <p:inputText id="name" value="#{auctionBean.name}" required="true" label="Name">
                                 <f:validateLength minimum="2" />
                             </p:inputText>
                             <br/>
 
                             <p:outputLabel for="category" value="Category:" />
-                            <p:selectOneMenu id="category" value="#{createAuctionBean.category}" style="width:125px" required="true">
-                                <f:selectItems value="#{createAuctionBean.categoryOptions}" />
+                            <p:selectOneMenu id="category" value="#{auctionBean.category}" style="width:125px" required="true">
+                                <f:selectItems value="#{auctionBean.categoryOptions}" />
                             </p:selectOneMenu>
                             <br/>
 
                             <p:outputLabel for="description" value="Description:" />
                             <p:inputTextarea rows="6" cols="33" id="description" 
-                                             value="#{createAuctionBean.description}" 
+                                             value="#{auctionBean.description}" 
                                              required="true" 
                                              label="Description"/>
                             <br/>
 
                             <p:outputLabel for="endtime" value="End Time:" />
                             <p:calendar id="endtime"
-                                        value="#{createAuctionBean.endTime}"
-                                        mindate="#{createAuctionBean.currentDate}" 
+                                        value="#{auctionBean.endTime}"
+                                        mindate="#{auctionBean.currentDate}" 
                                         pattern="MM/dd/yyyy HH:mm:ss" required="true"/>
 
                         </h:panelGrid>
@@ -52,7 +52,7 @@
 
 
                             <h:outputText value="Datetime:" />
-                            <h:outputText value="#{createAuctionBean.endTime}">
+                            <h:outputText value="#{auctionBean.endTime}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
 
@@ -63,7 +63,7 @@
 
                     <p:toolbar>
                         <f:facet name="left">
-                            <p:commandButton value="Submit" update="panel" actionListener="#{createAuctionBean.create}" style="margin-right:20px;" />
+                            <p:commandButton value="Submit" update="panel" actionListener="#{auctionBean.create}" style="margin-right:20px;" />
                         </f:facet>
 
 

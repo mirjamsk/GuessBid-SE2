@@ -4,16 +4,18 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Auction List</title>
+
     </h:head>
-    <h:body >
+    <h:body>       
         <ui:composition>
 
             <h:form>  
 
-                <p:dataTable var="auction" lazy="true" value="#{listAuctionsBean.lazyModel}"  widgetVar="auctionsTable"
+                <p:dataTable var="auction" lazy="true" value="#{listAuctionsBean.lazyOwnModel}"  widgetVar="auctionsTable"
                              emptyMessage="No auctions found with given criteria"
                              paginator="true" rows="5" styleClass="paginated"
                              paginatorPosition="bottom" 
@@ -36,9 +38,10 @@
                                 <f:convertDateTime dateStyle="short" />
                             </h:outputText>   <br/>
                             <h:outputText value="#{auction.category}" style="font-style: italic " />  <br/>
-                            <h:outputText value="#{auction.description}" converter="StringTruncater" />
+                            <h:outputText value="#{auction.description}" converter="StringTruncater" /> <br/>
+
                         </div>
-                    </p:column>
+                    </p:column> 
 
                     <p:column  headerText="Time Left" sortBy="#{auction.endTime}" class="auction-filter-column"/>  
                     <p:column  headerText="Newest" sortBy="#{auction.timestamp}" class="auction-filter-column"/>  
@@ -49,7 +52,6 @@
                 </p:dataTable>  
             </h:form> 
         </ui:composition>
-
     </h:body>
 </html>
 

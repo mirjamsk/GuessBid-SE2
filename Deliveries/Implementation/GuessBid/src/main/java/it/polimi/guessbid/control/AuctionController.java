@@ -35,7 +35,9 @@ public class AuctionController {
     @EJB
     OutcomeNotificationController onc;
     
-    private int totalFilterdRowsCnt = 0;
+    private int totalFilterdRowsCntAA = 0;
+    private int totalFilterdRowsCntA = 0;
+
 
     private List categoryOptions;
 
@@ -76,8 +78,11 @@ public class AuctionController {
         return em.createNamedQuery("Category.findAll").getResultList();
     }
 
-    public int getTotalFilterdRowsCnt() {
-        return totalFilterdRowsCnt;
+    public int getTotalFilterdRowsCntAA() {
+        return totalFilterdRowsCntAA;
+    }
+    public int getTotalFilterdRowsCntA() {
+        return totalFilterdRowsCntA;
     }
 
     public List getAllAuctions() {
@@ -107,18 +112,29 @@ public class AuctionController {
         query.setFirstResult(start);
         return query.getResultList();
     }
-
-    public List<ActiveAuctions> findActiveAuctions(int start, int end, String sortField, SortOrder sortOrder, Map filters) {
-        CriteriaQuery<ActiveAuctions> cq = getFilteredQuery(sortField, sortOrder, filters);
-        TypedQuery<ActiveAuctions> query = em.createQuery(cq);
-        this.totalFilterdRowsCnt = query.getResultList().size();
+    
+    public List<Auction> findAuctions(int start, int end, String sortField, SortOrder sortOrder, Map filters) {
+        CriteriaQuery<Auction> cq = getFilteredQueryAuctions(sortField, sortOrder, filters);
+        TypedQuery<Auction> query = em.createQuery(cq);
+        this.totalFilterdRowsCntA = query.getResultList().size();
 
         query.setMaxResults(end - start);
         query.setFirstResult(start);
         return query.getResultList();
     }
 
-    private CriteriaQuery<ActiveAuctions> getFilteredQuery(String sortField, SortOrder sortOrder, Map filters) {
+
+    public List<ActiveAuctions> findActiveAuctions(int start, int end, String sortField, SortOrder sortOrder, Map filters) {
+        CriteriaQuery<ActiveAuctions> cq = getFilteredQueryActiveAuctions(sortField, sortOrder, filters);
+        TypedQuery<ActiveAuctions> query = em.createQuery(cq);
+        this.totalFilterdRowsCntAA = query.getResultList().size();
+
+        query.setMaxResults(end - start);
+        query.setFirstResult(start);
+        return query.getResultList();
+    }
+
+    private CriteriaQuery<ActiveAuctions> getFilteredQueryActiveAuctions(String sortField, SortOrder sortOrder, Map filters) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<ActiveAuctions> cq = cb.createQuery(ActiveAuctions.class);
         Root<ActiveAuctions> auction = cq.from(ActiveAuctions.class);
@@ -156,6 +172,65 @@ public class AuctionController {
         }
 
         return cq;
+    }
+    
+    private CriteriaQuery<Auction> getFilteredQueryAuctions(String sortField, SortOrder sortOrder, Map filters) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Auction> cq = cb.createQuery(Auction.class);
+        Root<Auction> auction = cq.from(Auction.class);
+        Predicate predicateCategory = null;
+        Predicate predicateUserId = null;
+        Predicate predicatesGlobal = null;
+        Predicate predicateTemp = null;
+
+        if (filters != null) {
+            if (filters.containsKey("globalFilter")) {
+                predicatesGlobal = cb.or(
+                        cb.like(auction.get("name"), "%" + filters.get("globalFilter") + "%"),
+                        cb.like(auction.get("description"), "%" + filters.get("globalFilter") + "%"));
+            }
+
+            if (filters.containsKey("category")) {
+                predicateCategory = cb.equal(auction.get("category"), filters.get("category"));
+            }
+            if (filters.containsKey("sellerId")) {
+                predicateUserId = cb.equal(auction.get("sellerId"), filters.get("sellerId"));
+            }
+
+            if (predicateCategory != null && predicatesGlobal != null) {
+                predicateTemp = cb.and(predicateCategory, predicatesGlobal);
+            } else if (predicateCategory != null) {
+                predicateTemp = predicateCategory;
+            } else if (predicatesGlobal != null) {
+                predicateTemp = predicatesGlobal;
+            }
+            if (predicateUserId != null) {
+                if (predicateTemp == null) {
+                    predicateTemp = predicateUserId;
+                } else {
+                    predicateTemp = cb.and(predicateTemp, predicateUserId);
+                }
+            }
+            if (predicateTemp != null) {
+                cq.where(predicateTemp);
+            }
+        }
+
+        if (sortField != null) {
+            if (sortOrder.equals(SortOrder.ASCENDING)) {
+                cq.orderBy(cb.asc(auction.get(sortField)));
+            } else {
+                cq.orderBy(cb.desc(auction.get(sortField)));
+            }
+        } else {
+            cq.orderBy(cb.desc(auction.get("timestamp")));
+        }
+
+        return cq;
+    }
+
+    public void remove(Auction auction) {
+        em.remove(auction);
     }
 
 }

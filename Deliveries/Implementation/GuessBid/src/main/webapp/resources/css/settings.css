@@ -1,0 +1,61 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 24, 2015, 11:36:11 PM
+    Author     : Mirjam
+*/
+
+.setings-wrap{
+    margin: 5%;
+}
+.current-settings {
+   padding: 2%;
+}
+.current-settings .ui-grid-row{
+   padding: 0.5%;
+}
+.current-settings .ui-grid-row>div{
+     font-family: 'Lato', sans-serif !important;
+    font-size: 17px;
+}
+.current-settings .ui-grid-row>div:first-child{
+   font-weight: bold;
+}
+
+.current-settings .ui-grid-row>div:nth-child(2){
+   font-weight: 400;
+}
+.current-settings .ui-grid-row a{
+   color: #6495ED;
+}
+.change-email,
+.change-username,
+.change-password{
+    padding: 2%;
+    display:none;    
+}
+
+.change-email div,
+.change-email label,
+.change-username div,
+.change-username label,
+.change-password div,
+.change-password label,
+.change-password input{
+    font-family: 'Lato', sans-serif !important;
+    font-size: 17px;
+}
+.change-username input,
+.change-username input{
+    margin-right: 10px;
+}
+.change-email button,
+.change-username button,
+.change-password button{
+    margin: 0 !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 16px !important;
+}

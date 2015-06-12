@@ -34,10 +34,11 @@ and open the template in the editor.
     border-width: 0px !important;
     border: none !important;
     margin: 5px 0 !important;
+    width: 100%;
+
 }
 .notifications-result-table {
     display: block;  
-    min-width: 300px;
 }
 .notifications-result-table tr{
     display: inline-block;

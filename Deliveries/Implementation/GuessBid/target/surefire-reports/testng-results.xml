@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="185" started-at="2015-06-10T17:23:26Z" finished-at="2015-06-10T17:23:26Z">
+  <suite name="Surefire suite" duration-ms="167" started-at="2015-06-12T10:02:56Z" finished-at="2015-06-12T10:02:56Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="185" started-at="2015-06-10T17:23:26Z" finished-at="2015-06-10T17:23:26Z">
+    <test name="Surefire test" duration-ms="167" started-at="2015-06-12T10:02:56Z" finished-at="2015-06-12T10:02:56Z">
       <class name="it.polimi.guessbid.control.UserControllerTest">
-        <test-method status="PASS" signature="newUsersShouldBelongToUserGroupAndSavedOnce()[pri:0, instance:newUsersShouldBelongToUserGroupAndSavedOnce(it.polimi.guessbid.control.UserControllerTest)]" name="newUsersShouldBelongToUserGroupAndSavedOnce" duration-ms="114" started-at="2015-06-10T19:23:26Z" finished-at="2015-06-10T19:23:26Z">
+        <test-method status="PASS" signature="newUsersShouldBelongToUserGroupAndSavedOnce()[pri:0, instance:newUsersShouldBelongToUserGroupAndSavedOnce(it.polimi.guessbid.control.UserControllerTest)]" name="newUsersShouldBelongToUserGroupAndSavedOnce" duration-ms="117" started-at="2015-06-12T12:02:56Z" finished-at="2015-06-12T12:02:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- newUsersShouldBelongToUserGroupAndSavedOnce -->
