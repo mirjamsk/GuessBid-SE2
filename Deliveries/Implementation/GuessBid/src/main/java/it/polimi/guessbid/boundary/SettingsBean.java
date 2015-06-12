@@ -9,6 +9,7 @@ package it.polimi.guessbid.boundary;
  *
  * @author Mirjam
  */
+import it.polimi.guessbid.control.PasswordEncrypter;
 import it.polimi.guessbid.control.UserController;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.util.Code;
@@ -25,6 +26,33 @@ public class SettingsBean {
 
     String newUsername;
     String newEmail;
+    String oldPassword;
+    String newPassword1;
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword1() {
+        return newPassword1;
+    }
+
+    public void setNewPassword1(String newPassword1) {
+        this.newPassword1 = newPassword1;
+    }
+
+    public String getNewPassword2() {
+        return newPassword2;
+    }
+
+    public void setNewPassword2(String newPassword2) {
+        this.newPassword2 = newPassword2;
+    }
+    String newPassword2;
 
     public String getNewEmail() {
         return newEmail;
@@ -73,4 +101,26 @@ public class SettingsBean {
         return null;
     }
 
+    public String updatePassword() {
+        User u = getLoggedUser();
+
+        if (!newPassword1.equals(newPassword2)) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Passwords don't match"));
+        } else if (!PasswordEncrypter.encryptPassword(oldPassword).equals(u.getPassword())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Your old password isn't correct"));
+    } else {
+            int res = uc.updatePassword(getLoggedUser(), newPassword1);
+            if (res == Code.PASSWORD_SUCCESSFULLY_CHANGED) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Password changed"));
+                //redirect to auciton
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
+            }
+        }
+        oldPassword = "";
+        newPassword1 = "";
+        newPassword2 = "";
+
+        return null;
+    }
 }

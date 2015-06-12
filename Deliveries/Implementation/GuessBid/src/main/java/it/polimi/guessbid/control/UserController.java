@@ -97,4 +97,15 @@ public class UserController {
         }
     }
 
+    public int updatePassword(User user, String password) {
+        try {
+            user.setPassword(password);
+            em.merge(user);
+            em.flush();
+            return Code.PASSWORD_SUCCESSFULLY_CHANGED;
+        } catch (Exception e) {
+            return Code.ERROR;
+        }
+    }
+
 }

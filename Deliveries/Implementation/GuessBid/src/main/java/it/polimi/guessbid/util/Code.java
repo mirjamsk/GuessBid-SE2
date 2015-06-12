@@ -18,6 +18,7 @@ public class Code {
     public static int NEW_EMAIL_SAME_AS_OLD = 5;
     public static int EMAIL_SUCCESSFULLY_CHANGED = 6;
     public static int DUPLICATE_EMAIL = 7;
+    public static int PASSWORD_SUCCESSFULLY_CHANGED = 8;
 
     
 }
