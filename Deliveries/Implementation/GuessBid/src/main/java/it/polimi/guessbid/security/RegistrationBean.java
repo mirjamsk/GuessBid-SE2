@@ -69,7 +69,7 @@ public class RegistrationBean {
         
         
         try {
-            request.login(user.getEmail(), this.rawpassword);
+            request.login(String.valueOf(user.getUserId()), this.rawpassword);
             return "/user/home?faces-redirect=true";
         } catch (ServletException e) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Automatic Login Failed after registration","Automatic Login Failed after registratio"));

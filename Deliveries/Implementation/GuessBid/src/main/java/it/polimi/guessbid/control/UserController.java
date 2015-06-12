@@ -46,9 +46,7 @@ public class UserController {
     }
 
     public User getLoggedUser() {
-        return getUserByEmail(principal.getName());
-        //return em.find(User.class, principal.getName());
-        // return em.createQuery("from user WHERE email=:email", User.class).setParameter("email",  principal.getName()).getSingleResult();
+        return getUserById(Integer.parseInt(principal.getName()));
     }
 
     public User getUserById(int id) {

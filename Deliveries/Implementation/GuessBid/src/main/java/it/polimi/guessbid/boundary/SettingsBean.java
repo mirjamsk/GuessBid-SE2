@@ -59,7 +59,7 @@ public class SettingsBean {
     }
 
     public String updateEmail() {
-        int res = uc.updateEmail(getLoggedUser(), newEmail);
+        int res = uc.updateEmail(getLoggedUser(), newEmail.trim());
         if (res == Code.EMAIL_SUCCESSFULLY_CHANGED) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Email changed"));
         } else if (res == Code.NEW_EMAIL_SAME_AS_OLD) {

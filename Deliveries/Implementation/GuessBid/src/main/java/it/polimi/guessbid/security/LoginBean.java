@@ -5,8 +5,11 @@
  */
 package it.polimi.guessbid.security;
 
+import it.polimi.guessbid.control.UserController;
+import it.polimi.guessbid.entity.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -22,10 +25,11 @@ import javax.servlet.http.HttpServletRequest;
 @Named
 @RequestScoped
 public class LoginBean {
-    
+
     @Inject
     private Logger logger;
-    
+    @EJB
+    UserController uc;
 
     private String username;
     private String password;
@@ -53,14 +57,19 @@ public class LoginBean {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
         try {
-            request.login(this.username, this.password);
-            return "/user/home?faces-redirect=true";
+            User u = uc.getUserByEmail(this.username);
+            if (u != null) {
+                request.login(String.valueOf(u.getUserId()), this.password);
+                return "/user/home?faces-redirect=true";
+            }
         } catch (ServletException e) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Invalid login","Login Failed"));
-            logger.log(Level.SEVERE,"Login Failed");
-            return null;
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid login", "Login Failed"));
+            logger.log(Level.SEVERE, "Login Failed");
+
         }
+        return null;
     }
+
     public String logout() {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();

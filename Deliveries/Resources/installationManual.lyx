@@ -398,7 +398,7 @@ Name
 \begin_inset space ~
 \end_inset
 
-Column: email
+Column: user_id
 \end_layout
 
 \begin_layout Description
@@ -434,7 +434,7 @@ Name
 \begin_inset space ~
 \end_inset
 
-Column: email
+Column: user_id
 \end_layout
 
 \begin_layout Description
