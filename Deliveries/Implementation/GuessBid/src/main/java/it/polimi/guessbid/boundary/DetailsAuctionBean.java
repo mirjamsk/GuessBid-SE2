@@ -65,5 +65,10 @@ public class DetailsAuctionBean {
     public boolean isAuctionFinished() {
         return Calendar.getInstance().getTime().after(new java.util.Date(this.auction.getEndTime().getTime()));
     }
+    
+        public String deleteAuction() {
+            am.delete( auction);
+            return "/user/home?faces-redirect=true";
+    }
 
 }

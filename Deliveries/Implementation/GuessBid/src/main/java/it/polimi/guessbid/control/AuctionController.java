@@ -229,8 +229,9 @@ public class AuctionController {
         return cq;
     }
 
-    public void remove(Auction auction) {
-        em.remove(auction);
+    public void delete(Auction auction) {
+        Auction a = em.merge(auction);
+        em.remove(a);
     }
 
 }
