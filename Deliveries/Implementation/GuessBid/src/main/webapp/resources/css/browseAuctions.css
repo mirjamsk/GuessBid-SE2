@@ -15,7 +15,6 @@ and open the template in the editor.
 
 .auctions-result-wrap{
     display: inline-block;
-    width: 55%;
     font-size: 15px !important;
 }
 .auctions-result-wrap tbody  {     
@@ -71,7 +70,7 @@ and open the template in the editor.
     font-weight: 100;
 }
 .auction-search-field{
-    width:98%;
+    width:100%;
     font-family: 'Lato', sans-serif !important;
     font-size: 17px !important;
 }
@@ -118,10 +117,7 @@ and open the template in the editor.
     background-image: none !important;
     box-shadow: none !important;
     border: none !important;
+    line-height: initial;
 }
 
-@media (min-width: 1325px) {
-    .auction-search-field{
-        width:50%;
-    }
-}
+

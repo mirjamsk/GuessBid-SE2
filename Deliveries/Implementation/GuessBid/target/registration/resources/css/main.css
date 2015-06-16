@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Mirjam
 */
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,300italic,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,300italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400italic);
 
 
@@ -18,6 +18,10 @@ html, body {
     height: 100%;
     background-color: #fafafa;
     font-family: 'Lato', sans-serif !important;
+    font-weight: 300 !important;
+}
+.row{
+    margin-left: 0px;
 }
 button{
     background-image: none !important;
@@ -48,6 +52,7 @@ button{
 }
 
 
+
 @media (min-width: 160px) {
     .page-wrap { margin-bottom: -100px; /* equal to footer height */ }
     .site-footer, .page-wrap:after { height: 100px; }
@@ -57,4 +62,10 @@ button{
     .page-wrap { margin-bottom: -80px; } /* equal to footer height */
     .footer-header { padding-right: 40px; }
     .site-footer, .page-wrap:after { height: 80px; }   
+}
+@media (max-width: 992px) {
+
+    .row{
+        margin-right: 0px;
+    }
 }

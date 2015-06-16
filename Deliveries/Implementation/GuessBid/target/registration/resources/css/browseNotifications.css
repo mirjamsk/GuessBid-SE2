@@ -9,16 +9,11 @@ and open the template in the editor.
 */
 
 .notifications-result-wrap {
-    display: inline-block;
-    width: 25%;
-    vertical-align: top;
-    margin: 50px 7% 0 7%;
     font-size: 13.5px !important;
     background-color: #fff!important;
 }
 .notifications-result-wrap div{
     border-bottom: 1px #f9f9f9 solid;
-
 }
 .notifications-result-wrap  td, .notifications-result-wrap tr, .notifications-result-wrap  div{
     font-family: 'Roboto', sans-serif !important;
@@ -35,7 +30,6 @@ and open the template in the editor.
     border: none !important;
     margin: 5px 0 !important;
     width: 100%;
-
 }
 .notifications-result-table {
     display: block;  
@@ -43,17 +37,12 @@ and open the template in the editor.
 .notifications-result-table tr{
     display: inline-block;
 }
-.notifications-result-table th{
-    width: auto;
-}
+
 .notifications-result-wrap tbody .notification-column-header{
     display: block !important;
-    width: 100% !important;
 }
-.notifications-result-wrap thead th, .notifications-result-wrap thead  {
-    background-color: #fafafa !important;
-    font-size: 14.5px;
-
+.notifications-result-wrap thead   {
+    display:none;
 }
 .notifications-result-table th, .notifications-result-table td:first-of-type{
     border: none !important; 
@@ -72,7 +61,6 @@ and open the template in the editor.
     font-weight: 100;
     padding-bottom: 10px !important;
 }
-
 
 .notification-more-link {
     padding: 6px 5px;

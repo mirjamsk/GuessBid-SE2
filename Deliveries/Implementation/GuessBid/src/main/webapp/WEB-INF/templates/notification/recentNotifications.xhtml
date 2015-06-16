@@ -10,14 +10,14 @@
     </h:head>
     <h:body >
         <ui:composition>
+            <h4>Recent notifications</h4>
             <h:form>  
-
                 <p:dataTable var="notification" lazy="true" value="#{listNotificationsBean.lazyModel}"  widgetVar="notificationsTable"
                              emptyMessage="No notifications "
                              paginator="false" rows="5" 
                              class="notifications-result-table" >  
 
-                    <p:column class="notification-column-header" headerText="Recent notifications" >
+                    <p:column>
                         <div class="notification-list-item" > 
 
                             <h:outputText value="#{notification.timestamp}" style="font-style: italic " >

@@ -6,6 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>GuessBid - Home </title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="navigation.css"  />
         <h:outputStylesheet library="css" name="footer.css"  /> 
@@ -23,19 +24,23 @@
             </div>
 
 
-            <div class="user-home-wrap">
-                <div class="user-credit">
-                    Credit: <h:outputText value="#{userBean.credit}"/>
-                </div>
-                <div class="notifications-result-wrap">
+            <div class="user-home-wrap container">
+                <div class="jumbotron-wrap">
                     <ui:insert>
-                        <ui:include src="../WEB-INF/templates/notification/recentNotifications.xhtml" />
+                        <ui:include src="../WEB-INF/templates/UIelements/home_header.xhtml" />
                     </ui:insert>    
                 </div>
-                <div class="auctions-result-wrap">
-                    <ui:insert>
-                        <ui:include src="../WEB-INF/templates/auction/browseAuctions.xhtml" />
-                    </ui:insert>    
+                <div class="row">
+                    <div class="notifications-result-wrap col-md-3">
+                        <ui:insert>
+                            <ui:include src="../WEB-INF/templates/notification/recentNotifications.xhtml" />
+                        </ui:insert>    
+                    </div>
+                    <div class="auctions-result-wrap  col-md-8 col-md-offset-1 col-sm-12">
+                        <ui:insert>
+                            <ui:include src="../WEB-INF/templates/auction/browseAuctions.xhtml" />
+                        </ui:insert>    
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +50,9 @@
                 <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
             </ui:insert>    
         </div>
+        <h:outputScript name="js/bootstrap.min.js" />  
         <h:outputScript name="js/userHome.js" />
+
 
     </h:body>
 </html>

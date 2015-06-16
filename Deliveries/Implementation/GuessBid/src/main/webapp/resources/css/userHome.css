@@ -4,10 +4,39 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : May 24, 2015, 11:36:11 PM
+    Created on : Jun 16, 2015, 4:59:26 PM
     Author     : Mirjam
 */
 
-.user-home-wrap{
-    margin-top: 5%;
+.jumbotron{
+    background-color: #B8DDE6;
+    border-radius: 0 !important;
+    font-weight: 700;
+    color: #749299;
+
+}
+
+.jumbotron h1{
+    font-weight: 700;
+    display: none;
+
+}
+.jumbotron p{
+    color: #46575C;
+    margin: 0;
+}
+.jumbotron p:nth-of-type(2){
+    color:#EC8574
+}
+
+
+@media (min-width: 768px) {
+
+    .jumbotron h1{
+        display:block;
+            min-height: 110px;
+    }
+    .jumbotron-welcome-msg{
+    margin-top: 30px;
+}
 }
