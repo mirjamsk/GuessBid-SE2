@@ -16,6 +16,7 @@ and open the template in the editor.
 .auctions-result-wrap{
     display: inline-block;
     font-size: 15px !important;
+    margin-top: 60px;
 }
 .auctions-result-wrap tbody  {     
     border-width: 0 !important;
@@ -42,14 +43,14 @@ and open the template in the editor.
     width: 100% !important;
 }
 .auctions-result-wrap thead th, .auctions-result-wrap thead  {
-    background-color: #fafafa !important;
+    background-color: #FFF !important;
     font-size: 14.5px;
-    
+
 }
 .auctions-result-table th, .auctions-result-table td:first-of-type{
     border: none !important; 
     background-image: none !important;
-    background-color: #FFF !important;
+    background-color: #fcfcfc !important;
 }
 
 
@@ -62,7 +63,7 @@ and open the template in the editor.
 .auction-column-header{
     width: 70%;  
     text-align: right  !important;
-    
+
 }
 .auction-column-header .ui-column-title{
     text-align: right;
@@ -77,12 +78,12 @@ and open the template in the editor.
 .ui-datatable .ui-datatable-header{
     text-align: left !important;
     padding: 0 !important;
-    background: #fff;
+    background: #fcfcfc;
 }
 .ui-widget-header, .ui-widget-content{
     border: none !important;
     background: none !important;
-    
+
 }
 .ui-datatable tbody td{
     padding: 0px !important;
@@ -93,13 +94,13 @@ and open the template in the editor.
     font-family: "Roboto", sans-serif !important;
 }
 .auction-filter-column select{
-    background-color: #fff !important;
+    background-color: #fcfcfc !important;
     background-image: none !important;
 }
 
 .auction-filter-column select option{
     padding: 2px 5px;
-    background-color: #fff !important;
+    background-color: #fcfcfc !important;
     background-image: none !important;
     font-weight: 100;
     font-family: "Roboto", sans-serif !important;
@@ -121,3 +122,9 @@ and open the template in the editor.
 }
 
 
+@media (min-width: 993px) {
+
+    .auctions-result-wrap{
+        margin-top: 0px;
+    }
+}

@@ -10,7 +10,7 @@ and open the template in the editor.
 
 .notifications-result-wrap {
     font-size: 13.5px !important;
-    background-color: #fff!important;
+    margin-top:40px;
 }
 .notifications-result-wrap div{
     border-bottom: 1px #f9f9f9 solid;
@@ -26,10 +26,15 @@ and open the template in the editor.
     background-color: initial !important}
 
 .notifications-result-wrap tbody  tr{
+    background-color: #fcfcfc!important;
     border-width: 0px !important;
     border: none !important;
     margin: 5px 0 !important;
     width: 100%;
+}
+
+.notifications-result-wrap tbody  tr:nth-of-type(n+3){
+    display:none
 }
 .notifications-result-table {
     display: block;  
@@ -70,4 +75,11 @@ and open the template in the editor.
     font-size: 17px;
     color: cornflowerblue;
     text-decoration: underline;
+}
+
+@media (min-width: 993px) {
+
+    .notifications-result-wrap tbody  tr:nth-of-type(n+3){
+        display:block
+    }
 }

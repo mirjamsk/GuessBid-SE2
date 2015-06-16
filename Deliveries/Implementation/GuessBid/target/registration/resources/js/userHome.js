@@ -5,5 +5,5 @@
  */
 
 $(document).ready(function(){
-    $('select>option:first').html('Category &#9662;')
+    $('select>option:first').html('Category')
 });

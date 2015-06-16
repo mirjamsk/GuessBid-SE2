@@ -8,11 +8,14 @@ and open the template in the editor.
     Author     : Mirjam
 */
 
+.user-home-wrap{
+    margin-bottom: 5%;
+}
 .jumbotron{
-    background-color: #B8DDE6;
+    background-color: #fcfcfc;
     border-radius: 0 !important;
     font-weight: 700;
-    color: #749299;
+    color: #6E738A;
 
 }
 
