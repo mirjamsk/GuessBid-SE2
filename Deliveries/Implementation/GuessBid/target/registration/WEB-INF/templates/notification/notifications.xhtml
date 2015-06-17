@@ -26,10 +26,10 @@
                             </h:outputText>  
                             <br/>
                             <h:outputText value="#{notification.description}"  /> <h:outputText value="#{notification.rank}" rendered="#{!notification.isOutcome}" />
-                             <br/>Auction:
+                             <br/>
                             <h:link  outcome="auction.xhtml" >
                                 <f:param  name="id" value="#{notification.NAuctionId.auctionId}"/>
-                                <h:outputText  value="#{notification.NAuctionId.name}" style="font-weight: 700; "  converter="StringTruncaterTiny"/>
+                                <h:outputText  value="Auction #{notification.NAuctionId.name}" style="font-weight: 700; "  converter="StringTruncaterTiny"/>
                             </h:link> 
                         </div>
                     </p:column>

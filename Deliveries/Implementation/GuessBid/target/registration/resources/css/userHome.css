@@ -11,12 +11,14 @@ and open the template in the editor.
 .user-home-wrap{
     margin-bottom: 5%;
 }
+#navbar ul {
+    border-bottom: 0px  !important;
+}
 .jumbotron{
     background-color: #fcfcfc;
     border-radius: 0 !important;
     font-weight: 700;
     color: #6E738A;
-
 }
 
 .jumbotron h1{

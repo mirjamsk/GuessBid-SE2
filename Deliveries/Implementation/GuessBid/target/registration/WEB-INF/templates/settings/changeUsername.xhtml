@@ -12,16 +12,14 @@
         <ui:composition>
             <div >
                 <h:form id="usernameForm">
-                    <p:panel id="usernamePanel" style="margin-bottom:10px;">
                         <div>New username:</div>
                         <p:inputText id="username" value="#{settingsBean.newUsername}" required="true" label="Name">
                             <f:validateLength minimum="2" />
                         </p:inputText>
                         <p:commandButton value="Update"
-                                         update="usernamePanel, current-username"
+                                         update="usernameForm, current-username"
                                          action="#{settingsBean.updateUsername}"  />
                         <p:messages id="messages1" />
-                    </p:panel>
                 </h:form>
             </div>
         </ui:composition>

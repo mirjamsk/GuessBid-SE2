@@ -12,29 +12,29 @@ and open the template in the editor.
     margin: 5%;
 }
 .current-settings {
-   padding: 2%;
+   *padding: 2%;
 }
-.current-settings .ui-grid-row{
-   padding: 0.5%;
+.current-settings .row{
+    line-height: 2;
 }
-.current-settings .ui-grid-row>div{
-     font-family: 'Lato', sans-serif !important;
+.current-settings .row>div{
+    font-family: 'Lato', sans-serif !important;
     font-size: 17px;
 }
-.current-settings .ui-grid-row>div:first-child{
+.current-settings .row>div:first-child{
    font-weight: bold;
+   color: #666A81;
 }
 
-.current-settings .ui-grid-row>div:nth-child(2){
+.current-settings .row>div:nth-child(2){
    font-weight: 400;
 }
-.current-settings .ui-grid-row a{
+.current-settings .row a{
    color: #6495ED;
 }
 .change-email,
 .change-username,
 .change-password{
-    padding: 2%;
     display:none;    
 }
 

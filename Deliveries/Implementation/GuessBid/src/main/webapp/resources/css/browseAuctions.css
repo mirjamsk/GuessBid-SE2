@@ -14,8 +14,18 @@ and open the template in the editor.
 }
 .time-remaining{
     color: #EC8574;
+    font-size: 14px;
 }
-
+.auction-category{
+    font-size: 14px;
+}
+.auction-description{
+    font-size: 15.5px;
+}
+.auction-name{
+    color: #666A81;
+    font-weight:700;
+}
 .auctions-result-wrap{
     display: inline-block;
     font-size: 15px !important;

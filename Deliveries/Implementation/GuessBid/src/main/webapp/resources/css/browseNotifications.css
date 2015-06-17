@@ -12,6 +12,15 @@ and open the template in the editor.
     font-size: 13.5px !important;
     margin-top:40px;
 }
+.notification-date{
+    font-size: 14px;
+    color:#888;
+}
+.notification-auction-link a{
+    color: #666A81;
+    font-weight:700;
+    text-decoration: underline;
+}
 .notifications-result-wrap div{
     border-bottom: 1px #f9f9f9 solid;
 }
@@ -19,6 +28,7 @@ and open the template in the editor.
     font-family: 'Roboto', sans-serif !important;
     font-weight: 400 !important;
 }
+
 
 .notifications-result-wrap tbody  {
     margin-top: 20px;

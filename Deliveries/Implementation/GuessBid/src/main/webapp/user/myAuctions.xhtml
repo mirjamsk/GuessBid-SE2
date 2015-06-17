@@ -7,14 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>GuessBid - Manage Auctions </title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
         <h:outputStylesheet name="grid/grid.css" library="primefaces" />
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="navigation.css"  />
         <h:outputStylesheet library="css" name="footer.css"  /> 
         <h:outputStylesheet library="css" name="browseAuctions.css"  />
-                <h:outputStylesheet library="css" name="userHome.css"  />
-
-
     </h:head>
     <h:body>
         <div class="page-wrap" style="text-align: center">
@@ -38,6 +36,7 @@
                 <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
             </ui:insert>    
         </div>
+        <h:outputScript name="js/bootstrap.min.js" />  
         <h:outputScript name="js/userHome.js" />
         <h:outputScript name="js/auction.js" />
 

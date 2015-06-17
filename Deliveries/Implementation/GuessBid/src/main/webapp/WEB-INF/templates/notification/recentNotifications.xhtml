@@ -20,16 +20,17 @@
                     <p:column>
                         <div class="notification-list-item" > 
 
-                            <h:outputText value="#{notification.timestamp}" style="font-style: italic " >
-                                <f:convertDateTime dateStyle="short" />
+                            <h:outputText value="#{notification.timestamp}" class="notification-date" >
+                                <f:convertDateTime dateStyle="medium" timeStyle="full" />
                             </h:outputText>  
                             <br/>
                             <h:outputText value="#{notification.description}"  /> <h:outputText value="#{notification.rank}" rendered="#{!notification.isOutcome}" />
-                            <br/>Auction:
-                            <h:link  outcome="auction.xhtml" >
-                                <f:param  name="id" value="#{notification.NAuctionId.auctionId}"/>
-                                <h:outputText  value="#{notification.NAuctionId.name}" style="font-weight: 700; "  converter="StringTruncaterTiny"/>
-                            </h:link> 
+                            <p class="notification-auction-link">
+                                <h:link  outcome="auction.xhtml" >
+                                    <f:param  name="id" value="#{notification.NAuctionId.auctionId}"/>
+                                    <h:outputText  value="Auction #{notification.NAuctionId.name}"   converter="StringTruncaterTiny"/>
+                                </h:link> 
+                            </p>
                         </div>
                     </p:column>
                 </p:dataTable>  

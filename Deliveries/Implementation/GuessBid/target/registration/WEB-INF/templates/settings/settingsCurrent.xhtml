@@ -4,39 +4,34 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      >
     <h:head>
-        <title>Auction List</title>
+        <title>Current settings</title>
     </h:head>
     <h:body >
         <ui:composition>
-            <p:panel id="current-settings-panel" style="margin-bottom:10px;">
-
-                <div class="ui-grid ui-grid-responsive">
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-2">Username</div>
-                        <div class="ui-grid-col-2"><h:outputText id="current-username" value="#{userBean.username}" /></div>
-                        <div class="ui-grid-col-2"><a id="change-username-link" href="#">Change</a></div>
+                    <div class="row">
+                        <div class="col-md-3">Username</div>
+                        <div class="col-md-3"><h:outputText id="current-username" value="#{userBean.username}" /></div>
+                        <div class="col-md-3"><a id="change-username-link" href="#">Change</a></div>
                     </div>
 
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-2">Password</div>
-                        <div class="ui-grid-col-2">*****</div>
-                        <div class="ui-grid-col-2"><a id="change-password-link" href="#">Change</a></div>
+                    <div class="row">
+                        <div class="col-md-3">Password</div>
+                        <div class="col-md-3">*****</div>
+                        <div class="col-md-3"><a id="change-password-link" href="#">Change</a></div>
                     </div>
 
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-2">Email</div>
-                        <div class="ui-grid-col-2"><h:outputText id="current-email" value="#{userBean.email}" /></div>
-                        <div class="ui-grid-col-2"><a id="change-email-link" href="#">Change</a></div>
+                    <div class="row">
+                        <div class="col-md-3">Email</div>
+                        <div class="col-md-3"><h:outputText id="current-email" value="#{userBean.email}" /></div>
+                        <div class="col-md-3"><a id="change-email-link" href="#">Change</a></div>
                     </div>
 
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-2">Credit</div>
-                        <div class="ui-grid-col-2"><h:outputText value="#{userBean.credit}" /></div>
+                    <div class="row">
+                        <div class="col-md-3">Credit</div>
+                        <div class="col-md-3"><h:outputText value="#{userBean.credit}" /></div>
                     </div>
-                </div>
-            </p:panel>
         </ui:composition>
 
     </h:body>
