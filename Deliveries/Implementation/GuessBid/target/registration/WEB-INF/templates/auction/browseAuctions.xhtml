@@ -32,9 +32,8 @@
                                 <h:outputText  value="#{auction.name}" style="font-weight: 700; " />
                             </h:link> 
                             <br/>
-                            Ends: <h:outputText value="#{auction.endTime}" style="font-style: italic " >
-                                <f:convertDateTime dateStyle="short" />
-                            </h:outputText>   <br/>
+                            <h:outputText value="#{auction.endTime}" class="time-remaining" converter="RemainingTime" />
+                            <br/>
                             <h:outputText value="#{auction.category}" style="font-style: italic " />  <br/>
                             <h:outputText value="#{auction.description}" converter="StringTruncater" />
                         </div>

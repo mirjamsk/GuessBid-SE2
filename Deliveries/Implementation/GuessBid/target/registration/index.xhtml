@@ -6,6 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>GuessBid</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="index.css"  />
         <h:outputStylesheet library="css" name="footer.css"  />
@@ -22,7 +23,7 @@
                         <ui:include src="WEB-INF/templates/index/register.xhtml" />
                     </ui:insert>
                 </div>
-                
+
                 <div class="login-wrap" >
                     <p class="security-header">Already a user?</p>
                     <ui:insert>
@@ -36,6 +37,8 @@
                 <ui:include src="WEB-INF/templates/UIelements/footer.xhtml" />
             </ui:insert>    
         </div>
+        <h:outputScript name="js/bootstrap.min.js" />  
+
     </h:body>
 </html>
 

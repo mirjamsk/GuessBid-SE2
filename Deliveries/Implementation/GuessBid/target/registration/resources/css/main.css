@@ -23,6 +23,9 @@ html, body {
 .row{
     margin-left: 0px;
 }
+.site-footer .row{
+    margin: 0px;
+}
 button{
     background-image: none !important;
     background-color: #fdfdfd !important;
@@ -32,13 +35,13 @@ button{
 
 .page-wrap {
     min-height: 100%;
-    margin-bottom: -150px;     /* equal to footer height */
+    margin-bottom: -200px;     /* equal to footer height */
 }
 .page-wrap:after {
     content: "";
     display: block;
 }
-.site-footer, .page-wrap:after { height: 150px; }
+.site-footer, .page-wrap:after { height: 200px; }
 
 .ui-messages-error-summary, .ui-messages-info-summary{ 
     margin:0px !important;
@@ -53,19 +56,24 @@ button{
 
 
 
-@media (min-width: 160px) {
-    .page-wrap { margin-bottom: -100px; /* equal to footer height */ }
-    .site-footer, .page-wrap:after { height: 100px; }
+@media (min-width: 185px) {
+    .page-wrap { margin-bottom: -170px; /* equal to footer height */ }
+    .site-footer, .page-wrap:after { height: 170px; }
 }
 
 @media (min-width: 530px) {
-    .page-wrap { margin-bottom: -80px; } /* equal to footer height */
-    .footer-header { padding-right: 40px; }
-    .site-footer, .page-wrap:after { height: 80px; }   
+    .page-wrap { margin-bottom: -150px; } /* equal to footer height */
+    .site-footer, .page-wrap:after { height: 150px; }   
 }
+@media (min-width: 992px) {
+    .page-wrap { margin-bottom: -105px; } /* equal to footer height */
+    .site-footer, .page-wrap:after { height: 105px; }   
+}
+
 @media (max-width: 992px) {
 
     .row{
         margin-right: 0px;
     }
+
 }

@@ -15,12 +15,14 @@ body{
 .security-wrap{
     text-align: center;
      margin-top: 50px;
+     margin-bottom: 5%;
 }
 .signup-wrap, .login-wrap{
     text-align: initial;
     display: block;
     text-align: center;
 }
+
 .login-wrap{margin-top: 80px;}
 .security-header{font-size: 22px; margin-bottom: 10px;}
 
@@ -49,6 +51,7 @@ body{
 #registrationform > div, #loginform > div {
     border: 0px !important;  
     font-family: 'Roboto', sans-serif !important;
+    line-height: 3.4;
 }
 #registrationMessages li  {
     font-family: 'Roboto', sans-serif !important; 

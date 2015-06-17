@@ -10,10 +10,15 @@
     <h:body >
         <ui:composition>
             <footer>
-                <div class="footer-links">
-                    <span class="footer-header">GuessBid</span>
-                    <span><h:link class="first after" outcome="terms-and-conditions" value="Terms and Conditions"/></span>
-                    <span><h:link outcome="FAQ" value="Frequently asked Questions"/></span>
+                <div class="footer-links row">
+                    <div class="col-md-1 col-md-offset-4" >
+                        <span class="footer-header">GuessBid</span>
+                    </div>
+                    <div class="col-md-3 ">
+                        <p><h:link class="first after" outcome="terms-and-conditions" value="Terms and Conditions"/></p>
+                        <p><h:link outcome="FAQ" value="Frequently asked Questions"/></p>
+                    </div>
+
                 </div>
             </footer> 
         </ui:composition>

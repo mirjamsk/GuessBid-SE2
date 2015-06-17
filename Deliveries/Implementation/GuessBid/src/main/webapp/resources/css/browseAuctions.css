@@ -12,6 +12,9 @@ and open the template in the editor.
 .auctions-result-wrap  td, .auctions-result-wrap tr, .auctions-result-wrap  div{
     font-family: 'Roboto', sans-serif !important;
 }
+.time-remaining{
+    color: #EC8574;
+}
 
 .auctions-result-wrap{
     display: inline-block;
@@ -92,6 +95,10 @@ and open the template in the editor.
     border: none !important;
     font-weight: 100;
     font-family: "Roboto", sans-serif !important;
+}
+.auction-filter-column .ui-column-filter {
+        width:auto !important;
+
 }
 .auction-filter-column select{
     background-color: #fcfcfc !important;
