@@ -30,6 +30,7 @@ and open the template in the editor.
     display: inline-block;
     font-size: 15px !important;
     margin-top: 60px;
+    margin-bottom: 3%;
 }
 .auctions-result-wrap tbody  {     
     border-width: 0 !important;
@@ -129,6 +130,9 @@ and open the template in the editor.
 .auctions-search-wrap{
     margin-bottom: 5px;
     background-color: #fafafa !important;
+}
+.my-auctions-wrap thead{
+    text-align: left;
 }
 /*paginator */
 .ui-paginator-page, .ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last{

@@ -55,7 +55,7 @@ public class AuctionController {
             em.flush();
             onc.setOutcomeTimer(auction);
             //oc.generateNotification(auction);
-            return Code.AUCTION_SUCCESSFULLY_CREATED;
+            return auction.getAuctionId();
         } catch (Exception e) {
             return Code.ERROR;
         }

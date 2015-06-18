@@ -4,72 +4,79 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Auction List</title>
-
+        <title>New auction form</title>
     </h:head>
     <h:body>       
         <ui:composition>
-            <div >
+            <div class="auction-form-wrap" >
                 <h:form id="form">
-                    <p:panel id="panel" header="Form" style="margin-bottom:10px;">
-                        <h:panelGrid columns="3" cellpadding="5">
-                            <p:outputLabel for="name" value="Name:" />
-                            <p:inputText id="name" value="#{auctionBean.name}" required="true" label="Name">
-                                <f:validateLength minimum="2" />
-                            </p:inputText>
-                            <br/>
+                    <div class="row">
+                        <p:outputLabel for="name" value="Name:"  class="col-md-4 col-sm-4 col-xs-4 col-xxs-4 col-tn-4" />
+                        <p:inputText id="name" 
+                                     value="#{auctionBean.name}"
+                                     required="true" label="Name" 
+                                     requiredMessage="Name field can't be empty"
+                                     validatorMessage="Name has to be at least 5 characters long"
+                                     class="col-md-8 col-sm-7  col-xs-7 col-xxs-12 col-tn-12">
+                            <f:validateLength minimum="5" />
+                        </p:inputText>
+                    </div>
+                    <div class="row">
+                        <p:outputLabel for="category" value="Category:" class="col-md-4 col-sm-4  col-xs-4 col-xxs-4 col-tn-4" />
+                        <p:selectOneMenu id="category" 
+                                         value="#{auctionBean.category}" 
+                                         style="width:220px; padding: 0px;" 
+                                         required="true"  
+                                         requiredMessage="No category chosen"
+                                         class="col-md-8 col-sm-8  col-xs-12 col-xxs-12 col-tn-12" >
+                            <f:selectItems value="#{auctionBean.categoryOptions}" />
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="row">
+                        <p:outputLabel for="endtime" value="End Time:"  class="col-md-4 col-sm-4  col-xs-4 col-xxs-12 col-tn-12" />
+                        <p:calendar id="endtime"
+                                    size="27"
+                                    value="#{auctionBean.endTime}"
+                                    mindate="#{auctionBean.currentDate}" 
+                                    pattern="MM/dd/yyyy HH:mm:ss" required="true"
+                                    requiredMessage="End time field can't be empty"
+                                    class="col-md-8 col-sm-8  col-xs-8 col-xxs-12 col-tn-12"
+                                    style="padding-left:0px;"/>
+                    </div>
+                    <div class="row">
+                        <p:outputLabel for="description" value="Description:" class="col-md-4 col-sm-4  col-xs-5 col-xxs-4 col-tn-4" />
 
-                            <p:outputLabel for="category" value="Category:" />
-                            <p:selectOneMenu id="category" value="#{auctionBean.category}" style="width:125px" required="true">
-                                <f:selectItems value="#{auctionBean.categoryOptions}" />
-                            </p:selectOneMenu>
-                            <br/>
+                        <p:inputTextarea rows="6" cols="33" id="description" 
+                                         value="#{auctionBean.description}" 
+                                         required="true" 
+                                         label="Description"
+                                         requiredMessage="Description field can't be empty"
+                                         validatorMessage="Description has to be at least 15 characters long"
+                                         class="col-md-8 col-sm-8  col-xs-8 col-xxs-12 col-tn-12"
+                                         >                          
+                            <f:validateLength minimum="15" />
+                        </p:inputTextarea>
+                    </div>
 
-                            <p:outputLabel for="description" value="Description:" />
-                            <p:inputTextarea rows="6" cols="33" id="description" 
-                                             value="#{auctionBean.description}" 
-                                             required="true" 
-                                             label="Description"/>
-                            <br/>
-
-                            <p:outputLabel for="endtime" value="End Time:" />
-                            <p:calendar id="endtime"
-                                        value="#{auctionBean.endTime}"
-                                        mindate="#{auctionBean.currentDate}" 
-                                        pattern="MM/dd/yyyy HH:mm:ss" required="true"/>
-
-                        </h:panelGrid>
-                        <p:messages id="messages" />
-
-                    </p:panel>
-
+                    <p:messages id="messages" showIcon="false" />
 
                     <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
                         <p:panelGrid id="display" columns="2" columnClasses="label,value">
-
-
                             <h:outputText value="Datetime:" />
                             <h:outputText value="#{auctionBean.endTime}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                             </h:outputText>
-
-
                         </p:panelGrid>
                     </p:dialog>
 
-
                     <p:toolbar>
                         <f:facet name="left">
-                            <p:commandButton value="Submit" update="panel" actionListener="#{auctionBean.create}" style="margin-right:20px;" />
+                            <p:commandButton value="Submit" update="form" action="#{auctionBean.create}" style="margin-right:20px;" />
                         </f:facet>
-
-
                     </p:toolbar>
                 </h:form>
-
             </div>
         </ui:composition>
     </h:body>

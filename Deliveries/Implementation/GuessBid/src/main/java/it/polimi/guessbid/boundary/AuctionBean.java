@@ -35,8 +35,8 @@ public class AuctionBean {
     private String description;
     private Date endTime;
     private SelectItem[] categoryOptions;
-    //private final Date currentDate = new Date(new Date().getTime() + 3600 * 1000); // current date plus 1hour
-    private final Date currentDate = new Date(); // current date plus 1hour
+    private final Date currentDate = new Date(new Date().getTime() + 3600 * 1000); // current date plus 1hour
+    //private final Date currentDate = new Date(); // current date plus 1hour
 
     public Date getCurrentDate() {
         return currentDate;
@@ -93,17 +93,16 @@ public class AuctionBean {
         return options;
     }
 
-    public void create() {
+    public String create() {
 
-        int res = ac.create(uc.getLoggedUser(), name, description, category, endTime);
-        if (res == Code.AUCTION_SUCCESSFULLY_CREATED) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Auction created"));
-            //redirect to auciton
-        } else {
+        int auctId = ac.create(uc.getLoggedUser(), name, description, category, endTime);
+        if (auctId == Code.ERROR) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
+        } else {
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Auction created"));
+             return "/user/auction.xhtml?id="+auctId+"&faces-redirect=true";
         }
+        return null;
     }
-
-
 
 }
