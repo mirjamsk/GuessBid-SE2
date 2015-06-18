@@ -14,7 +14,6 @@ import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.Notification;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.entity.WinningBid;
-import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -43,7 +42,6 @@ public class OutcomeNotificationTimer {
 
     @EJB
     BidController bc;
-    
 
     public void setTimer(Auction auction) {
         TimerConfig tc = new TimerConfig(auction, true);
@@ -93,22 +91,23 @@ public class OutcomeNotificationTimer {
         }
         return winningBid;
     }
+
     private Bid findSuccessionalWinningBid(Auction auction) {
         Bid winningBid = null;
         int rank = 2;
         int bidsNb = bc.countBidsOfAuction(auction);
         boolean foundWinner = false;
-        
-        Bid prevBid = getBidAtAuctionRank(rank-1, auction.getAuctionId());
+
+        Bid prevBid = getBidAtAuctionRank(rank - 1, auction.getAuctionId());
         Bid currBid = getBidAtAuctionRank(rank, auction.getAuctionId());
         Bid nextBid = null;
         User currUser = getUserAtAuctionRank(rank, auction.getAuctionId());
-        
-        while(!foundWinner && rank < bidsNb){
-            nextBid = getBidAtAuctionRank(rank+1, auction.getAuctionId());
-            if(currUser.getCredit() >= currBid.getAmount() && 
-                    currBid.getAmount() != prevBid.getAmount() &&
-                    currBid.getAmount() != nextBid.getAmount()){
+
+        while (!foundWinner && rank < bidsNb) {
+            nextBid = getBidAtAuctionRank(rank + 1, auction.getAuctionId());
+            if (currUser.getCredit() >= currBid.getAmount()
+                    && currBid.getAmount() != prevBid.getAmount()
+                    && currBid.getAmount() != nextBid.getAmount()) {
                 winningBid = currBid;
                 foundWinner = true;
             }
@@ -117,41 +116,71 @@ public class OutcomeNotificationTimer {
             currBid = nextBid;
             currUser = getUserAtAuctionRank(rank, auction.getAuctionId());
         }
-        
-        if (!foundWinner && 
-                currUser.getCredit() >= currBid.getAmount() && 
-                currBid.getAmount() != prevBid.getAmount()){
+
+        if (!foundWinner
+                && currUser.getCredit() >= currBid.getAmount()
+                && currBid.getAmount() != prevBid.getAmount()) {
             winningBid = currBid;
         }
 
         return winningBid;
     }
-    
-    
-   public User getUserAtAuctionRank(int rank, int auctionId) {
+
+    public User getUserAtAuctionRank(int rank, int auctionId) {
         Query query = em.createNamedStoredProcedureQuery("GET_USERID_AT_AUCTION_RANK");
         query.setParameter("arg_rank", rank);
         query.setParameter("arg_auction_id", auctionId);
         List results = query.getResultList();
         int userId = -1;
         if (!results.isEmpty()) {
-            userId = (int) ((Object[]) results.get(0))[0];
+            userId = getInt(results);
         }
         return uc.getUserById(userId);
     }
-   
-      public Bid getBidAtAuctionRank(int rank, int auctionId) {
+
+    public Bid getBidAtAuctionRank(int rank, int auctionId) {
         Query query = em.createNamedStoredProcedureQuery("GET_BIDID_AT_AUCTION_RANK");
         query.setParameter("arg_rank", rank);
         query.setParameter("arg_auction_id", auctionId);
         List results = query.getResultList();
         int bidId = -1;
         if (!results.isEmpty()) {
-            bidId = (int) ((Object[]) results.get(0))[0];
+            bidId = getInt(results);
         }
         return bc.getBidById(bidId);
     }
-    
+
+    private int getInt(List results) {
+        Long rankL = -1L;
+        Double rankD = -1.0;
+        int rankI = -1;
+        try {
+            if (!results.isEmpty()) {
+                rankI = (int) ((Object[]) results.get(0))[0];
+            }
+        } catch (Exception e) {
+            try {
+                if (!results.isEmpty()) {
+                    rankD = (Double) ((Object[]) results.get(0))[0];
+                }
+            } catch (Exception e2) {
+                try {
+                    if (!results.isEmpty()) {
+                        rankL = (Long) ((Object[]) results.get(0))[0];
+                    }
+                } catch (Exception e3) {
+                }
+            }
+        }
+        if (rankI != -1L) {
+            return rankI;
+        } else if (rankD != -1.0) {
+            return rankD.intValue();
+        } else {
+            return rankL.intValue();
+        }
+    }
+
     private void generateNoWinnerNotification(Auction auction) {
         Notification notif = new Notification();
         notif.setDescription("Sorry, looks like nobody won your auction");
@@ -213,7 +242,5 @@ public class OutcomeNotificationTimer {
         bidder.setCredit(bidder.getCredit() - amount);
         seller.setCredit(seller.getCredit() + amount);
     }
-
-
 
 }

@@ -5,8 +5,16 @@
  */
 
 
-function validateBid($bidInput){
-    console.log($bidInput);
-    if(! /^\d+\.{0,1}\d{0,2}$/.test($bidInput.val()))
+function validateBid($bidInput) {
+    $('.ui-messages-error').fadeOut('fast');
+    var bid = $bidInput.val().trim();
+
+    if ((bid !== '') && (!(/^\d+(\.\d{1,2})?$/.test(bid)) || bid === "0")) {
         $bidInput.val('');
+        $("#bid-js-messages").fadeIn().text('Please enter a positive number with up to 2 decimal places');
+        return false;
+    }
+    else
+        $("#bid-js-messages").text('').fadeOut();
+
 }

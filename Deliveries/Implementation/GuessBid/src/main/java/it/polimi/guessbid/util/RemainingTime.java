@@ -41,7 +41,7 @@ public class RemainingTime implements Converter{
             String timeRemaining = "";
             timeRemaining += diffDays > 0 ? String.valueOf(diffDays) + " days ": "";
             timeRemaining += diffHours > 0 ? String.valueOf(diffHours) + " hours ": "";
-            timeRemaining += String.valueOf(diffMinutes) + " minutes left";
+            timeRemaining += diffMinutes > 0 ?String.valueOf(diffMinutes) + " minutes left" : "Auction ended "+ endingDate.toString().replace(" CEST", "");
             
             return timeRemaining ;
         } catch (ClassCastException ce) {

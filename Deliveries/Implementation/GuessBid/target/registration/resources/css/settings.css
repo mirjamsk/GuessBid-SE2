@@ -7,12 +7,23 @@ and open the template in the editor.
     Created on : May 24, 2015, 11:36:11 PM
     Author     : Mirjam
 */
-
+input {
+    height: 35px;
+    margin-bottom: 10px;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px #000 solid;
+    box-shadow: none !important;
+    font-size: 17px !important;
+    font-weight: 300 !important;
+    font-family: 'Lato', sans-serif !important;
+}
 .setings-wrap{
     margin: 5%;
 }
 .current-settings {
-   *padding: 2%;
+    margin-bottom: 25px;
 }
 .current-settings .row{
     line-height: 2;
@@ -22,40 +33,31 @@ and open the template in the editor.
     font-size: 17px;
 }
 .current-settings .row>div:first-child{
-   font-weight: bold;
-   color: #666A81;
+    font-weight: bold;
+    color: #666A81;
 }
 
 .current-settings .row>div:nth-child(2){
-   font-weight: 400;
+    font-weight: 400;
 }
 .current-settings .row a{
-   color: #6495ED;
+    color: #6495ED;
 }
 .change-email,
 .change-username,
 .change-password{
     display:none;    
+    padding-left: 15px;
 }
 
-.change-email div,
-.change-email label,
-.change-username div,
-.change-username label,
-.change-password div,
-.change-password label,
-.change-password input{
-    font-family: 'Lato', sans-serif !important;
-    font-size: 17px;
-}
-.change-username input,
+
+.change-email input,
 .change-username input{
     margin-right: 10px;
 }
 .change-email button,
 .change-username button,
 .change-password button{
-    margin: 0 !important;
     font-family: 'Lato', sans-serif !important;
     font-size: 16px !important;
 }

@@ -12,16 +12,18 @@
         <ui:composition>
             <div >
                 <h:form id="emailForm">
-                    <p:panel id="emailPanel" style="margin-bottom:10px;">
-                        <div>New email:</div>
-                        <p:inputText id="email" value="#{settingsBean.newEmail}" required="true" label="Name">
-                            <f:validateLength minimum="2" />
+                        <p:inputText id="email"
+                                     value="#{settingsBean.newEmail}"
+                                     placeholder="New email"
+                                     required="true" label="Name"
+                                     validatorMessage="Please enter a valid email"
+                                     requiredMessage="Email field can't be empty">
+                           <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         </p:inputText>
                         <p:commandButton value="Update" 
-                                         update="emailPanel, current-email" 
+                                         update="emailForm, current-email" 
                                          action="#{settingsBean.updateEmail}" />
-                        <p:messages id="messages2" />
-                    </p:panel>
+                        <p:messages id="messages2" showIcon="false" />
                 </h:form>
             </div>
         </ui:composition>

@@ -31,7 +31,6 @@ public class BidBean {
     @EJB
     BidController bc;
 
-
     @ManagedProperty(value = "#{detailsAuctionBean}")
     private DetailsAuctionBean ab;
 
@@ -49,14 +48,26 @@ public class BidBean {
     public void setValue(String value) {
         FacesContext context = FacesContext.getCurrentInstance();
 
+        int integerPlaces = value.indexOf('.');
+        int decimalPlaces = value.length() - integerPlaces - 1;
+        if (decimalPlaces > 2) {
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Please enter a positive number with up to 2 decimal places", "NaN"));
+            return;
+        }
         float bid;
         try {
             bid = Float.parseFloat(value);
+            if (bid <= 0) {
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Please enter a positive number with up to 2 decimal places", "NaN"));
+                return;
+            }
             int res = bc.save(uc.getLoggedUser(), ab.getAuction(), bid);
             if (res == Code.BID_SUCCESSFULLY_PLACED) {
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, bid +" bid succesfully placed", "Placed bid"));
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, bid + " bid succesfully placed", "Placed bid"));
             } else if (res == Code.INSUFICIENT_CREDIT) {
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Insufficient credit", "Insufficient credit"));
+            } else {
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Something went wrong", "Something went wrong"));
             }
 
         } catch (NumberFormatException e) {

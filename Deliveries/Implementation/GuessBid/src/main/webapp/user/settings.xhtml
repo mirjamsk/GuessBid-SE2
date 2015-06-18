@@ -8,6 +8,7 @@
     <h:head>
         <title>GuessBid - Settings </title>
         <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
+        <h:outputStylesheet library="css" name="bootstrap-xxs-tn.css"  />     
         <h:outputStylesheet library="css" name="main.css"  />     
         <h:outputStylesheet library="css" name="navigation.css"  />
         <h:outputStylesheet library="css" name="footer.css"  /> 
@@ -20,32 +21,32 @@
                     <ui:include src="../WEB-INF/templates/UIelements/navigation.xhtml" />
                 </ui:insert>    
             </div>
-                <div class="setings-wrap row panel" style="text-align: initial">
-                    <div class="current-settings col-md-6">
+            <div class="setings-wrap row " style="text-align: initial">
+                <div class="current-settings col-md-5 col-md-offset-2">
+                    <ui:insert>
+                        <ui:include src="../WEB-INF/templates/settings/settingsCurrent.xhtml" />
+                    </ui:insert>    
+                </div>
+                <div class="setings-wrap-change col-md-5" style="text-align: initial">
+                    <div class="change-username">
                         <ui:insert>
-                            <ui:include src="../WEB-INF/templates/settings/settingsCurrent.xhtml" />
+                            <ui:include src="../WEB-INF/templates/settings/changeUsername.xhtml" />
                         </ui:insert>    
                     </div>
-                    <div class="setings-wrap-change col-md-6" style="text-align: initial">
-                        <div class="change-username">
-                            <ui:insert>
-                                <ui:include src="../WEB-INF/templates/settings/changeUsername.xhtml" />
-                            </ui:insert>    
-                        </div>
 
-                        <div class="change-email">
-                            <ui:insert>
-                                <ui:include src="../WEB-INF/templates/settings/changeEmail.xhtml" />
-                            </ui:insert>    
-                        </div>
+                    <div class="change-email">
+                        <ui:insert>
+                            <ui:include src="../WEB-INF/templates/settings/changeEmail.xhtml" />
+                        </ui:insert>    
+                    </div>
 
-                        <div class="change-password">
-                            <ui:insert>
-                                <ui:include src="../WEB-INF/templates/settings/changePassword.xhtml" />
-                            </ui:insert>    
-                        </div>
+                    <div class="change-password">
+                        <ui:insert>
+                            <ui:include src="../WEB-INF/templates/settings/changePassword.xhtml" />
+                        </ui:insert>    
                     </div>
                 </div>
+            </div>
 
         </div>        
 

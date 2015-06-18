@@ -11,18 +11,16 @@
     <h:body>
         <ui:fragment rendered="${!detailsAuctionBean.loggedUserIsSeller() and !detailsAuctionBean.isAuctionFinished()}">
             <h:form id="bidForm">  
-                <p:inputText id="bid" value="#{bidBean.value}" autocomplete="false" required="true" requiredMessage="Please input a valid number with up to 2 decimal places"
+                <p:inputText id="bid" 
+                             value="#{bidBean.value}" 
+                             autocomplete="false" required="true" 
+                             requiredMessage="Please enter a positive number with up to 2 decimal places"
                              onblur="validateBid($(this))">
                 </p:inputText> 
-                <p:commandButton   value="Bid" update="@form">
-                </p:commandButton>
+                <p:commandButton  value="Bid" update="@form"/>
+                <div id="bid-js-messages"></div>
                 <p:messages id="bidMessages" showIcon="false" />
             </h:form>  
-        </ui:fragment>
-        
-        
-       <ui:fragment rendered="${detailsAuctionBean.isAuctionFinished()}">
-           <div style="color:red">Auction is closed</div>
         </ui:fragment>
     </h:body>
 </html>

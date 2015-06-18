@@ -11,15 +11,19 @@
     <h:body>       
         <ui:composition>
             <div >
-                <h:form id="usernameForm">
-                        <div>New username:</div>
-                        <p:inputText id="username" value="#{settingsBean.newUsername}" required="true" label="Name">
-                            <f:validateLength minimum="2" />
+                <h:form id="usernameForm"  class="form-inline">
+                        <p:inputText id="username"
+                                     value="#{settingsBean.newUsername}"
+                                     placeholder="New username"
+                                     required="true" label="Username"
+                                     validatorMessage="Username has to be at least 2 characters long"
+                                     requiredMessage="Username field can't be empty">
+                            <f:validateLength minimum="2"  />
                         </p:inputText>
                         <p:commandButton value="Update"
                                          update="usernameForm, current-username"
                                          action="#{settingsBean.updateUsername}"  />
-                        <p:messages id="messages1" />
+                        <p:messages id="messages1"  showIcon="false" />
                 </h:form>
             </div>
         </ui:composition>

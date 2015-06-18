@@ -80,7 +80,7 @@ public class SettingsBean {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Username changed"));
             //redirect to auciton
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Something went wrong", "Something went wrong"));
         }
         newUsername = "";
         return null;
@@ -90,12 +90,12 @@ public class SettingsBean {
         int res = uc.updateEmail(getLoggedUser(), newEmail.trim());
         if (res == Code.EMAIL_SUCCESSFULLY_CHANGED) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Email changed"));
-        } else if (res == Code.NEW_EMAIL_SAME_AS_OLD) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("New email can't be the same as the old one"));
+        } else if (res == Code.NEW_EMAIL_SAME_AS_OLD) {            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "New email can't be the same as the old one", "New email can't be the same as the old one"));
         } else if (res == Code.DUPLICATE_EMAIL) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User with this email already exists"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "User with this email already exists", "User with this email already exists"));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Something went wrong", "Something went wrong"));
         }
         newEmail = "";
         return null;
@@ -105,16 +105,16 @@ public class SettingsBean {
         User u = getLoggedUser();
 
         if (!newPassword1.equals(newPassword2)) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Passwords don't match"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Passwords don't match", "Passwords don't match"));
         } else if (!PasswordEncrypter.encryptPassword(oldPassword).equals(u.getPassword())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Your old password isn't correct"));
+            FacesContext.getCurrentInstance().addMessage(null,  new FacesMessage(FacesMessage.SEVERITY_ERROR, "Your old password isn't correct", "Your old password isn't correct"));
     } else {
             int res = uc.updatePassword(getLoggedUser(), newPassword1);
             if (res == Code.PASSWORD_SUCCESSFULLY_CHANGED) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Password changed"));
                 //redirect to auciton
             } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Something went wrong"));
+                  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Something went wrong", "Something went wrong"));
             }
         }
         oldPassword = "";

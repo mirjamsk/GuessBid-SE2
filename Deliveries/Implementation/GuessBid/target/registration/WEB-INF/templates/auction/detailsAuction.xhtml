@@ -2,54 +2,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Auction List</title>
-
+        <title>Auction Details</title>
     </h:head>
     <h:body>       
         <ui:composition>
-            <div class="ui-grid ui-grid-responsive">
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-2">
+                <div class="row ">
+                    <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-4 col-tn-4">
                         <h:outputText value="Name:" /> </div>
-                    <div class="ui-grid-col-5">
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6 col-tn-12">
                         <h:outputText value="#{detailsAuctionBean.auction.name}"/> </div>
                 </div>
 
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-2">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-4 col-tn-4">
                         <h:outputText value="Seller:" /> </div>
-                    <div class="ui-grid-col-5">
+                     <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6 col-tn-12">
                         <h:outputText value="#{detailsAuctionBean.sellerName}"/> </div>
                 </div>
 
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-2">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-4 col-tn-4">
                         <h:outputText value="Category:" /> </div>
-                    <div class="ui-grid-col-5">
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6 col-tn-12 ">
                         <h:outputText value="#{detailsAuctionBean.auction.category}"/>
                     </div>
                 </div>
 
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-2">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-4 col-tn-4">
                         <h:outputText value="Ending time:" /> </div>
-                    <div class="ui-grid-col-5">
-                        <h:outputText value="#{detailsAuctionBean.auction.endTime}"/>
+                    <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-6 col-tn-12 auction-endtime">
+                        <h:outputText value="#{detailsAuctionBean.auction.endTime}" converter="RemainingTime"/>
                     </div>
                 </div>
 
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-2">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-4 col-tn-4">
                         <h:outputText value="Description:" /> </div>
-                    <div class="ui-grid-col-5">
+                     <div class="col-md-8 col-sm-8 col-xs-8 col-xxs-12 col-tn-12 auction-description">
                         <h:outputText value="#{detailsAuctionBean.auction.description}"/></div>
                 </div>
-            </div>
         </ui:composition>
     </h:body>
 </html>

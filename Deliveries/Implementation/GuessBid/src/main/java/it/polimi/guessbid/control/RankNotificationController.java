@@ -28,7 +28,7 @@ public class RankNotificationController {
     public void generateNotification(Bid bid) {
         int rank = getCurrentUserRank(bid.getBidderId().getUserId(), bid.getBidAuctionId().getAuctionId());
         if (rank != -1) {
-            generateNotification(bid.getBidderId(),bid.getBidAuctionId(),rank );
+            generateNotification(bid.getBidderId(), bid.getBidAuctionId(), rank);
         }
         System.out.println(rank + " notif");
 
@@ -58,11 +58,34 @@ public class RankNotificationController {
         query.setParameter("arg_user_id", userId);
         query.setParameter("arg_auction_id", auctionId);
         List results = query.getResultList();
-        Long rank = -1L;
-        if (!results.isEmpty()) {
-            rank = (Long) ((Object[]) results.get(0))[0];
+        return getInt(results);
+    }
+
+    private int getInt(List results) {
+        Long rankL = -1L;
+        Double rankD = -1.0;
+        int rankI = -1;
+        try {
+            if (!results.isEmpty()) {
+                rankL = (Long) ((Object[]) results.get(0))[0];
+            }
+        } catch (Exception e) {
+            try {
+                if (!results.isEmpty()) {
+                    rankD = (Double) ((Object[]) results.get(0))[0];
+                }
+            } catch (Exception e2) {
+                try {
+                    if (!results.isEmpty()) {
+                        rankI = (int) ((Object[]) results.get(0))[0];
+                    }
+                } catch (Exception e3) {
+                }
+            }
         }
-        return rank.intValue();
+        if (rankL != -1) return rankL.intValue();
+        else if (rankD != -1) return rankD.intValue();
+        else return rankI;
     }
 
     public void generateChangeRankNotification(Bid bid) {

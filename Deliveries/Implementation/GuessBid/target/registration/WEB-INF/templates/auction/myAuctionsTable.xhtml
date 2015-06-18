@@ -31,17 +31,15 @@
                         <div class="auction-list-item" > 
                             <h:link  outcome="auction.xhtml" >
                                 <f:param  name="id" value="#{auction.auctionId}"/>
-                                <h:outputText  value="#{auction.name}" style="font-weight: 700; " />
+                                <h:outputText  value="#{auction.name}" class="auction-name" />
                             </h:link> 
                             <br/>
-                            Ends: <h:outputText value="#{auction.endTime}" style="font-style: italic " >
-                                <f:convertDateTime dateStyle="short" />
-                            </h:outputText>   <br/>
-                            <h:outputText value="#{auction.category}" style="font-style: italic " />  <br/>
-                            <h:outputText value="#{auction.description}" converter="StringTruncater" /> <br/>
-
+                            <h:outputText value="#{auction.endTime}" class="time-remaining" converter="RemainingTime" />
+                            <br/>
+                            <h:outputText value="#{auction.category}" class="auction-category"/>  <br/>
+                            <h:outputText value="#{auction.description}" class="auction-description" converter="StringTruncater" />
                         </div>
-                    </p:column> 
+                    </p:column>
 
                     <p:column  headerText="Time Left" sortBy="#{auction.endTime}" class="auction-filter-column"/>  
                     <p:column  headerText="Newest" sortBy="#{auction.timestamp}" class="auction-filter-column"/>  
