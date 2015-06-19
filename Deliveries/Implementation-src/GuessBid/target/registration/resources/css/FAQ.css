@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 19, 2015, 12:49:00 PM
+    Author     : Mirjam
+*/
+
+.huge-title-header{
+    font-size: 20px;
+    padding: 20px 0 0 10px;
+}
+
+.list-group{
+    margin: 3% 0;
+}
+.list-group-item-heading{
+    color: #666A81;
+    line-height: 2;
+}
+.list-group-item-text{
+    text-align: justify;
+}
+.icon {
+    position: relative;
+    display: block;
+    float: left;
+}
+.icon::before, .icon::after {
+    content: "";
+    position: absolute;
+}
+.icon_home {
+    margin-top: 0.2em;
+    margin-right: 0.2em;
+    border-bottom: 0.538em solid  #666A81 ;
+    border-left: 0.638em solid transparent;
+    border-right: 0.638em solid transparent;
+}
+.icon_home::before {
+    width: .3em;
+    height: .325em;
+    background:  #666A81;
+    margin: 0.538em 0 0 -.388em;
+}
+.icon_home::after {
+    width: .3em;
+    height: .325em;
+    background:  #666A81;
+    margin: 0.538em 0 0 .125em;
+}

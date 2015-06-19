@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Terms and Conditions</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
+        <h:outputStylesheet library="css" name="main.css"  />     
+        <h:outputStylesheet library="css" name="footer.css"  />
+        <h:outputStylesheet library="css" name="FAQ.css"  />
+    </h:head>
+    <h:body>
+        <div class="page-wrap container" >
+            <div class="huge-title-header">
+                <h1>GuessBid</h1>
+                <p><h:link outcome="home?faces-redirect=true"><i class="icon icon_home"></i> Home</h:link></p>
+            </div>
+            <div class="list-group" >
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">By signing up users agree to terms stated below</h4>
+                    <p class="list-group-item-text"> 
+                        Any violation of the terms stated will result in account deactivation.
+                    </p>
+                </div>
+                <div class="list-group-item" >
+                    <h4 class="list-group-item-heading">Credit deposit</h4>
+                    <p class="list-group-item-text"> 
+                        At this point the application does not provide an interface to deposit money and therefore update user's credit.
+                        Users can transfer money via a regular bank transaction to
+                        our company's account. After the money has been received, the system
+                        administrators will update user's credit accordingly</p>
+                </div>
+
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">No auction editing </h4>
+                    <p class="list-group-item-text">
+                        Sellers cannot edit details of an auction once it has been created. This is to protect the bidders of an auction. 
+                        ( The users place bids on a, and because of a specific description. 
+                        It should not be the case that they place a bid on one thing and then win the auction for a variant, or worse, completely different thing).
+                        Sellers can however delete the auction should they need to.
+                    </p>
+                </div>
+
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">Shipment handled privately</h4>
+                    <p class="list-group-item-text">
+                        GuessBid does not provide or organize the shipment or any other kind of item exchange. After an auction is finished, 
+                        the winner and seller receive notifications containing each others emails. The two parties 
+                        are expected to come to mutually satisfying agreement and handle the exchange privately and fairly.
+                    </p>
+                </div>
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">Auctions are assumed to contain valid info and are the sole responsibility of the seller</h4>
+                    <p class="list-group-item-text">
+                        All announcements, advertisements, emails, texts,pictures, photographs ,videotapes, and other materials 
+                        ( hereinafter referred to as content ) published on the website, transmitted over pages or linked from the 
+                        site are the sole responsibility of the person from which such content originated. GuessBid makes no warranty 
+                        as to the accuracy, completeness or authenticity of such content. In the case of any third person damages should occur
+                        on any grounds related with submitted content, the user takes the responsibility and obligation to take care of all such claims.
+                    </p>
+                </div>
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">User and seller disputes</h4>
+                    <p class="list-group-item-text">
+                        All possible disputes arising from the relationship of users and sellers (caused by the validity of information about the user or advertiser,
+                        the content of the offer, shipment agreement etc.) shall be settled exclusively between the user and the seller.
+                        GuessBid is not responsible for any damage of any kind arisen as a result of such relations.
+                    </p>
+                </div>
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">Forbidden content</h4>
+                    <p class="list-group-item-text">
+                        The auction must contain specific information about a subject that is sold.
+                        The description must relate only to the sale. 
+                        The auctions are not allowed to advertise other items,services, demand or anything else that is not directly subject to sale.
+                        It is prohibited to publish content that is unlawful, harmful,threatening, abusing, harassing, slander or are in any way harmful to minors.
+                        Prohibited are facilities that contain personal information of others without their explicit consent.
+                        The user is obligated not to sell and advertise the sale of goods or services which would be in breach of copyright and related rights
+                        of third parties.
+                    </p>
+                </div>
+            </div>       
+        </div>
+
+
+        <div class="site-footer">
+            <ui:insert>
+                <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
+            </ui:insert>    
+        </div>
+
+    </h:body>
+</html>
+

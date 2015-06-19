@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="247" started-at="2015-06-19T14:50:19Z" finished-at="2015-06-19T14:50:19Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="247" started-at="2015-06-19T14:50:19Z" finished-at="2015-06-19T14:50:19Z">
+      <class name="it.polimi.guessbid.control.UserControllerTest">
+        <test-method status="PASS" signature="newUsersShouldBelongToUserGroupAndSavedOnce()[pri:0, instance:newUsersShouldBelongToUserGroupAndSavedOnce(it.polimi.guessbid.control.UserControllerTest)]" name="newUsersShouldBelongToUserGroupAndSavedOnce" duration-ms="151" started-at="2015-06-19T16:50:19Z" finished-at="2015-06-19T16:50:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newUsersShouldBelongToUserGroupAndSavedOnce -->
+      </class> <!-- it.polimi.guessbid.control.UserControllerTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

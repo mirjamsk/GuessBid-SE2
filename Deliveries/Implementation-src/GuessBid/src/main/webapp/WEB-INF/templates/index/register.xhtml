@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sign up form</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="registrationform" >
+                <p:panel >
+                    
+                    <h:panelGrid columns="2" id="regGrid">
+                        <p:inputText id="name" value="#{registrationBean.user.username}" 
+                                     placeholder="Username" 
+                                     validatorMessage="Username has to be at least 2 characters long"
+                                     requiredMessage="Username field can't be empty">
+                            <f:validateLength minimum="2"  />
+                            <p:ajax update="registrationMessages"/>
+                        </p:inputText>
+                        <br/>
+                        
+                        <p:inputText id="email" value="#{registrationBean.user.email}" 
+                                     placeholder="Email" 
+                                     required="true"
+                                     validatorMessage="Please enter a valid email"
+                                     requiredMessage="Email field can't be empty">
+                           <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            <p:ajax update="registrationMessages"/>
+                        </p:inputText>                  
+                        <br/>
+                        
+                        <p:password id="password" value="#{registrationBean.user.password}" placeholder="Password" 
+                                    feedback="true"
+                                    match="pwd2"
+                                    validatorMessage="Passwords don't match"
+                                    label="Password"/>
+                        <br/>
+                        <p:password id="pwd2" value="#{registrationBean.rawpassword}" label="Confirm Password" placeholder="Confirm password"/>
+                    </h:panelGrid>
+                    <p:commandButton id="submit" value="Sign Up" update="regGrid registrationMessages"
+                                     action="#{registrationBean.register()}" />
+                    
+                </p:panel>
+                <p:messages class="registrationMessages" id="registrationMessages" showIcon="false" />
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

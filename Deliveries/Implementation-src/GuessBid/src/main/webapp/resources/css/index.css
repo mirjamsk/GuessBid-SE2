@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 22, 2015, 1:00:20 PM
+    Author     : Mirjam
+*/
+
+
+body{
+    background-color: #fbfbfb;
+}
+.security-wrap{
+    text-align: center;
+     margin-top: 50px;
+     margin-bottom: 5%;
+}
+.signup-wrap, .login-wrap{
+    text-align: initial;
+    display: block;
+    text-align: center;
+}
+.signup-wrap table,
+.login-wrap  table{
+    margin: 10px 10px 0 10px;
+}
+
+.login-wrap{margin-top: 80px;}
+.security-header{font-size: 22px; margin-bottom: 10px;}
+
+.loginMessages, .registrationMessages {max-width: 266px;}
+
+.login-wrap form, .signup-wrap form {
+    display: inline-block;
+}
+.security-wrap label, .security-wrap span, .security-wrap input{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: normal !important;
+}
+.security-wrap span.ui-messages-error-summary{
+    font-family: 'Lato', sans-serif !important;
+}
+.security-wrap input {
+    height: 35px;
+    margin-bottom: 10px;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px #000 solid;
+    box-shadow: none !important;
+    font-size: 17px !important;
+}
+#loginform > div ,
+#registrationform > div{
+    border: 0px !important;  
+    font-family: 'Roboto', sans-serif !important;
+}
+#loginform td,
+#registrationform td {
+    padding: 3px 0;
+}
+#registrationMessages li  {
+    font-family: 'Roboto', sans-serif !important; 
+    font-weight: normal !important;}
+
+
+@media (min-width: 900px) {
+    .security-wrap{ margin-top: 3%;}
+    
+    .login-wrap, .signup-wrap {
+        width: auto;
+        margin:0;
+        display: inline-block;
+        vertical-align: top;
+        -webkit-transition: margin 500ms;
+        -moz-transition:  margin 0.5s ease;
+        -o-transition:  margin 0.5s ease;
+        -ms-transition:  margin 0.5s ease;
+        transition: margin 0.5s ease;
+    }
+    .login-wrap{ margin-left: 4%; }
+    .signup-wrap{margin-right: 4%; }
+}
+@media (min-width: 1000px) {
+    
+    .login-wrap{ margin-left: 10%; }
+    .signup-wrap{margin-right: 10%; }
+}

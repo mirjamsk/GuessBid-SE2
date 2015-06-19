@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Terms and Conditions</title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"  />     
+        <h:outputStylesheet library="css" name="main.css"  />     
+        <h:outputStylesheet library="css" name="footer.css"  />
+        <h:outputStylesheet library="css" name="FAQ.css"  />
+    </h:head>
+    <h:body>
+        <div class="page-wrap container" >
+            <div class="huge-title-header">
+                <h1>GuessBid</h1>
+                <p><h:link outcome="home?faces-redirect=true"><i class="icon icon_home"></i> Home</h:link></p>
+            </div>
+            <div class="list-group" >
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">What is inverse auction?</h4>
+                    <p class="list-group-item-text"> 
+                        Inverse auctio also known as lowest unique bid auction, is a type of strategy game
+                        related to traditional auction. With one difference, the winner is the individual
+                        with the lowest unique bid.
+                    </p>
+                </div>
+                <div class="list-group-item" >
+                    <h4 class="list-group-item-heading">How do I deposit credit into my account?</h4>
+                    <p class="list-group-item-text"> 
+                        At this point the application does not provide an interface to deposit money and therefore update your credit.
+                        Users can transfer money via a regular bank transaction to
+                        our company's account. After the money has been received, the system
+                        administrators will update user's credit accordingly</p>
+                </div>
+
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">Why van't I edit my auction?</h4>
+                    <p class="list-group-item-text">
+                        Sellers cannot edit details of an auction once it has been created. This is to protect the bidders of an auction. 
+                        ( The users place bids on a, and because of a specific description. 
+                        It should not be the case that they place a bid on one thing and then win the auction for a variant, or worse, completely different thing).
+                        Sellers can however delete the auction should they need to.
+                    </p>
+                </div>
+
+                <div class=" list-group-item">
+                    <h4 class="list-group-item-heading">How is shipment/exchange handled?</h4>
+                    <p class="list-group-item-text">
+                        GuessBid does not provide or organize the shipment or any other kind of item exchange. After an auction is finished, 
+                        the winner and seller receive notifications containing each others emails. The two parties 
+                        are expected to come to mutually satisfying agreement and handle the exchange privately and fairly.
+                    </p>
+                </div>
+            </div>       
+        </div>
+
+
+        <div class="site-footer">
+            <ui:insert>
+                <ui:include src="../WEB-INF/templates/UIelements/footer.xhtml" />
+            </ui:insert>    
+        </div>
+
+    </h:body>
+</html>
+
