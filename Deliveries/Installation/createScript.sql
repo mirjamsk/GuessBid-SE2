@@ -89,7 +89,7 @@ CREATE TABLE `bid` (
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `guessbid_db`.`bid_BEFORE_INSERT` BEFORE INSERT ON `bid` FOR EACH ROW
+/*!50003 CREATE*/  /*!50003 TRIGGER `guessbid_db`.`bid_BEFORE_INSERT` BEFORE INSERT ON `bid` FOR EACH ROW
 BEGIN
 	IF new.bidder_id = (SELECT seller_id FROM auction WHERE new.bid_auction_id = auction_id)
     THEN
@@ -212,7 +212,7 @@ SET character_set_client = @saved_cs_client;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_auction_rankings`(IN arg_auction_id INT)
+CREATE PROCEDURE `get_auction_rankings`(IN arg_auction_id INT)
 BEGIN
 
 SELECT w.*, 1 AS rank
@@ -244,7 +244,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_bidid_at_auction_rank`(IN arg_rank INT, IN arg_auction_id INT)
+CREATE PROCEDURE `get_bidid_at_auction_rank`(IN arg_rank INT, IN arg_auction_id INT)
 BEGIN
 
 SELECT w.bid_id
@@ -277,7 +277,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_distinct_auction_rankings`(IN arg_auction_id INT)
+CREATE PROCEDURE `get_distinct_auction_rankings`(IN arg_auction_id INT)
 BEGIN
 
 SELECT w.bidder_id, 1 AS rank
@@ -313,7 +313,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_distinct_user_auction_ranking`(IN arg_user_id INT, IN arg_auction_id INT)
+CREATE PROCEDURE `get_distinct_user_auction_ranking`(IN arg_user_id INT, IN arg_auction_id INT)
 BEGIN
 
 SELECT 1 AS rank
@@ -353,7 +353,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_userid_at_auction_rank`(IN arg_rank INT, IN arg_auction_id INT)
+CREATE PROCEDURE `get_userid_at_auction_rank`(IN arg_rank INT, IN arg_auction_id INT)
 BEGIN
 
 SELECT w.bidder_id
@@ -386,7 +386,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`%`@`%` PROCEDURE `get_user_auction_ranking`(IN arg_user_id INT, IN arg_auction_id INT)
+CREATE PROCEDURE `get_user_auction_ranking`(IN arg_user_id INT, IN arg_auction_id INT)
 BEGIN
 
 SELECT 1 AS rank
@@ -423,7 +423,7 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`%`@`%` SQL SECURITY DEFINER */
+/*!50013 SQL SECURITY DEFINER */
 /*!50001 VIEW `active_auctions` AS select `auction`.`auction_id` AS `auction_id`,`auction`.`seller_id` AS `seller_id`,`auction`.`name` AS `name`,`auction`.`description` AS `description`,`auction`.`end_time` AS `end_time`,`auction`.`winning_bid_id` AS `winning_bid_id`,`auction`.`timestamp` AS `timestamp`,`auction`.`category` AS `category` from `auction` where (`auction`.`end_time` > now()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -441,7 +441,7 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`%`@`%` SQL SECURITY DEFINER */
+/*!50013 SQL SECURITY DEFINER */
 /*!50001 VIEW `finished_auctions` AS select `auction`.`auction_id` AS `auction_id`,`auction`.`seller_id` AS `seller_id`,`auction`.`name` AS `name`,`auction`.`description` AS `description`,`auction`.`end_time` AS `end_time`,`auction`.`winning_bid_id` AS `winning_bid_id`,`auction`.`timestamp` AS `timestamp`,`auction`.`category` AS `category` from `auction` where (`auction`.`end_time` <= now()) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -459,7 +459,7 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`%`@`%` SQL SECURITY DEFINER */
+/*!50013 SQL SECURITY DEFINER */
 /*!50001 VIEW `winning_bid` AS select `b1`.`bid_id` AS `bid_id`,`b1`.`bidder_id` AS `bidder_id`,`b1`.`bid_auction_id` AS `bid_auction_id`,`b1`.`amount` AS `amount`,`b1`.`timestamp` AS `timestamp` from `bid` `b1` where ((`b1`.`bid_auction_id`,`b1`.`amount`) = (select `b2`.`bid_auction_id`,`b2`.`amount` from `bid` `b2` where (`b1`.`bid_auction_id` = `b2`.`bid_auction_id`) group by `b2`.`bid_auction_id`,`b2`.`amount` having (count(0) = 1) order by `b2`.`amount` limit 1)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;

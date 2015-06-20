@@ -266,7 +266,7 @@ Once you there, to create the DB structure needed, execute the following
 \end_layout
 
 \begin_layout LyX-Code
-shell> mysql < createScript.sql;
+shell> mysql -uroot -p < createScript.sql;
 \end_layout
 
 \begin_layout Section
@@ -349,8 +349,17 @@ Create a Connection Pool
 \end_layout
 
 \begin_layout Standard
-Assuming the Glassfish server is running, follow the steps below to create
- a connection pool.
+Assuming the Glassfish server is running
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://docs.oracle.com/javaee/6/tutorial/doc/bnadi.html
+\end_layout
+
+\end_inset
+
+, follow the steps below to create a connection pool.
 \end_layout
 
 \begin_layout Enumerate
@@ -430,6 +439,12 @@ DatabaseName: guessbid_db
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Click
+\emph on
+ Finish
+\end_layout
+
 \begin_layout Enumerate
 To test your connection pool click the Ping button at the top of the frame.
  A message will be displayed confirming correct operation or otherwise.
@@ -648,7 +663,7 @@ Under
 \emph on
 Location
 \emph default
- select the file GuesBid.war archive from the
+ select the file GuessBid.war archive from the
 \emph on
  Installation
 \emph default
@@ -660,7 +675,7 @@ Make sure that the
 \emph on
 Context Root
 \emph default
- is set to GuesBid
+ is set to GuessBid
 \end_layout
 
 \begin_layout Enumerate
