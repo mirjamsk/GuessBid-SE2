@@ -5,17 +5,13 @@
 */
 package it.polimi.guessbid.boundary;
 
-import it.polimi.guessbid.control.AuctionController;
 import it.polimi.guessbid.control.NotificationController;
 import it.polimi.guessbid.control.UserController;
-import it.polimi.guessbid.entity.ActiveAuctions;
-import it.polimi.guessbid.entity.Category;
 import it.polimi.guessbid.entity.Notification;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;

@@ -62,12 +62,19 @@ public class LoginBean {
                 request.login(String.valueOf(u.getUserId()), this.password);
                 return "/user/home?faces-redirect=true";
             }
+            else{
+                 errorMessage(context);
+            }
         } catch (ServletException e) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid login", "Login Failed"));
-            logger.log(Level.SEVERE, "Login Failed");
+            errorMessage(context);
 
         }
         return null;
+    }
+
+    private void errorMessage(FacesContext context) {
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid login", "Login Failed"));
+        logger.log(Level.SEVERE, "Login Failed");
     }
 
     public String logout() {

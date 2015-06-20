@@ -20,9 +20,9 @@
                     <ui:include src="../WEB-INF/templates/UIelements/navigation.xhtml" />
                 </ui:insert>    
             </div>
-            
+
             <div class="auctions-result-wrap my-auctions-wrap container">
-                            <div  style="text-align: initial; margin: 20px 0;"><span style="font-size: 18px; font-weight: 800;">+ </span><h:link outcome="newAuction" value="New auction"/></div>
+                <div  style="text-align: initial; margin: 20px 0;"><span style="font-size: 18px; font-weight: 800;">+ </span><h:link outcome="newAuction" value="New auction"/></div>
 
                 <div class="auction-wrap">
                     <ui:insert>
@@ -38,8 +38,9 @@
             </ui:insert>    
         </div>
         <h:outputScript name="js/bootstrap.min.js" />  
+        <h:outputScript name="js/jquery.plugin.min.js" />
+        <h:outputScript name="js/jquery.countdown.min.js" />
         <h:outputScript name="js/userHome.js" />
-        <h:outputScript name="js/auction.js" />
 
     </h:body>
 </html>

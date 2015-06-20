@@ -9,7 +9,6 @@ import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.util.Code;
-import java.util.Calendar;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

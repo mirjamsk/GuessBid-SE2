@@ -11,7 +11,6 @@ package it.polimi.guessbid.boundary;
  */
 import it.polimi.guessbid.control.AuctionController;
 import it.polimi.guessbid.control.UserController;
-import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Category;
 import it.polimi.guessbid.util.Code;
 import java.util.Date;

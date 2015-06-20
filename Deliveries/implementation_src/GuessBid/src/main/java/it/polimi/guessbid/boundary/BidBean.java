@@ -6,11 +6,9 @@
 package it.polimi.guessbid.boundary;
 
 import it.polimi.guessbid.control.BidController;
-import it.polimi.guessbid.control.OutcomeNotificationTimer;
 import it.polimi.guessbid.control.UserController;
 import it.polimi.guessbid.util.Code;
 import java.util.Calendar;
-import java.util.Date;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -47,6 +45,12 @@ public class BidBean {
 
     public void setValue(String value) {
         FacesContext context = FacesContext.getCurrentInstance();
+        
+       if( Calendar.getInstance().getTime().after(new java.util.Date(ab.getAuction().getEndTime().getTime()))){
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Unfortunately, the auction has finshed", "Unfortunately, the auction has finshed"));
+            return;
+       }
 
         int integerPlaces = value.indexOf('.');
         int decimalPlaces = value.length() - integerPlaces - 1;

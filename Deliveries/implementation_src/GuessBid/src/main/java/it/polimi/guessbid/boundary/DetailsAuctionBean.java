@@ -68,7 +68,7 @@ public class DetailsAuctionBean {
     
         public String deleteAuction() {
             am.delete( auction);
-            return "/user/home?faces-redirect=true";
+            return "/user/myAuctions.xhtml?faces-redirect=true";
     }
 
 }
