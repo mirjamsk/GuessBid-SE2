@@ -17,7 +17,11 @@
                              emptyMessage="No auctions found with given criteria"
                              paginator="true" rows="5" styleClass="paginated"
                              paginatorPosition="bottom" 
-                             class="auctions-result-table" >  
+                             class="auctions-result-table" >   
+                    <p:ajax event="filter" onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+                    <p:ajax event="sort"   onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+                    <p:ajax event="page"   onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+
                     <f:facet  name="header" >  
                         <p:outputPanel class="auctions-search-wrap">  
                             <p:inputText class="auction-search-field" placeholder="Search" id="globalFilter" onkeyup="PF('auctionsTable').filter()"  />  

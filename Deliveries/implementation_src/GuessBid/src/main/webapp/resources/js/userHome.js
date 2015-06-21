@@ -4,12 +4,18 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('select>option:first').html('Category');
 });
 
 
-(function () {
+startCountdown();
+function destroyCountdown() {
+    $('.time-remaining').countdown('destroy' ? 'destroy' : {until: 0});
+
+}
+function startCountdown() {
+
     $('.time-remaining').each(function (index) {
         var txt = $(this).text();
         if (/.*sec.*/.test(txt)) {
@@ -30,4 +36,5 @@ $(document).ready(function(){
             });
         }
     });
-})();
+}
+;

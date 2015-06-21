@@ -1,0 +1,639 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 9 -1
+\bullet 2 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\paragraph_spacing onehalf
+POLITECNICO DI MILANO 
+\begin_inset Newline newline
+\end_inset
+
+SOFTWARE ENGINEERING 2 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+GuessBid
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+User Manual 
+\begin_inset Newline linebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\paragraph_spacing onehalf
+Mirjam Škarica
+\end_layout
+
+\begin_layout Date
+\paragraph_spacing onehalf
+Mirjam Škarica
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline linebreak
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Milan, June 2015
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Description and requirements
+\end_layout
+
+\begin_layout Standard
+The purpose of this document is to provide a user manual for the GuessBid
+ web application.
+ GuessBid provides a service for inverse auctions where the winning bid
+ is the lowest unique bid, as opposed to the traditional highest one.
+ Users, once registered and logged in, are able to create auctions for any
+ good he/she might have, browse through ongoing auctions and place bids.
+ After every placed bid, the system notifies the user of his current ranking
+ in regards to that particular auction.
+ Also, after an auction has finished, the system notifies the seller and
+ the bidders about the it's outcome.
+ 
+\end_layout
+
+\begin_layout Standard
+In order to access GuessBid any device with a modern browser installed will
+ suffice.
+ Just type the url of the GuessBid platform in the browser and you're ready
+ to go.
+ 
+\end_layout
+
+\begin_layout Standard
+This document is divided into two parts.
+ One for guest functionalities, the other for user functionalities.
+ User meaning a logged in user, whereas a guest is either a not logged in
+ user, or not yet signed up.
+ 
+\end_layout
+
+\begin_layout Chapter
+Guest functionalities
+\end_layout
+
+\begin_layout Section
+Home page
+\end_layout
+
+\begin_layout Standard
+A guest, after navigating to GuessBid's site is shown the home page (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+ The home page consists of two forms and a footer.
+ The forms offer two basic functionalities, sign up and log in.
+ 
+\end_layout
+
+\begin_layout Subsection
+Registration
+\end_layout
+
+\begin_layout Standard
+In order to use the application’s full functionalities you need to sign
+ up (register).
+ This can be done by filling out the leftmost form on the home page (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+ You need to input a username, a valid e-mail address, a password and a
+ confirmation password to avoid any security issues that might arise by
+ mistyping the password the first time.
+ Upon clicking on the 
+\emph on
+Sign Up
+\emph default
+ button, the system will check the information you entered.
+ In case of an empty field or should any error arise like mismatched passwords
+ or invalid email, an appropriate error message will appear.
+ If the input information was complete and valid the system will save your
+ information and log you in automatically and redirect you to your user
+ home page (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "userHomePage"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Logging in
+\end_layout
+
+\begin_layout Standard
+Provided you have already signed up, you can access functionalities by logging
+ in.
+ This can be done by filling out the rightmost form on the home page (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+ You need to input your e-mail address, a and password.
+ Upon clicking on the 
+\emph on
+Log In
+\emph default
+ button, the system will check the information you entered.
+ In case of an empty field or should any error arise like an unknown email
+ or a wrong email-password combination, an appropriate error message will
+ appear.
+ If the input information was complete and valid the system will log you
+ in and redirect you to your user home page (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "userHomePage"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{0.0in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename screenshots/homePage.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Home Page
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "homePage"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Footer
+\end_layout
+
+\begin_layout Standard
+Since the same footer is present on all other pages, it's purpose and use
+ will be stated only once .The footer, on the bottom of the page, consists
+ of application's logo and two links 
+\emph on
+FAQ
+\emph default
+ and 
+\emph on
+Terms and Conditions 
+\emph default
+link which, on click, redirect you to the 
+\emph on
+FAQ
+\emph default
+ page and 
+\emph on
+Terms and Conditions
+\emph default
+ page, respectively.
+ 
+\end_layout
+
+\begin_layout Section
+FAQ and Terms & Conditions pages
+\end_layout
+
+\begin_layout Standard
+The 
+\emph on
+FAQ
+\emph default
+ and 
+\emph on
+Terms & Conditions
+\emph default
+ are reachable from any page via the footer links.
+ The pages explain the concept of inverse auction, indicate clearly the
+ rules of conduct which, if not followed, will result in account deactivation
+ and provide information to some common clear up common doubts.
+ 
+\end_layout
+
+\begin_layout Standard
+In fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "FAQPage"
+
+\end_inset
+
+ only 
+\emph on
+FAQ
+\emph default
+ page is shown.
+ The 
+\emph on
+Terms & Conditions
+\emph default
+ page is omitted for the sake of simplicity as it is almost the same format
+ as the
+\emph on
+ FAQ
+\emph default
+ page.
+ The page consists of a 
+\emph on
+Home
+\emph default
+ link to return to navigate back to the home page, content (questions and
+ answers) and a footer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{0.0in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename screenshots/FAQ.PNG
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+FAQ Page
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "FAQPage"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+User functionalities
+\end_layout
+
+\begin_layout Section
+User Home page
+\end_layout
+
+\begin_layout Standard
+After logging in or signing up, you are redirected to your personal home
+ page as show in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "userHomePage"
+
+\end_inset
+
+.
+ From top to bottom, the page consists of a navigation bar, big header,
+ recent notifications list, searchable list of active (ongoing) auctions
+ and a footer.
+ The navigation bar and footer are present in the same shape and form on
+ all other pages and as such will be explained only once.
+ 
+\end_layout
+
+\begin_layout Subsection
+Navigation bar
+\end_layout
+
+\begin_layout Standard
+The navigation bar consists of five links.
+ In order (left to right):
+\end_layout
+
+\begin_layout Itemize
+Home 
+\end_layout
+
+\begin_layout Itemize
+Notifications 
+\end_layout
+
+\begin_layout Itemize
+Manage auctions 
+\end_layout
+
+\begin_layout Itemize
+Settings 
+\end_layout
+
+\begin_layout Itemize
+Logout
+\end_layout
+
+\begin_layout Standard
+On click, each of these links, part from the 
+\emph on
+Log out
+\emph default
+ link, will redirect you another page ( 
+\emph on
+User Home
+\emph default
+ page,
+\emph on
+ Notifications
+\emph default
+ page, 
+\emph on
+Manage auctions 
+\emph default
+page or 
+\emph on
+Settings
+\emph default
+ page respectively ).
+ The 
+\emph on
+Log out
+\emph default
+ link will log you out and the system will redirect you the GuessBid's guest
+ home page (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{0.0in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename screenshots/UserHomePage.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+User Home Page
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "userHomePage"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Header
+\end_layout
+
+\begin_layout Standard
+ss
+\end_layout
+
+\begin_layout Subsection
+Recent notifications
+\end_layout
+
+\begin_layout Standard
+ss
+\end_layout
+
+\begin_layout Subsection
+Browse auctions notifications
+\end_layout
+
+\begin_layout Standard
+ss
+\end_layout
+
+\end_body
+\end_document

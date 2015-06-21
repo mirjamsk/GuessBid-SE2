@@ -4,8 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Auction List</title>
 
@@ -20,6 +19,10 @@
                              paginator="true" rows="5" styleClass="paginated"
                              paginatorPosition="bottom" 
                              class="auctions-result-table" >  
+                    <p:ajax event="filter" onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+                    <p:ajax event="sort"   onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+                    <p:ajax event="page"   onstart="destroyCountdown();" oncomplete="startCountdown();"/>
+                    
                     <f:facet  name="header" >  
                         <p:outputPanel class="auctions-search-wrap">  
                             <p:inputText class="auction-search-field" placeholder="Search" id="globalFilter" onkeyup="PF('auctionsTable').filter()"  />  

@@ -697,5 +697,9 @@ Restart the the server
 Connect to http://localhost:8080/GuessBid
 \end_layout
 
+\begin_layout Standard
+There is already a user in the db (username: john@john.com, password: password).
+\end_layout
+
 \end_body
 \end_document
