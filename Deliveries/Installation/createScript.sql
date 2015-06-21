@@ -474,4 +474,36 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Art and Antiques'),(2,'Electronics and Accessories'),(3,'Fashion'),(4,'Furniture'),(5,'Gift Cards and Coupons'),(6,'Health and Beauty'),(7,'Jewelry and Watches'),(8,'Literature'),(9,'Movies'),(10,'Music and Instruments'),(11,'Other'),(12,'Real Estate'),(13,'Services'),(14,'Sporting Goods'),(15,'Tickets and Experiences'),(16,'Toys and Hobbies'),(17,'Video Games and Consoles');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (73,97.7,'john@john.com','John','96d9632f363564cc3032521409cf22a852f2032eec099ed5967c0d000cec607a','USERS'),(74,102.3,'june@june.com','June','c0fa1ef864788c455b22e34d6b11eb282603eeec08b2b10d38c37683ef46952c','USERS');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
 -- Dump completed on 2015-06-17 15:43:31
+LOCK TABLES `auction` WRITE;
+/*!40000 ALTER TABLE `auction` DISABLE KEYS */;
+INSERT INTO `auction` VALUES (69,73,'Batman 1 millennium edition, DC Comics','Batman is a fictional character created by the artist Bob Kane and writer Bill Finger . A comic book superhero , Batman first appeared in Detective Comics #27 (May 1939), and since then has appeared primarily in publications by DC Comics . Originally referred to as \"the Bat-Man\" and still referred to at times as \"the Batman\", he is additionally known as the \"Caped Crusader\",the \"Dark Knight\", and the \"World\'s Greatest Detective,\" among other titles.','2015-07-31 15:42:00',NULL,'Literature','2015-06-20 13:48:45'),(70,74,'New Beginners Acoustic Guitar','Best Choice Products presents to you this brand new acoustic guitar. This guitar is a combo package that comes with a guitar case, extra set of strings, pick, and a tuner. You’ll be playing your favorite tunes in no time with practice and dedication. We purchase all of our guitars directly from the manufacturer, providing you with the best prices available online.\r\nNEW PRODUCT WITH FACTORY PACKAGING\r\n\r\nFEATURES:\r\nFull wood construction\r\nShoulder Strap\r\nExtra set of strings\r\nGreat gloss finish\r\nEasy to use tuner\r\nNice carrying bag\r\n38 inches long\r\nSteel strings\r\nGuitar pick\r\nPerfect for beginners ','2015-06-20 19:31:31',NULL,'Music and Instruments','2015-06-20 17:30:27'),(71,73,'Cold Cream','Ultra-rich, creamy formula offers intense hydration to seal in moisture and restore the skin\'s natural barrier. The nourishing virtues of white beeswax combined with the soothing and softening properties of Avène Thermal Spring Water gives this cream the power to restore the skin\'s hydrolipidic film and form a genuine barrier against environmental aggressors.','2015-06-20 19:48:30',NULL,'Health and Beauty','2015-06-20 17:46:51');
+/*!40000 ALTER TABLE `auction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `bid` WRITE;
+/*!40000 ALTER TABLE `bid` DISABLE KEYS */;
+INSERT INTO `bid` VALUES (1,73,70,2.3,'2015-06-20 17:30:41');
+/*!40000 ALTER TABLE `bid` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `notification` WRITE;
+/*!40000 ALTER TABLE `notification` DISABLE KEYS */;
+INSERT INTO `notification` VALUES (1,73,70,'Your new rank is ',0,'2015-06-20 17:30:41',1),(2,73,70,'Congrads, you won. The seller\'s email is june@june.com',1,'2015-06-20 17:31:31',1),(3,74,70,'Your auction has finished. The winning user is john@john.com',1,'2015-06-20 17:31:31',1),(4,73,71,'Sorry, looks like nobody won your auction',1,'2015-06-20 17:48:30',0);
+/*!40000 ALTER TABLE `notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
