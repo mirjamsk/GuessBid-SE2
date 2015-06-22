@@ -562,7 +562,7 @@ reference "homePage"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -716,6 +716,85 @@ Each auction result item displays it's full name, time remaining, category
 
 \begin_layout Section
 Notifications page
+\end_layout
+
+\begin_layout Standard
+The notifications page shown in fig you will find up to five most recently
+ received notifications.
+ Each notification is dated, has a description and a link to the related
+ auction.
+ Clicking on the link redirect you to the page with the auction's details.
+ Bellow all notifications there is a 
+\emph on
+See all
+\emph default
+ link which redirects you to the
+\emph on
+ Notifications
+\emph default
+ page (same as the 
+\emph on
+Notification
+\emph default
+ link from the navigation bar).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{0.0in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename screenshots/notifications.PNG
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Notifications Page
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "notificationsPage"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Header
 \end_layout
 
 \end_body
