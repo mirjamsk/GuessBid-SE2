@@ -49,6 +49,7 @@ public class AuctionController {
         auction.setDescription(description);
         auction.setCategory(category);
         auction.setEndTime(endTime);
+        auction.setTimestamp(new Date());
 
         em.persist(auction);
         try {

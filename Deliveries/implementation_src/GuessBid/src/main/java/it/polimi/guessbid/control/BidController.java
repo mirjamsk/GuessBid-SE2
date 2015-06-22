@@ -9,6 +9,7 @@ import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.util.Code;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -35,6 +36,7 @@ public class BidController {
         bid.setAmount(amount);
         bid.setBidderId(user);
         bid.setBidAuctionId(auction);
+        bid.setTimestamp(new Date());
 //dont allow same bid??????????
         em.persist(bid);
         try {

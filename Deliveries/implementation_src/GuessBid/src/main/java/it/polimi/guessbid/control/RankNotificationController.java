@@ -9,6 +9,7 @@ import it.polimi.guessbid.entity.Auction;
 import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.Notification;
 import it.polimi.guessbid.entity.User;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -44,6 +45,7 @@ public class RankNotificationController {
         notif.setNAuctionId(auction);
         notif.setNUserId(user);
         notif.setRank(rank);
+        notif.setTimestamp(new Date());
         em.persist(notif);
         try {
             em.flush();

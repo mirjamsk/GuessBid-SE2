@@ -45,18 +45,20 @@ public class BidBean {
 
     public void setValue(String value) {
         FacesContext context = FacesContext.getCurrentInstance();
-        
-       if( Calendar.getInstance().getTime().after(new java.util.Date(ab.getAuction().getEndTime().getTime()))){
+
+        if (Calendar.getInstance().getTime().after(new java.util.Date(ab.getAuction().getEndTime().getTime()))) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Unfortunately, the auction has finshed", "Unfortunately, the auction has finshed"));
             return;
-       }
-
+        }
+        value = value.trim();
         int integerPlaces = value.indexOf('.');
-        int decimalPlaces = value.length() - integerPlaces - 1;
-        if (decimalPlaces > 2) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Please enter a positive number with up to 2 decimal places", "NaN"));
-            return;
+        if (integerPlaces != -1) {
+            int decimalPlaces = value.length() - integerPlaces - 1;
+            if (decimalPlaces > 2) {
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Please enter a positive number with up to 2 decimal places", "NaN"));
+                return;
+            }
         }
         float bid;
         try {
