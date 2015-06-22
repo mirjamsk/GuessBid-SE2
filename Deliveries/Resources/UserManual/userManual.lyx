@@ -562,7 +562,7 @@ reference "homePage"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -616,7 +616,8 @@ Header
 \end_layout
 
 \begin_layout Standard
-ss
+The header consists of the application's logo, a welcome message and credit
+ balance.
 \end_layout
 
 \begin_layout Subsection
@@ -624,15 +625,97 @@ Recent notifications
 \end_layout
 
 \begin_layout Standard
-ss
+On the left hand side, you will find up to five most recently received notificat
+ions.
+ Each notification is dated, has a description and a link to the related
+ auction.
+ Clicking on the link redirect you to the page with the auction's details.
+ Bellow all notifications there is a 
+\emph on
+See all
+\emph default
+ link which redirects you to the
+\emph on
+ Notifications
+\emph default
+ page (same as the 
+\emph on
+Notification
+\emph default
+ link from the navigation bar).
 \end_layout
 
 \begin_layout Subsection
-Browse auctions notifications
+Browse auctions
 \end_layout
 
 \begin_layout Standard
-ss
+On the right hand side there is an interface for browsing active auctions.
+ It consists of a search bar, one filter (by category), two sort buttons
+ (
+\emph on
+Time left,
+\emph default
+ 
+\emph on
+Newest
+\emph default
+) and auction list.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Search
+\begin_inset space ~
+\end_inset
+
+bar By typing words in the search bar, the result list is automatically
+ updated to show only the auctions which contain the typed word either in
+ its name or description.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Time
+\begin_inset space ~
+\end_inset
+
+left Toggling 
+\emph on
+Time left
+\emph default
+ button sorts the current auction result list by how much time they have
+ left (toggling between sooner and later).
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Newest Toggling 
+\emph on
+Newest
+\emph default
+ button sorts the current auction result list by when they were created
+ (newest/oldest).
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Category By choosing a category from the dropdown filter, the result list
+ is updated only to show auctions of that category
+\end_layout
+
+\begin_layout Standard
+Each auction result item displays it's full name, time remaining, category
+ it belongs to and a description snippet.
+ The name also serves as a link.
+ By clicking it, the system redirect you to that particular auction's page.
+\end_layout
+
+\begin_layout Section
+Notifications page
 \end_layout
 
 \end_body
