@@ -16,3 +16,6 @@ More detailed description can be found [here](https://github.com/mirjamsk/GuessB
 #####Links to Documents:
 + Requirements analysis and specification document [(*RASD*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/RASD.pdf)
 + Design document [(*DD*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/DD.pdf)
++ Installation guide [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/Installation/installationManual.pdf)
++ User manual [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/userManual.pdf)
++ Test cases [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/testCases.pdf)
