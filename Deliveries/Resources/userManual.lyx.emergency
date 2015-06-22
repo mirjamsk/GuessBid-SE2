@@ -162,22 +162,24 @@ The purpose of this document is to provide a user manual for the GuessBid
  After every placed bid, the system notifies the user of his current ranking
  in regards to that particular auction.
  Also, after an auction has finished, the system notifies the seller and
- the bidders about the outcome.
+ the bidders about the it's outcome.
  
 \end_layout
 
 \begin_layout Standard
-In order to access GuessBid, any device with a modern browser installed
- will suffice.
- Just type the URL of the GuessBid platform in the browser and you're ready
+In order to access GuessBid any device with a modern browser installed will
+ suffice.
+ Just type the url of the GuessBid platform in the browser and you're ready
  to go.
  
 \end_layout
 
 \begin_layout Standard
 This document is divided into two parts.
- One for functionalities available to a guest user (meaning not logged in),
- the other for a logged in user.
+ One for guest functionalities, the other for user functionalities.
+ User meaning a logged in user, whereas a guest is either a not logged in
+ user, or not yet signed up.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -203,6 +205,80 @@ reference "homePage"
  
 \end_layout
 
+\begin_layout Subsection
+Registration
+\end_layout
+
+\begin_layout Standard
+In order to use the application’s full functionalities you need to sign
+ up (register).
+ This can be done by filling out the leftmost form on the home page (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+ You need to input a username, a valid e-mail address, a password and a
+ confirmation password to avoid any security issues that might arise by
+ mistyping the password the first time.
+ Upon clicking on the 
+\emph on
+Sign Up
+\emph default
+ button, the system will check the information you entered.
+ In case of an empty field or should any error arise like mismatched passwords
+ or invalid email, an appropriate error message will appear.
+ If the input information was complete and valid the system will save your
+ information and log you in automatically and redirect you to your user
+ home page (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "userHomePage"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Logging in
+\end_layout
+
+\begin_layout Standard
+Provided you have already signed up, you can access functionalities by logging
+ in.
+ This can be done by filling out the rightmost form on the home page (fig
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "homePage"
+
+\end_inset
+
+).
+ You need to input your e-mail address, a and password.
+ Upon clicking on the 
+\emph on
+Log In
+\emph default
+ button, the system will check the information you entered.
+ In case of an empty field or should any error arise like an unknown email
+ or a wrong email-password combination, an appropriate error message will
+ appear.
+ If the input information was complete and valid the system will log you
+ in and redirect you to your user home page (fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "userHomePage"
+
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -218,7 +294,7 @@ status open
 
 
 \backslash
-vspace*{0.1in}
+vspace*{0.0in}
 \end_layout
 
 \end_inset
@@ -258,118 +334,30 @@ name "homePage"
 \end_layout
 
 \begin_layout Subsection
-Registration
-\end_layout
-
-\begin_layout Standard
-In order to use the application’s full functionalities you need to sign
- up (register).
- This can be done by filling out the leftmost form on the home page (fig
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "homePage"
-
-\end_inset
-
-).
- You need to input a username, a valid e-mail address, a password and a
- confirmation password to avoid any security issues that might arise by
- mistyping the password the first time.
- After clicking the 
-\emph on
-Sign Up
-\emph default
- button, the system will check the information you entered.
- In case of an empty field or should any errors arise like mismatched passwords
- or invalid email, an appropriate error message will appear.
- If the input information was complete and valid the system will save your
- information and log you in automatically and redirect you to your user
- home page (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "userHomePage"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
-Logging in
-\end_layout
-
-\begin_layout Standard
-Provided you have already signed up, you can access functionalities by logging
- in.
- This can be done by filling out the rightmost form on the home page (fig
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "homePage"
-
-\end_inset
-
-).
- You need to input your e-mail address and password.
- After clicking the 
-\emph on
-Log In
-\emph default
- button, the system will check the information you entered.
- In case of an empty field or should any errors arise like an unknown email
- or a wrong email-password combination, an appropriate error message will
- appear.
- If the input information was complete and valid the system will log you
- in and redirect you to your user home page (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "userHomePage"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
 Footer
 \end_layout
 
 \begin_layout Standard
 Since the same footer is present on all other pages, it's purpose and use
  will be stated only once .The footer, on the bottom of the page, consists
- of the application's logo and two links, namely, 
+ of application's logo and two links 
 \emph on
 FAQ
 \emph default
  and 
 \emph on
-Terms & Conditions 
+Terms and Conditions 
 \emph default
 link which, on click, redirect you to the 
 \emph on
 FAQ
 \emph default
- page (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "FAQPage"
-
-\end_inset
-
-) and 
+ page and 
 \emph on
-Terms & Conditions
+Terms and Conditions
 \emph default
  page, respectively.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -388,7 +376,7 @@ Terms & Conditions
  are reachable from any page via the footer links.
  The pages explain the concept of inverse auction, indicate clearly the
  rules of conduct which, if not followed, will result in account deactivation
- and provide information in order to clear up some common doubts.
+ and provide information to some common clear up common doubts.
  
 \end_layout
 
@@ -409,7 +397,7 @@ FAQ
 \emph on
 Terms & Conditions
 \emph default
- page is omitted for the sake of simplicity as it has almost the same format
+ page is omitted for the sake of simplicity as it is almost the same format
  as the
 \emph on
  FAQ
@@ -438,7 +426,7 @@ status open
 
 
 \backslash
-vspace*{0.2in}
+vspace*{0.0in}
 \end_layout
 
 \end_inset
@@ -487,7 +475,7 @@ User Home page
 
 \begin_layout Standard
 After logging in or signing up, you are redirected to your personal home
- page shown in fig 
+ page as show in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "userHomePage"
@@ -498,8 +486,8 @@ reference "userHomePage"
  From top to bottom, the page consists of a navigation bar, big header,
  recent notifications list, searchable list of active (ongoing) auctions
  and a footer.
- The navigation bar is present in the same shape and form on all other pages
- and as such will be explained only once.
+ The navigation bar and footer are present in the same shape and form on
+ all other pages and as such will be explained only once.
  
 \end_layout
 
@@ -529,7 +517,7 @@ Settings
 \end_layout
 
 \begin_layout Itemize
-Log out
+Logout
 \end_layout
 
 \begin_layout Standard
@@ -537,7 +525,7 @@ On click, each of these links, part from the
 \emph on
 Log out
 \emph default
- link, will redirect you another page (
+ link, will redirect you another page ( 
 \emph on
 User Home
 \emph default
@@ -553,7 +541,7 @@ page or
 \emph on
 Settings
 \emph default
- page respectively).
+ page respectively ).
  The 
 \emph on
 Log out
@@ -628,8 +616,8 @@ Header
 \end_layout
 
 \begin_layout Standard
-The header consists of the application's logo, a welcome message and your
- credit balance.
+The header consists of the application's logo, a welcome message and credit
+ balance.
 \end_layout
 
 \begin_layout Subsection
@@ -640,24 +628,9 @@ Recent notifications
 On the left hand side, you will find up to five most recently received notificat
 ions.
  Each notification is dated, has a description and a link to the related
- auction (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
- Clicking the link redirects you to a page containing the auction's details
- (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
- At the bottom of all notifications is a 
+ auction.
+ Clicking on the link redirect you to the page with the auction's details.
+ Bellow all notifications there is a 
 \emph on
 See all
 \emph default
@@ -674,13 +647,6 @@ Notification
 
 \begin_layout Subsection
 Browse auctions
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Browse-auctions"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -695,7 +661,7 @@ Time left,
 Newest
 \emph default
 ) and auction list.
- Below is the explanation of each element's purpose.
+ 
 \end_layout
 
 \begin_layout Labeling
@@ -706,7 +672,7 @@ Search
 
 bar By typing words in the search bar, the result list is automatically
  updated to show only the auctions which contain the typed word either in
- their name or description.
+ its name or description.
 \end_layout
 
 \begin_layout Labeling
@@ -719,8 +685,8 @@ left Toggling
 \emph on
 Time left
 \emph default
- button sorts the current auction result list by their ending time (toggling
- between sooner and later).
+ button sorts the current auction result list by how much time they have
+ left (toggling between sooner and later).
  
 \end_layout
 
@@ -730,8 +696,8 @@ Newest Toggling
 \emph on
 Newest
 \emph default
- button sorts the current auction result list by their creation time (newest/old
-est).
+ button sorts the current auction result list by when they were created
+ (newest/oldest).
  
 \end_layout
 
@@ -742,18 +708,10 @@ Category By choosing a category from the dropdown filter, the result list
 \end_layout
 
 \begin_layout Standard
-Each auction result item displays its full name, time remaining, category
- and a description snippet.
+Each auction result item displays it's full name, time remaining, category
+ it belongs to and a description snippet.
  The name also serves as a link.
- By clicking it, the system redirect you to that particular auction's page
- (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
+ By clicking it, the system redirect you to that particular auction's page.
 \end_layout
 
 \begin_layout Standard
@@ -782,15 +740,7 @@ reference "notificationsPage"
  one.
  Each notification is dated, has a description and a link to the related
  auction.
- Clicking the link redirects you to a page with the auction's details (fig
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
+ Clicking on the link redirects you to a page with the auction's details.
  
 \end_layout
 
@@ -809,7 +759,7 @@ status open
 
 
 \backslash
-vspace*{0.2in}
+vspace*{0.0in}
 \end_layout
 
 \end_inset
@@ -848,535 +798,7 @@ name "notificationsPage"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Manage auctions page
-\end_layout
-
-\begin_layout Standard
-Manage auctions page is shown in fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "manageAuctions"
-
-\end_inset
-
-.
- It provides you with the functionality to create a new auction by clicking
- the 
-\emph on
-New auction
-\emph default
- link.
- It also displays a list of your auctions which you can browse, filter,
- sort and search for keywords using pagination links, search bar, category
- filter, and two sort buttons (
-\emph on
-Time left 
-\emph default
-and 
-\emph on
-Newest
-\emph default
-).
- These elements work much in the same way as the ones on the home page explained
- in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Browse-auctions"
-
-\end_inset
-
-.
- Each auction result item displays it's full name, time remaining, category
- it belongs to and a description snippet.
- The name also serves as a link.
- By clicking it, the system redirect you to that particular auction's page
- (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageSeller"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace*{0.2in}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename screenshots/manageAuctions.PNG
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Manage Auctions Page
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "manageAuctions"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-New auction page
-\end_layout
-
-\begin_layout Standard
-New auction page, displayed in fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "NewAuction"
-
-\end_inset
-
-, provides the functionality to create a new auction by filling out the
- provided form.
- You need to input a desired name, choose a category from the dropdown menu,
- select ending time via a pop up dialog that appears upon clicking in the
- 
-\emph on
-End Time
-\emph default
- field, and a short description.
- 
-\end_layout
-
-\begin_layout Standard
-After clicking the 
-\emph on
-Submit
-\emph default
- button, the system will check the information you entered.
- In case of an empty field or should any errors arise like the name or descripti
-on being too short, an appropriate error message will appear.
- If the input information was complete and valid the system will create
- your auction and redirect you to its page (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageSeller"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace*{0.2in}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename screenshots/newAuction.PNG
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-New Auction Page
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "NewAuction"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Auction page
-\end_layout
-
-\begin_layout Standard
-Auction page actually has two variants, only one will be shown depending
- whether you are the seller (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageSeller"
-
-\end_inset
-
-) or a potential bidder (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
- The difference will be explained below.
-\end_layout
-
-\begin_layout Standard
-Each auction is identified with its unique id and can be accessed by either
- clicking a link on a notification, or an auction snippet, or by typing
- the URL 
-\end_layout
-
-\begin_layout LyX-Code
-<path>/GuessBid/user/auction.xhtml?id=<nb> 
-\end_layout
-
-\begin_layout Standard
-where <nb> is the auction's id.
- Example:
-\end_layout
-
-\begin_layout LyX-Code
-http://localhost:8080/GuessBid/user/auction.xhtml?id=20
-\end_layout
-
-\begin_layout Standard
-Furthermore, each auction page displays the auction's details.
- Specifically, it's name, the seller's username, category, ending time,
- and the full description.
- Where the two variants of the auction page differ is in the provided functional
-ity.
- 
-\end_layout
-
-\begin_layout Standard
-If you are the seller you are able to delete an auction by clicking the
- 
-\emph on
-Delete auction
-\emph default
- (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageSeller"
-
-\end_inset
-
-) button after which you are redirected back the 
-\emph on
-Manage Auctions
-\emph default
- page.
- 
-\end_layout
-
-\begin_layout Standard
-However, if you are not the seller, you are able to place a bid using the
- form shown in (fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "AuctionPageBidder"
-
-\end_inset
-
-).
- To place a bid, you enter a positive decimal number with up to two decimal
- points and submit the form by clicking the 
-\emph on
-Bid
-\emph default
- button.
- Upon form submission, the system will check the information you entered.
- In case you haven't entered a valid number format or you left the field
- empty, an appropriate error message will appear.
- If the input information was complete and valid, the system will create
- your bid and generate a new notification informing you of your new rank
- with regard to this particular auction.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace*{0.0in}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename screenshots/AuctionDetailsDelete.png
-	width 89text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Auction Page Seller
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "AuctionPageSeller"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace*{0.0in}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename screenshots/AuctionDetailsBid.png
-	width 89text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Auction Page Bidder
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "AuctionPageBidder"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Settings page
-\end_layout
-
-\begin_layout Standard
-Settings page, shown in fig 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Settings page"
-
-\end_inset
-
-, displays your username, email and credit balance (password is hidden for
- security reasons).
- You can change your username, email and password by clicking their 
-\emph on
-Change
-\emph default
- links.
- Only the process of changing the password will be explained because changing
- any of the settings differs minimally.
- 
-\end_layout
-
-\begin_layout Standard
-After clicking the password's 
-\emph on
-Change
-\emph default
- link, a form will appear asking you to enter your old password, new password
- and a confirmation password to avoid any security issues that might arise
- by mistyping the password the first time.
- After clicking the 
-\emph on
-Update 
-\emph default
-button, the system will check the information you entered.
- In case of an empty field or should any errors arise like incorrect old
- password, or mismatched new passwords, an appropriate error message will
- appear.
- If the input information was complete and valid, the system will save your
- information and the changes will be reflected in the 
-\emph on
-Settings
-\emph default
- page immediately.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace*{0.2in}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename screenshots/settings.PNG
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Settings Page
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "Settings page"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 

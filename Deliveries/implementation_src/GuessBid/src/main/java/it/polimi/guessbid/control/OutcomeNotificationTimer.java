@@ -14,6 +14,7 @@ import it.polimi.guessbid.entity.Bid;
 import it.polimi.guessbid.entity.Notification;
 import it.polimi.guessbid.entity.User;
 import it.polimi.guessbid.entity.WinningBid;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -188,6 +189,7 @@ public class OutcomeNotificationTimer {
         notif.setNUserId(auction.getSellerId());
         notif.setIsOutcome(true);
         notif.setRank(0);
+        notif.setTimestamp(new Date());
         em.persist(notif);
         try {
             em.flush();
@@ -203,6 +205,7 @@ public class OutcomeNotificationTimer {
         notif.setNUserId(user);
         notif.setIsOutcome(true);
         notif.setRank(1);
+        notif.setTimestamp(new Date());
         em.persist(notif);
         try {
             em.flush();
