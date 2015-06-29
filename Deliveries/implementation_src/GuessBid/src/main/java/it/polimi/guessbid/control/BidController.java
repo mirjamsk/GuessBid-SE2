@@ -30,9 +30,11 @@ public class BidController {
 
     public int save(User user, Auction auction, float amount) {
         Bid bid = new Bid();
-        if (user.getCredit() < amount) {
+        if (user.getCredit()- 2.0 < amount) {
             return Code.INSUFICIENT_CREDIT;
         }
+        user.setCredit(user.getCredit()- 2.0f);
+        em.merge(user);
         bid.setAmount(amount);
         bid.setBidderId(user);
         bid.setBidAuctionId(auction);
