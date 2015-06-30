@@ -19,6 +19,8 @@ More detailed description can be found [here](https://github.com/mirjamsk/GuessB
 + Installation manual [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/Installation/installationManual.pdf)
 + User manual [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/userManual.pdf)
 + Test cases [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/testCases.pdf)
++ Test Group Asigment [(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/testGroupAssigment.pdf)
++ Project reporting[(*link*)](https://github.com/mirjamsk/GuessBid-SE2/blob/master/Deliveries/projectReporting.pdf)
 
 
 ##### [Link](https://github.com/mirjamsk/GuessBid-SE2/tree/master/Deliveries/Installation) to the installation package consisting of: 
