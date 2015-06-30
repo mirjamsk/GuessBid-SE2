@@ -93,7 +93,7 @@ GuessBid
 \begin_inset Newline newline
 \end_inset
 
-Project reporting 
+Installation Manual 
 \begin_inset Newline linebreak
 \end_inset
 
@@ -153,7 +153,552 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+This document is intended to provide the necessary information to install
+ the GuessBid web application on a GlassFish server.
+ In addition to this manual, in the Installation folder you can find the
+ following files:
+\end_layout
 
+\begin_layout Itemize
+The archive GuessBid.war containing the web application
+\end_layout
+
+\begin_layout Itemize
+The createSrcipt.sql containing database structure
+\end_layout
+
+\begin_layout Chapter
+Requirements
+\end_layout
+
+\begin_layout Standard
+There are the requirements to run GuessBid web application:
+\end_layout
+
+\begin_layout Description
+Operating
+\begin_inset space ~
+\end_inset
+
+System the application can be executed on any operating system that is able
+ to run Glassfish 4.1, including Windows, MacOSX and Linux (for further details
+ see here
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+https://blogs.oracle.com/theaquarium/entry/glassfish_supported_platforms
+\end_layout
+
+\end_inset
+
+ ).
+ 
+\end_layout
+
+\begin_layout Description
+Application
+\begin_inset space ~
+\end_inset
+
+Server Glassfish 4.1 (Open Source project by Oracle) 
+\end_layout
+
+\begin_layout Description
+DBMS MySQL Community Server 5.7
+\end_layout
+
+\begin_layout Description
+JDK
+\begin_inset space ~
+\end_inset
+
+8 Java SE Development Kit 8
+\end_layout
+
+\begin_layout Description
+Browser any modern browser with HTML5, CSS3 and JavaScript support (e.g.
+ Chrome, Firefox)
+\end_layout
+
+\begin_layout Section
+Database configuration
+\end_layout
+
+\begin_layout Standard
+This section provides the instructions to correctly setup the database for
+ the application.
+ If you have not configured a password for your MySQL server follow these
+ instructions
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://dev.mysql.com/doc/refman/5.0/en/resetting-permissions.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The application uses a database named guessbid_db.
+ 
+\end_layout
+
+\begin_layout Standard
+Here are the instructions from command line, alternatively you could do
+ the same from your IDE or using any mysql GUI client (e.g., MySQL Workbench).
+\end_layout
+
+\begin_layout Standard
+Position yourself in the installation folder:
+\end_layout
+
+\begin_layout LyX-Code
+shell> cd <path>/Installation
+\end_layout
+
+\begin_layout Standard
+Once you there, to create the DB structure needed, execute the following
+ command:
+\end_layout
+
+\begin_layout LyX-Code
+shell> mysql -uroot -p < createScript.sql;
+\end_layout
+
+\begin_layout Section
+Server configuration
+\end_layout
+
+\begin_layout Standard
+This section provides the instructions to correctly configure Glassfish
+ server to run the application.
+ Here is the overview of this section:
+\end_layout
+
+\begin_layout Enumerate
+Install MySQL connector/J, a driver that provides for client applications
+ developed in the Java programming language with to connect to MySQL database
+ through Java Database Connectivity (JDBC) API.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Create a Glassfish Connection Pool, a group of reusable connections for
+ a particular database
+\end_layout
+
+\begin_layout Enumerate
+Create a JDBC Resource which provides the applications with a means of connectin
+g to a database (Multiple JDBC resources can specify a single connection
+ pool).
+\end_layout
+
+\begin_layout Subsection
+Install MySQL connector
+\end_layout
+
+\begin_layout Standard
+This section explains
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://dev.mysql.com/doc/connector-j/en/connector-j-usagenotes-glassfish-config.htm
+l
+\end_layout
+
+\end_inset
+
+ how to use MySQL Connector/J with GlassFish ™ Server Open Source Edition
+ 3.0.1
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For more information, see “Integrating the JDBC Driver” in GlassFish Server
+ Open Source Edition Administration Guide, available at GlassFish Server
+ Documentation.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Download MySQL Connector/J from http://dev.mysql.com/downloads/file.php?id=456315
+\end_layout
+
+\begin_layout Enumerate
+Copy the MySQL Connector/J jar file to <path>/glassfish4/glassfish/domains/domai
+n1/lib directory.
+ Alternatively, if that doesn't work, copy it in the <path>/glassfish4/glassfish
+/lib directory 
+\end_layout
+
+\begin_layout Enumerate
+Restart the GlassFish Application Server.
+\end_layout
+
+\begin_layout Subsection
+Create a Connection Pool
+\end_layout
+
+\begin_layout Standard
+Assuming the Glassfish server is running
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+http://docs.oracle.com/javaee/6/tutorial/doc/bnadi.html
+\end_layout
+
+\end_inset
+
+, follow the steps below to create a connection pool.
+\end_layout
+
+\begin_layout Enumerate
+In the GlassFish Administration Console, using the navigation tree, navigate
+ to Resources > JDBC > Connection Pools.
+\end_layout
+
+\begin_layout Enumerate
+In the JDBC Connection Pools frame click 
+\emph on
+New
+\emph default
+ where you will enter a two step wizard.
+\end_layout
+
+\begin_layout Enumerate
+Under General Settings fill out the fields as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Name: MySQLGuessBidConnectionPool
+\end_layout
+
+\begin_layout Description
+Resource
+\begin_inset space ~
+\end_inset
+
+Type: javax.sql.DataSource
+\end_layout
+
+\begin_layout Description
+Database
+\begin_inset space ~
+\end_inset
+
+Vendor: MySQL
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click 
+\emph on
+Nex
+\emph default
+t to go to the next page of the wizard.
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to 
+\emph on
+Additional Properties
+\emph default
+ and set these properties:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+URL: jdbc:mysql://localhost:3306/guessbid_db
+\end_layout
+
+\begin_layout Description
+User: root (or any user granted to access guessbid_db )
+\end_layout
+
+\begin_layout Description
+Password: the root(user) password 
+\end_layout
+
+\begin_layout Description
+ServerName: localhost 
+\end_layout
+
+\begin_layout Description
+DatabaseName: guessbid_db 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click
+\emph on
+ Finish
+\end_layout
+
+\begin_layout Enumerate
+To test your connection pool click the Ping button at the top of the frame.
+ A message will be displayed confirming correct operation or otherwise.
+ If an error message is received recheck the previous steps, and ensure
+ that MySQL Connector/J has been correctly copied into the previously specified
+ location.
+ 
+\end_layout
+
+\begin_layout Subsection
+Creating a JDBC Resource
+\end_layout
+
+\begin_layout Standard
+Your Java application will usually reference a data source object to establish
+ a connection with the database.
+ This needs to be created first using the following procedure.
+\end_layout
+
+\begin_layout Enumerate
+Using the navigation tree in the GlassFish Administration Console, navigate
+ to R
+\emph on
+esources > JDBC > JDBC Resources
+\emph default
+.
+ A list of resources will be displayed in the JDBC Resources frame.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\emph on
+New
+\emph default
+ and fill out these fields:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+JNDI
+\begin_inset space ~
+\end_inset
+
+Name: jdbc/guessbid_db
+\end_layout
+
+\begin_layout Description
+Pool
+\begin_inset space ~
+\end_inset
+
+Name: MySQLGuessBidConnectionPool
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click OK to create the new JDBC resource.
+ 
+\end_layout
+
+\begin_layout Subsection
+Creating a JDBCRealm:
+\end_layout
+
+\begin_layout Standard
+From the Glassfish control panel navigate to Configurations > Server-config
+ >Security > Realms 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\emph on
+New
+\emph default
+ and use the following configuration: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Realm
+\begin_inset space ~
+\end_inset
+
+Name: jdbcRealmRegistration ( must be the same referenced in the web.xml
+ )
+\end_layout
+
+\begin_layout Description
+Class
+\begin_inset space ~
+\end_inset
+
+Name: JDBCRealm 
+\end_layout
+
+\begin_layout Description
+JAAS
+\begin_inset space ~
+\end_inset
+
+Context: jdbcRealm
+\end_layout
+
+\begin_layout Description
+JNDI: jdbc/guessbid_db
+\end_layout
+
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+Table: user
+\end_layout
+
+\begin_layout Description
+User
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: user_id
+\end_layout
+
+\begin_layout Description
+Password
+\begin_inset space ~
+\end_inset
+
+Column: password
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Table: user 
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Table
+\begin_inset space ~
+\end_inset
+
+User
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: user_id
+\end_layout
+
+\begin_layout Description
+Group
+\begin_inset space ~
+\end_inset
+
+Name
+\begin_inset space ~
+\end_inset
+
+Column: groupname 
+\end_layout
+
+\begin_layout Description
+Password
+\begin_inset space ~
+\end_inset
+
+Encryption
+\begin_inset space ~
+\end_inset
+
+Algorithm: MD5
+\end_layout
+
+\begin_layout Description
+DigestAlgorithm: SHA-256
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Server restart may be required 
+\end_layout
+
+\begin_layout Chapter
+Application deployment
+\end_layout
+
+\begin_layout Standard
+Assuming your MySQL server is running, access the GlassFish control panel
+ an open 
+\emph on
+Applications
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\emph on
+Deploy
+\end_layout
+
+\begin_layout Enumerate
+Under 
+\emph on
+Location
+\emph default
+ select the file GuessBid.war archive from the
+\emph on
+ Installation
+\emph default
+ folder.
+\end_layout
+
+\begin_layout Enumerate
+Make sure that the 
+\emph on
+Context Root
+\emph default
+ is set to GuessBid
+\end_layout
+
+\begin_layout Enumerate
+Click OK to deploy the application.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If everything has been correctly set up, you will see GuessBid application
+ in the list of your applications.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Restart the the server 
+\end_layout
+
+\begin_layout Enumerate
+Connect to http://localhost:8080/GuessBid
+\end_layout
+
+\begin_layout Standard
+There is already a user in the db (username: john@john.com, password: password).
 \end_layout
 
 \end_body
